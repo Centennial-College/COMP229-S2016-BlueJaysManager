@@ -119,6 +119,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="PlayerDetails.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Admin\Web.config">
       <SubType>Designer</SubType>
@@ -231,6 +232,13 @@
     </Compile>
     <Compile Include="Player.aspx.designer.cs">
       <DependentUpon>Player.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDetails.aspx.cs">
+      <DependentUpon>PlayerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerDetails.aspx.designer.cs">
+      <DependentUpon>PlayerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
