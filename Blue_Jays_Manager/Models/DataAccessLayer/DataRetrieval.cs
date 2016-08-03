@@ -19,7 +19,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("spSelectPlayerRoster",conn);
+                SqlCommand cmd = new SqlCommand("spSelectPlayerRoster", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 conn.Open();
@@ -35,19 +35,19 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                         Height = Convert.ToInt32(reader["Height"]),
                         Weight = Convert.ToInt32(reader["Weight"]),
                         SkillOrientation = reader["SkillOrientation"].ToString(),
-                        DateOfBirth = reader["DateOfBirth"].ToString()
+                        DateOfBirth = reader["DateOfBirth"].ToString().Substring(0, reader["DateOfBirth"].ToString().IndexOf("12:00AM"))
                     };
 
                     roster.Add(playerRoster);
                 }
             }
-                    
+
             return roster;
         }
 
         public List<CoachRoster> SelectAllCoaches()
         {
-            List<CoachRoster> roster =  new List<CoachRoster>();
+            List<CoachRoster> roster = new List<CoachRoster>();
             CoachRoster coachRoster = null;
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
@@ -71,7 +71,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                     roster.Add(coachRoster);
                 }
             }
-            return roster; 
+            return roster;
         }
     }
 }

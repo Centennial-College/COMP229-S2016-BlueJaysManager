@@ -18,15 +18,15 @@
             Text="Get Data" OnClick="submitButton_Click" /><br />
         <asp:Label ID="NoRecords" runat="server" Text="Label" Visible="false" ForeColor="Red"></asp:Label>
         <br />
-        <asp:GridView ID="PlayerRosterGridView" runat="server" CssClass="table table-striped table-responsive" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" Width="975px" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True" OnSelectedIndexChanged="PlayerRosterGridView_SelectedIndexChanged">
+        <asp:GridView ID="PlayerRosterGridView" runat="server" CssClass="table table-striped table-responsive" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" Width="975px" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True" OnSelectedIndexChanged="PlayerRosterGridView_SelectedIndexChanged" OnRowCancelingEdit="PlayerRosterGridView_RowCancelingEdit" OnRowDeleting="PlayerRosterGridView_RowDeleting" OnRowEditing="PlayerRosterGridView_RowEditing" OnRowUpdating="PlayerRosterGridView_RowUpdating">
             <Columns>
                 <asp:CommandField SelectText="View Details" ShowSelectButton="True" />
-                <asp:BoundField DataField="PlayerNum" HeaderText="Player #" />
+                <asp:BoundField DataField="PlayerNum" HeaderText="Player #" ReadOnly="True" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
                 <asp:BoundField DataField="Height" HeaderText="Height" />
                 <asp:BoundField DataField="Weight" HeaderText="Weight" />
-                <asp:BoundField DataField="DateOfBirth" HeaderText="D.O.B" />
+                <asp:BoundField DataField="DateOfBirth" HeaderText="Date of Birth" ReadOnly="True" />
             </Columns>
             <FooterStyle BackColor="#243B69" BorderStyle="None" />
             <HeaderStyle BackColor="#243B69" ForeColor="White" />

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title>BlueJyas Mnagr</title>
+	<title>BlueJays Managr</title>
 	<link href="Content/BlueJaysStyle.css" rel="stylesheet" />
 	<link href="Content/bootstrap.min.css" rel="stylesheet" />
 	<script src="Scripts/jquery-3.1.0.min.js"></script>
