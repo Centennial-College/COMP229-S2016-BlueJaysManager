@@ -151,6 +151,7 @@
     <Content Include="Players.aspx" />
     <Content Include="App_Data\BlueJaysDataSheet.xlsx" />
     <Content Include="Manager.Master" />
+    <Content Include="User.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
