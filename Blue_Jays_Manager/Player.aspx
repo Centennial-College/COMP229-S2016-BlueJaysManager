@@ -16,6 +16,7 @@
         <asp:TextBox ID="searchTextBox" runat="server" />
         <asp:Button ID="submitButton" runat="server"
             Text="Get Data" OnClick="submitButton_Click" /><br />
+        <asp:Label ID="NoRecords" runat="server" Text="Label" Visible="false" ForeColor="Red"></asp:Label>
         <br />
         <asp:GridView ID="PlayerRosterGridView" runat="server" CssClass="table table-striped table-responsive" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" Width="975px" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True" OnSelectedIndexChanged="PlayerRosterGridView_SelectedIndexChanged">
             <Columns>
