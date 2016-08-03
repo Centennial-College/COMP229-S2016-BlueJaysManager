@@ -2,6 +2,7 @@
 using Blue_Jays_Manager.Models.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -28,10 +29,12 @@ namespace Blue_Jays_Manager
                 {
                     Cache.Insert("CoachRoster", roster);
                 }
+
+                CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
+                CoachRosterGridView.DataBind();
             }
 
-            CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
-            CoachRosterGridView.DataBind();
+            
 
             if (Session["login"].ToString() != "loggedIn")
             {
@@ -78,6 +81,78 @@ namespace Blue_Jays_Manager
 
             if (unlocked > 0)
                 Label1.Text = "Account unlocked";
+        }
+
+        protected void CoachRosterGridView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            CoachRosterGridView.EditIndex = e.NewEditIndex;
+            CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
+            CoachRosterGridView.DataBind();
+        }
+
+        protected void CoachRosterGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            CoachRosterGridView.EditIndex = -1;
+            CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
+            CoachRosterGridView.DataBind();
+        }
+
+        protected void CoachRosterGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            if (Cache["CoachRoster"] != null)
+            {
+                List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
+
+                string coachNum = CoachRosterGridView.Rows[e.RowIndex].Cells[1].Text;
+
+                Debug.WriteLine(coachNum);
+
+                CoachRoster coach = roster.SingleOrDefault(x => x.CoachNumber == Convert.ToInt32(coachNum));
+
+                
+
+                if (coach != null)
+                {
+                    roster.Remove(coach);
+                    Cache.Insert("CoachRoster", roster);
+                }
+
+                CoachRosterGridView.EditIndex = -1;
+                CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
+                CoachRosterGridView.DataBind();
+            }
+        }
+
+        protected void CoachRosterGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            if (Cache["CoachRoster"] != null)
+            {
+
+                List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
+
+                IOrderedDictionary rowValues = e.NewValues;
+
+                int coachNum = Convert.ToInt32(CoachRosterGridView.Rows[e.RowIndex].Cells[1].Text);
+
+                CoachRoster coach = roster.SingleOrDefault(x => x.CoachNumber == Convert.ToInt32(coachNum));
+
+                int indexOfCoach = roster.IndexOf(coach);
+
+                coach.Name = rowValues["Name"].ToString();
+                coach.Position = rowValues["Position"].ToString();
+
+
+                roster.RemoveAt(indexOfCoach);
+
+                roster.Insert(indexOfCoach, coach);
+
+                
+                CoachRosterGridView.EditIndex = -1;
+
+                CoachRosterGridView.DataSource = roster;
+                CoachRosterGridView.DataBind();
+                Cache["CoachRoster"] = roster;
+            }
         }
     }
 }

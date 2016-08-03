@@ -23,13 +23,13 @@
             <HeaderStyle BackColor="#243B69" ForeColor="White" HorizontalAlign="Center" />
         </asp:GridView>--%>
 
-        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowCommand="EnableUser">
+        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser">
             <Columns>
-                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" />
+                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
 
-                <asp:BoundField HeaderText="Account" />
+                <asp:BoundField HeaderText="Account" ReadOnly="True" />
 
                 <asp:TemplateField HeaderText="Enable">
                     <ItemTemplate>
