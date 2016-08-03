@@ -27,7 +27,7 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 
-								<li><a runat="server" href="~/Player.aspx">Player Roster</a></li>
+								<li><a runat="server" href="~/Players.aspx">Player Roster</a></li>
 								<li><a runat="server" href="~/Coaches.aspx">Coach Roster</a></li>
 							
 					</ul>

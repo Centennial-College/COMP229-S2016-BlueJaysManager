@@ -148,7 +148,7 @@
     <Content Include="Coaches.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Player.aspx" />
+    <Content Include="Players.aspx" />
     <Content Include="App_Data\BlueJaysDataSheet.xlsx" />
     <Content Include="Manager.Master" />
     <Content Include="Web.config">
@@ -199,12 +199,12 @@
     <Compile Include="Models\DataModels\PlayerBio.cs" />
     <Compile Include="Models\DataModels\PlayerRoster.cs" />
     <Compile Include="Models\DataModels\PlayerStatsSummary.cs" />
-    <Compile Include="Player.aspx.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
+    <Compile Include="Players.aspx.cs">
+      <DependentUpon>Players.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Player.aspx.designer.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
+    <Compile Include="Players.aspx.designer.cs">
+      <DependentUpon>Players.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlayerDetails.aspx.cs">
       <DependentUpon>PlayerDetails.aspx</DependentUpon>

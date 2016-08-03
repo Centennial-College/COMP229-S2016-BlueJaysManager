@@ -46,6 +46,8 @@ namespace Blue_Jays_Manager
          * The user can search the player roster stored in cache based on three search criteria:
          * player number, name or position. The resulting set is returned to the gridview to be
          * dispalyed on the same page.
+         * 
+         * Querying with empty string will yield entire player roster.
          * </summary>
          */
         protected void submitButton_Click(object sender, EventArgs e)
@@ -56,49 +58,56 @@ namespace Blue_Jays_Manager
             List<PlayerRoster> roster = (List<PlayerRoster>)Cache["PlayerRoster"];
             List<PlayerRoster> resultSet = new List<PlayerRoster>();
 
-            switch (searchCriteria)
-            {
-                // player number search only accepts numbers
-                case "Player Number":
-                    if (!int.TryParse(searchTextBox.Text, out searchNum))
-                    {
-                        NoRecords.Text = "Please enter a valid number!";
-                        NoRecords.Visible = true;
-                        PlayerRosterGridView.Visible = false;
-                        return;
-                    }
-                    if (searchNum < 0)
-                    {
-                        NoRecords.Text = "Please enter a positive player number!";
-                        NoRecords.Visible = true;
-                        PlayerRosterGridView.Visible = false;
-                        return;
-                    }
-
-                    break;
-
-                default: // position and player name would accept string
-                    searchText = searchTextBox.Text;
-                    break;
-            }
-
-            foreach (PlayerRoster player in roster)
+            if (searchTextBox.Text != "")
             {
                 switch (searchCriteria)
                 {
+                    // player number search only accepts numbers
                     case "Player Number":
-                        if (player.PlayerNum == searchNum)
-                            resultSet.Add(player);
+                        if (!int.TryParse(searchTextBox.Text, out searchNum))
+                        {
+                            NoRecords.Text = "Please enter a valid number!";
+                            NoRecords.Visible = true;
+                            PlayerRosterGridView.Visible = false;
+                            return;
+                        }
+                        if (searchNum < 0)
+                        {
+                            NoRecords.Text = "Please enter a positive player number!";
+                            NoRecords.Visible = true;
+                            PlayerRosterGridView.Visible = false;
+                            return;
+                        }
+
                         break;
-                    case "Name":
-                        if (player.Name.ToLower().IndexOf(searchText.ToLower()) != -1)
-                            resultSet.Add(player);
-                        break;
-                    default: // position
-                        if (player.Position.ToLower() == searchText.ToLower())
-                            resultSet.Add(player);
+
+                    default: // position and player name would accept string
+                        searchText = searchTextBox.Text;
                         break;
                 }
+
+                foreach (PlayerRoster player in roster)
+                {
+                    switch (searchCriteria)
+                    {
+                        case "Player Number":
+                            if (player.PlayerNum == searchNum)
+                                resultSet.Add(player);
+                            break;
+                        case "Name":
+                            if (player.Name.ToLower().IndexOf(searchText.ToLower()) != -1)
+                                resultSet.Add(player);
+                            break;
+                        default: // position
+                            if (player.Position.ToLower() == searchText.ToLower())
+                                resultSet.Add(player);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                resultSet = (List<PlayerRoster>)Cache["PlayerRoster"];
             }
 
             PlayerRosterGridView.DataSource = resultSet;
