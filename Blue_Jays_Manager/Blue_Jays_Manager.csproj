@@ -102,9 +102,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Coach.aspx" />
-    <Content Include="Admin\Players.aspx" />
-    <Content Include="Admin\User.aspx" />
     <Content Include="App_Data\RevisedBlueJaysScript.txt" />
     <Content Include="Content\BlueJaysStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -121,9 +118,6 @@
     </Content>
     <Content Include="PlayerDetails.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Admin\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -162,27 +156,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Coach.aspx.cs">
-      <DependentUpon>Coach.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Coach.aspx.designer.cs">
-      <DependentUpon>Coach.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Players.aspx.cs">
-      <DependentUpon>Players.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Players.aspx.designer.cs">
-      <DependentUpon>Players.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\User.aspx.cs">
-      <DependentUpon>User.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\User.aspx.designer.cs">
-      <DependentUpon>User.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Coaches.aspx.cs">
       <DependentUpon>Coaches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
