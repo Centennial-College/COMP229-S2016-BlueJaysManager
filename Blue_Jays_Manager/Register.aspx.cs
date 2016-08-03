@@ -19,7 +19,7 @@ namespace Blue_Jays_Manager
             {
                 if (Session["login"].ToString() == "loggedIn")
                 {
-                    Server.Transfer("~/Admin/User.aspx", false);
+                    Server.Transfer("~/User.aspx", false);
                 }
             }
         }
