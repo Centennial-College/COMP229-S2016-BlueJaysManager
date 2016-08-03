@@ -12,7 +12,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
 {
     public class LoadExcelData
     {
-        private static string excelPath = @"C:\Users\Vinood\Desktop\Blue_Jays_Manager\Blue_Jays_Manager\App_Data\BlueJaysDataSheet.xlsx";
+        private static string excelPath = HttpContext.Current.Server.MapPath(".") + "\\App_Data\\BlueJaysDataSheet.xlsx";
         private static string connectionString = ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString;
         public static void LoadToDatabase()
         {

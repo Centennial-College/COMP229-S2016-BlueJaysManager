@@ -102,9 +102,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Coach.aspx" />
-    <Content Include="Admin\Players.aspx" />
-    <Content Include="Admin\User.aspx" />
     <Content Include="App_Data\RevisedBlueJaysScript.txt" />
     <Content Include="Content\BlueJaysStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -119,10 +116,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="PlayerDetails.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Admin\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -153,7 +148,7 @@
     <Content Include="Coaches.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Player.aspx" />
+    <Content Include="Players.aspx" />
     <Content Include="App_Data\BlueJaysDataSheet.xlsx" />
     <Content Include="Manager.Master" />
     <Content Include="Web.config">
@@ -161,27 +156,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Coach.aspx.cs">
-      <DependentUpon>Coach.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Coach.aspx.designer.cs">
-      <DependentUpon>Coach.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Players.aspx.cs">
-      <DependentUpon>Players.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Players.aspx.designer.cs">
-      <DependentUpon>Players.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\User.aspx.cs">
-      <DependentUpon>User.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\User.aspx.designer.cs">
-      <DependentUpon>User.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Coaches.aspx.cs">
       <DependentUpon>Coaches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,12 +199,19 @@
     <Compile Include="Models\DataModels\PlayerBio.cs" />
     <Compile Include="Models\DataModels\PlayerRoster.cs" />
     <Compile Include="Models\DataModels\PlayerStatsSummary.cs" />
-    <Compile Include="Player.aspx.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
+    <Compile Include="Players.aspx.cs">
+      <DependentUpon>Players.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Player.aspx.designer.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
+    <Compile Include="Players.aspx.designer.cs">
+      <DependentUpon>Players.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDetails.aspx.cs">
+      <DependentUpon>PlayerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerDetails.aspx.designer.cs">
+      <DependentUpon>PlayerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
