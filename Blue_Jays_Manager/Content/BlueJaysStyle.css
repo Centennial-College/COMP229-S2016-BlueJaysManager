@@ -1,0 +1,36 @@
+﻿body {
+    font-family:'Times New Roman';
+    background-color:#dcd6d6;
+}
+
+.playersJumbo {
+    height: 400px;
+}
+
+.list {
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+
+.loginView {
+    background-color:#243B69;
+    box-shadow: 2px 2px 10px;
+    padding-right: 30px;
+    color: #fff;
+}
+
+.registerView {
+    background-color:#fff;
+    margin-top: 100px;
+}
+
+#Resetbtn {
+    border: 1px solid #243B69;
+    color: #243B69;
+}
+
+#BtnLogin {
+    border: 1px solid #243B69;
+    color: #243B69;
+}
