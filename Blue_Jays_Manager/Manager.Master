@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title>BlueJyas Mnagr</title>
+	<title>BlueJays Managr</title>
 	<link href="Content/BlueJaysStyle.css" rel="stylesheet" />
 	<link href="Content/bootstrap.min.css" rel="stylesheet" />
 	<script src="Scripts/jquery-3.1.0.min.js"></script>
@@ -27,7 +27,7 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 
-								<li><a runat="server" href="~/Player.aspx">Player Roster</a></li>
+								<li><a runat="server" href="~/Players.aspx">Player Roster</a></li>
 								<li><a runat="server" href="~/Coaches.aspx">Coach Roster</a></li>
 							
 					</ul>
