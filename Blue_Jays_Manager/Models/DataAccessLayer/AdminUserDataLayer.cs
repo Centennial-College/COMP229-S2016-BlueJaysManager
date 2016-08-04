@@ -156,5 +156,22 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             }
             return lockedList;
         }
+
+        public static int ChangeUserPassword(int id, string newPassword)
+        {
+            int rowChanges = 0;
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("update tblUsers set Password = @Password where id = @Id", con);
+                cmd.Parameters.AddWithValue("@Password", newPassword);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                con.Open();
+
+                rowChanges = cmd.ExecuteNonQuery();
+            }
+
+            return rowChanges;
+        }
     }
 }
