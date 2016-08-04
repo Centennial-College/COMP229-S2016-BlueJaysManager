@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Security;
 using Blue_Jays_Manager.Models.DataAccessLayer;
+using Blue_Jays_Manager.Models.DataModels;
 
 namespace Blue_Jays_Manager
 {
@@ -28,17 +29,40 @@ namespace Blue_Jays_Manager
         {
             if (Page.IsValid)
             {
-                int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, Role.SelectedValue);
+                int coachId = int.Parse(CoachId.Text);
 
-                if (returnCode == -1)
+                if (Cache["CoachRoster"] == null)
                 {
-                    UserExists.Text = "Username is already in use. Please try again";
-                    UserExists.ForeColor = System.Drawing.Color.Red;
+                    DataRetrieval retrieve = new DataRetrieval();
+                    List<CoachRoster> coachRoster = retrieve.SelectAllCoaches();
+                    Cache.Insert("CoachRoster", coachRoster);
+                }
+                List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
+                var exist = roster.Find(x => x.CoachNumber == coachId);
+
+                if (exist != null)
+                {
+                    int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, "coach");
+
+                    if (returnCode == -1)
+                    {
+                        UserExists.Text = "Username is already in use. Please try again";
+                        UserExists.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Login.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("~/Login.aspx");
+
+                    UserExists.Text = "Coach Number does not exists in database. Please see Administration";
+                    UserExists.ForeColor = System.Drawing.Color.Red;
+
                 }
+
+
 
             }
         }

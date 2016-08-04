@@ -118,7 +118,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             cmd.Parameters.Add(new SqlParameter("@onBasePlusSlugging", row["21B"]));
             cmd.Parameters.Add(new SqlParameter("@groundOrAirOuts", row["22B"]));
 
-            cmd.ExecuteNonQuery(); 
+            cmd.ExecuteNonQuery();
         }
 
         private static void InsertPlayerStatsSummary(SqlConnection conn, DataRow row)
@@ -138,7 +138,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             cmd.Parameters.Add(new SqlParameter("@strikeOuts", row["9SS"]));
             cmd.Parameters.Add(new SqlParameter("@walkAndHitsPerInningsPitched", row["10SS"]));
 
-            
+
             cmd.ExecuteNonQuery();
         }
 
@@ -171,7 +171,9 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
 
         private static void InsertPitchingStats(SqlConnection con, DataRow row)
         {
-            
+
+
+
         }
 
         private static void InsertPlayerRoster(SqlConnection conn, DataRow row)
