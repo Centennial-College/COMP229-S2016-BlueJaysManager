@@ -56,12 +56,12 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                                 InsertPlayerBio(con, row);
                             }
                             break;
-                        //case "PitchingStats":
-                        //    foreach (DataRow row in table.Rows)
-                        //    {
-                        //        InsertPitchingStats(con, row);
-                        //    }
-                        //    break;
+                        case "PitchingStats":
+                            foreach (DataRow row in table.Rows)
+                            {
+                                InsertPitchingStats(con, row);
+                            }
+                            break;
                         case "FieldingStats":
                             foreach (DataRow row in table.Rows)
                             {
@@ -118,7 +118,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             cmd.Parameters.Add(new SqlParameter("@onBasePlusSlugging", row["21B"]));
             cmd.Parameters.Add(new SqlParameter("@groundOrAirOuts", row["22B"]));
 
-            cmd.ExecuteNonQuery(); 
+            cmd.ExecuteNonQuery();
         }
 
         private static void InsertPlayerStatsSummary(SqlConnection conn, DataRow row)
@@ -138,7 +138,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             cmd.Parameters.Add(new SqlParameter("@strikeOuts", row["9SS"]));
             cmd.Parameters.Add(new SqlParameter("@walkAndHitsPerInningsPitched", row["10SS"]));
 
-            
+
             cmd.ExecuteNonQuery();
         }
 
@@ -169,9 +169,40 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             cmd.ExecuteNonQuery();
         }
 
-        private static void InsertPitchingStats(SqlConnection con, DataRow row)
+        private static void InsertPitchingStats(SqlConnection conn, DataRow row)
         {
-            
+            SqlCommand cmd = new SqlCommand("spInsertIntoPitchingStats", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@pitchingStatsID", row["PitchingStatsID"]));
+            cmd.Parameters.Add(new SqlParameter("@playerNum", row["PlayerNum"]));
+            cmd.Parameters.Add(new SqlParameter("@pitchStatYear", row["1P"]));
+            cmd.Parameters.Add(new SqlParameter("@team", row["2P"]));
+            cmd.Parameters.Add(new SqlParameter("@league", row["3P"]));
+            cmd.Parameters.Add(new SqlParameter("@wins", row["4P"]));
+            cmd.Parameters.Add(new SqlParameter("@losses", row["5P"]));
+            cmd.Parameters.Add(new SqlParameter("@earnedRunsAverage", row["6P"]));
+            cmd.Parameters.Add(new SqlParameter("@games", row["7P"]));
+            cmd.Parameters.Add(new SqlParameter("@gamesStarted", row["8P"]));
+            cmd.Parameters.Add(new SqlParameter("@completeGames", row["9P"]));
+            cmd.Parameters.Add(new SqlParameter("@shutOuts", row["10P"]));
+            cmd.Parameters.Add(new SqlParameter("@saves", row["11P"]));
+            cmd.Parameters.Add(new SqlParameter("@saveOpportunities", row["12P"]));
+            cmd.Parameters.Add(new SqlParameter("@inningsPitched", row["13P"]));
+            cmd.Parameters.Add(new SqlParameter("@hits", row["14P"]));
+            cmd.Parameters.Add(new SqlParameter("@runs", row["15P"]));
+            cmd.Parameters.Add(new SqlParameter("@earnedRuns", row["16P"]));
+            cmd.Parameters.Add(new SqlParameter("@homeRuns", row["17P"]));
+            cmd.Parameters.Add(new SqlParameter("@hitBatsmen", row["18P"]));
+            cmd.Parameters.Add(new SqlParameter("@basesOnBalls", row["19P"]));
+            cmd.Parameters.Add(new SqlParameter("@intentionalBasesOnBalls", row["20P"]));
+            cmd.Parameters.Add(new SqlParameter("@strikeOuts", row["21P"]));
+            cmd.Parameters.Add(new SqlParameter("@battingAverage", row["22P"]));
+            cmd.Parameters.Add(new SqlParameter("@walksAndHitsPerInningsPitched", row["23P"]));
+            cmd.Parameters.Add(new SqlParameter("@groundOrAirOuts", row["24P"]));
+
+            // ExecuteNonQuery used for UDI of data into tables
+            cmd.ExecuteNonQuery();
         }
 
         private static void InsertPlayerRoster(SqlConnection conn, DataRow row)
