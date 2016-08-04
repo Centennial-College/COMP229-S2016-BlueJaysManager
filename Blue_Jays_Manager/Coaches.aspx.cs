@@ -39,8 +39,8 @@ namespace Blue_Jays_Manager
 
             if (Session["login"].ToString() != "loggedIn")
             {
-                _hideColumn(3);
                 _hideColumn(4);
+                _hideColumn(5);
             }
         }
 
@@ -116,7 +116,7 @@ namespace Blue_Jays_Manager
             {
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
 
-                string coachNum = CoachRosterGridView.Rows[e.RowIndex].Cells[1].Text;
+                string coachNum = CoachRosterGridView.Rows[e.RowIndex].Cells[2].Text;
 
                 Debug.WriteLine(coachNum);
 
@@ -145,7 +145,7 @@ namespace Blue_Jays_Manager
 
                 IOrderedDictionary rowValues = e.NewValues;
 
-                int coachNum = Convert.ToInt32(CoachRosterGridView.Rows[e.RowIndex].Cells[1].Text);
+                int coachNum = Convert.ToInt32(CoachRosterGridView.Rows[e.RowIndex].Cells[2].Text);
 
                 CoachRoster coach = roster.SingleOrDefault(x => x.CoachNumber == Convert.ToInt32(coachNum));
 

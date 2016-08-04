@@ -26,6 +26,9 @@
 
         <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser">
             <Columns>
+                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True">
+                    <ControlStyle CssClass="img-responsive" Height="50px" Width="40px" />
+                </asp:ImageField>
                 <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
