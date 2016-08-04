@@ -1,8 +1,10 @@
-﻿using Blue_Jays_Manager.Models.DataModels;
+﻿using Blue_Jays_Manager.Models.DataAccessLayer;
+using Blue_Jays_Manager.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,8 +20,48 @@ namespace Blue_Jays_Manager
                 LblName.Text = user.FirstName + " " + user.LastName;
                 LblEmail.Text = user.Email;
                 LblRole.Text = user.Role;
+
+                PasswordPanel.Visible = false;
             }
 
+        }
+
+        protected void LinkBtnPasswordChange_Click(object sender, EventArgs e)
+        {
+            if(PasswordPanel.Visible)
+            {
+                PasswordPanel.Visible = false;
+            }
+            else
+            {
+                PasswordPanel.Visible = true;
+            }
+            
+        }
+
+        protected void BtnChangePassword_Click(object sender, EventArgs e)
+        {
+            AdminUser user = (AdminUser)Session["AdminUser"];
+
+            string currentPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(currentPass.Text, "SHA1"); 
+            string newPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(newPass.Text, "SHA1"); 
+            int rowAffected = 0;
+
+            if(user.Password == currentPassword)
+            {
+                rowAffected = AdminUserDataLayer.ChangeUserPassword(user.Id, newPassword);
+            }
+
+            if(rowAffected > 0)
+            {
+                LblConfirm.Text = "Password successfully changed";
+                LblConfirm.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                LblConfirm.Text = "Password could not be changed. Please see techinical department.";
+                LblConfirm.ForeColor = System.Drawing.Color.Green;
+            }
         }
     }
 }

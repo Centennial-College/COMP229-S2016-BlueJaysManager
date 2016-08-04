@@ -31,13 +31,58 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.Label LblPassword;
         
         /// <summary>
-        /// resetPassword control.
+        /// LinkBtnPasswordChange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton resetPassword;
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnPasswordChange;
+        
+        /// <summary>
+        /// PasswordPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PasswordPanel;
+        
+        /// <summary>
+        /// currentPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox currentPass;
+        
+        /// <summary>
+        /// newPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox newPass;
+        
+        /// <summary>
+        /// confirmPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox confirmPass;
+        
+        /// <summary>
+        /// BtnChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnChangePassword;
         
         /// <summary>
         /// Label2 control.
@@ -74,5 +119,14 @@ namespace Blue_Jays_Manager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblRole;
+        
+        /// <summary>
+        /// LblConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblConfirm;
     }
 }
