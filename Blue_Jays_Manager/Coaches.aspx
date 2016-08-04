@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="Coaches.aspx.cs" Inherits="Blue_Jays_Manager.Coaches" %>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container list">
@@ -28,15 +29,15 @@
                 <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
-
-                <asp:BoundField HeaderText="Account" ReadOnly="True" />
+                
+                <asp:BoundField HeaderText="Account" ReadOnly="True" DataField="IsLocked" />
 
                 <asp:TemplateField HeaderText="Enable">
                     <ItemTemplate>
-                        <asp:Button ID="Button1" runat="server" Text="Enable User" Style="width: 105px" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-primary"
-                            Enabled="true" />
+                        <asp:Button ID="Button1" runat="server" Text="Enable User" Style="width: 105px; border: 1px solid #002A5E; color:#002A5E" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-default"
+                            Enabled='<%#Eval("IsLocked").ToString() == "Locked" %>' />
                     </ItemTemplate>
-                    <ControlStyle BackColor="#243B69" BorderColor="#243B69" BorderStyle="Solid" BorderWidth="1px" ForeColor="White" />
+                    <ControlStyle BorderColor="#243B69" BorderStyle="Solid" BorderWidth="1px" ForeColor="#243B69" CssClass="btn btn-default" />
                 </asp:TemplateField>
 
             </Columns>

@@ -80,8 +80,20 @@ namespace Blue_Jays_Manager
                 }
             }
 
-            if (unlocked > 0)
-                Label1.Text = "Account unlocked";
+            if(unlocked > 0)
+            {
+                List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
+                CoachRoster coach = roster.SingleOrDefault(x => x.Name == firstName + " " + lastName);
+                int index = roster.IndexOf(coach);
+                roster.RemoveAt(index);
+                coach.IsLocked = "Access";
+                roster.Insert(index, coach);
+                CoachRosterGridView.DataSource = roster;
+                CoachRosterGridView.DataBind();
+            }
+
+            
+                
         }
 
         protected void CoachRosterGridView_RowEditing(object sender, GridViewEditEventArgs e)
