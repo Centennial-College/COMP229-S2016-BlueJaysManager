@@ -54,6 +54,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             {
                 SqlCommand cmd = new SqlCommand("spSelectCoachRoster", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                int islocked;
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -64,7 +65,8 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                     {
                         Name = reader["Name"].ToString(),
                         Position = reader["Position"].ToString(),
-                        CoachNumber = Convert.ToInt32(reader["CoachNumber"])
+                        CoachNumber = Convert.ToInt32(reader["CoachNumber"]),
+                        IsLocked = (reader["IsLocked"] != DBNull.Value) ? "Locked" : "Access"
 
                     };
 

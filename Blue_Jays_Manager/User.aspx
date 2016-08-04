@@ -64,9 +64,10 @@
 					<asp:Label ID="LblRole" runat="server"></asp:Label>
 				</div>
 		   </div>
+                <asp:label ID="LblConfirm" runat="server"></asp:label>
 		</div>
 	</div>
 
-	<asp:label ID="LblConfirm" runat="server"></asp:label>
+	
 
 </asp:Content>
