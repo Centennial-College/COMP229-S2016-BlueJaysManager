@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Blue_Jays_Manager.Models.DataAccessLayer;
 
 namespace Blue_Jays_Manager
 {
@@ -42,6 +43,28 @@ namespace Blue_Jays_Manager
             DateTime dateOfBirth = Convert.ToDateTime(player.DateOfBirth);
 
             age.Text = _calculateAge(dateOfBirth).ToString();
+
+            List<PlayerBio> pBio = DataRetrieval.SelectAllPlayerInfo<PlayerBio>(new PlayerBio());
+            
+            //bioName.Text ="Is "
+
+            //foreach (PlayerBio pb in pBio)
+            //{
+            //    bioName.Text = pb.Name;
+            //    bioBorn.Text = pb.Born;
+            //    bioDraft.Text = pb.Draft;
+            //    if (!string.IsNullOrEmpty(pb.HighSchool))
+            //    {
+            //        bioSchoolType.Text = "High School";
+            //        bioSchool.Text = pb.HighSchool.ToString();
+            //    }
+            //    else if (!string.IsNullOrEmpty(pb.College))
+            //    {
+            //        bioSchoolType.Text = "College";
+            //        bioSchool.Text = pb.College.ToString();
+            //    }
+              
+            //}
 
         }
         private int _inchesToFeet(int length, out int remainingInches)

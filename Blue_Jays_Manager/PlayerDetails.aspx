@@ -1,20 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="PlayerDetails.aspx.cs" Inherits="Blue_Jays_Manager.PlayerDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div id="coverPhoto" style="height: 30vh; margin-top: ">
-        <h1 class="text-center jumbotron">COVER PHOTO GOES HERE</h1>
-        <div id="profileSummary" class="panel panel-default">
-            <h2 style="float: left">Profile Photo</h2>
-            <div style="padding-left: 20%">
-                <h2>
-                    <asp:Label ID="name" runat="server" Text="Name"></asp:Label>
-                    | #
+    <div id="coverPhoto" class="jumbotron" style="background-color: forestgreen; margin-bottom: 0; padding-bottom: 0;">
+        <div class="row">
+            <h1 class="text-center">COVER PHOTO GOES HERE</h1>
+            <div id="profileSummary" class="row">
+                <h2 class="col-md-2">Profile Photo</h2>
+                <div class="col-md-10">
+                    <h2>
+                        <asp:Label ID="name" runat="server" Text="Name"></asp:Label>
+                        | #
                     <asp:Label ID="playerNumber" runat="server" Text="Number"></asp:Label>
-                </h2>
-            </div>
-            <div style="padding-left: 20%">
-                <h3>
+                    </h2>
+                </div>
+                <span class="col-md-offset-2 col-md-10">
                     <asp:Label ID="position" runat="server" Text="position"></asp:Label>
                     | B/T:
                 <asp:Label ID="skillOrientation" runat="server" Text="skillOrientation"></asp:Label>
@@ -22,37 +21,43 @@
                 <asp:Label ID="height" runat="server" Text="height"></asp:Label>/<asp:Label ID="weight" runat="server" Text="weight"></asp:Label>
                     | Age:
                 <asp:Label ID="age" runat="server" Text="Number"></asp:Label>
-                </h3>
+                </span>
             </div>
         </div>
-        <div>
-            NAVIGATION GOES HERE<br />
-            SUMMARY | STATS
+        <div class="row">
+            <div id="summaryDiv" class="panel panel-default">
+                <div class="panel-heading text-center">
+                    SUMMARY | STATS
+                </div>
+                <div class="panel-body">
+                    <div id="bio" class="col-md-4">
+                        <span style="font-weight: bold">
+                            <asp:Label Text="text" runat="server" ID="bioName" />
+                        </span>
+                        <br />
+                        <span style="font-weight: bold">Born: </span>
+                        <asp:Label Text="text" runat="server" ID="bioBorn" />
+                        <br />
+                        <span style="font-weight: bold">Draft: </span>
+                        <asp:Label Text="text" runat="server" ID="bioDraft" />
+                        <br />
+                        <span style="font-weight: bold">
+                            <asp:Label Text="text" runat="server" ID="bioSchoolType" />:
+                        </span>
+                        <asp:Label Text="text" runat="server" ID="bioSchool" />
+                        <br />
+                        <span style="font-weight: bold">Debut </span>
+                        <asp:Label Text="text" runat="server" ID="bioDebut" />:
+                    </div>
+                    <div id="summaryTable" class="col-md-8">
+                        HAHAHAHA I AM A  BIG FAT TABLE
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="summaryDiv">
-        <div id="bio">
-            <span style="font-weight: bold">
-                <asp:Label Text="text" runat="server" ID="bioName" />
-            </span>
-            <span style="font-weight: bold">Born: </span>
-            <asp:Label Text="text" runat="server" ID="bioBorn" />
-            <span style="font-weight: bold">Draft: </span>
-            <asp:Label Text="text" runat="server" ID="bioDraft" />
-            <span style="font-weight: bold">
-                <asp:Label Text="text" runat="server" ID="bioSchoolType" />
-            </span>
-            <asp:Label Text="text" runat="server" ID="bioSchool" />
-            <span style="font-weight: bold">Debut </span>
-            <asp:Label Text="text" runat="server" ID="bioDebut" />
-
+        <div id="statsDiv">
         </div>
-        <div id="summaryTable" style="padding-left: 20vw">
-        </div>
-    </div>
-
-    <div id="statsDiv">
     </div>
 
 </asp:Content>

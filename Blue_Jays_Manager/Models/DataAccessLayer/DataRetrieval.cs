@@ -45,6 +45,48 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             return roster;
         }
 
+        public static List<T> SelectAllPlayerInfo<T>(T type)
+        {
+            //List<T> resultSet = new List<T>();
+            List<PlayerBio> resultSet = new List<PlayerBio>();
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spSelectPlayerRoster", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (type is PlayerRoster)
+                {
+                    //List<PlayerBio> resultSet = new List<PlayerBio>();
+                    //resultSet = new List<PlayerBio>();
+
+                    while (reader.Read())
+                    {
+                        resultSet.Add
+                        (
+                            new PlayerBio()
+                            {
+                                PlayerNum = Convert.ToInt32(reader["PlayerNum"]),
+                                Name = reader["Name"].ToString(),
+                                Born = reader["Born"].ToString(),
+                                Draft = reader["Draft"].ToString(),
+                                HighSchool = reader["HighSchool"].ToString(),
+                                College = reader["College"].ToString(),
+                                Debut = reader["Debut"].ToString(),
+                            }
+                        );
+                    }
+
+                }
+            }
+
+            return (List<T>)Convert.ChangeType(resultSet, typeof(List<T>));
+            //return resultSet;
+        }
+
         public List<CoachRoster> SelectAllCoaches()
         {
             List<CoachRoster> roster = new List<CoachRoster>();
