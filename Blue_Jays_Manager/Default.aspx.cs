@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blue_Jays_Manager.Models.Correspondence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

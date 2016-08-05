@@ -248,6 +248,7 @@
     <Compile Include="Manager.Master.designer.cs">
       <DependentUpon>Manager.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Correspondence\Email.cs" />
     <Compile Include="Models\DataAccessLayer\AdminUserDataLayer.cs" />
     <Compile Include="Models\DataAccessLayer\DataRetrieval.cs" />
     <Compile Include="Models\DataAccessLayer\DatabaseUpdate.cs" />
