@@ -12,7 +12,7 @@
     <script src="Scripts/bootstrap.min.js"></script>
 
 </head>
-<body style="background-color: #ede8e8">
+<body style="background-color: #ede8e8; height:100%">
     <form id="form1" runat="server">
 
         <div class="navbar navbar-inverse navbar-fixed-top">

@@ -250,6 +250,7 @@
     </Compile>
     <Compile Include="Models\DataAccessLayer\AdminUserDataLayer.cs" />
     <Compile Include="Models\DataAccessLayer\DataRetrieval.cs" />
+    <Compile Include="Models\DataAccessLayer\DatabaseUpdate.cs" />
     <Compile Include="Models\DataAccessLayer\LoadExcelData.cs" />
     <Compile Include="Models\DataModels\AdminUser.cs" />
     <Compile Include="Models\DataModels\BattingStats.cs" />
