@@ -8,7 +8,7 @@ namespace Blue_Jays_Manager
         protected void Application_Start(object sender, EventArgs e)
         {
 
-           // LoadExcelData.LoadToDatabase();
+            // LoadExcelData.LoadToDatabase();
             string JQueryVer = "3.1.0";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
@@ -26,6 +26,8 @@ namespace Blue_Jays_Manager
         protected void Session_Start(object sender, EventArgs args)
         {
             Session["login"] = "loggedout";
+            Session["CoachChanges"] = false;
+            Session["PlayerChanges"] = false;
         }
     }
 }
