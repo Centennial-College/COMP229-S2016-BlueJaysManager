@@ -52,6 +52,5 @@
             <FooterStyle BackColor="#243B69" BorderStyle="None" />
             <HeaderStyle BackColor="#243B69" ForeColor="White" />
         </asp:GridView>
-        
     </div>
 </asp:Content>

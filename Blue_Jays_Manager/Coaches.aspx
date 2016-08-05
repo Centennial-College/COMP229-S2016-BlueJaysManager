@@ -5,25 +5,21 @@
 
     <div class="container list">
         <div class="page-header">
-            <h1>Coach Roster</h1>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <h1>Manager and Coach Roster</h1>           
         </div>
-        <%--<asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="700px">
-            <Columns>
-                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="Name" HeaderText="Name" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="Position" HeaderText="Position" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-            </Columns>
-            <FooterStyle BackColor="#243B69" BorderStyle="None" />
-            <HeaderStyle BackColor="#243B69" ForeColor="White" HorizontalAlign="Center" />
-        </asp:GridView>--%>
-
+        <h3>List of Toronto Blue Jays Coaches and Manager</h3>
+        <hr />
+        <div class="container">
+            <div class="row">
+                    <asp:Label ID="Label1" CssClass="col-md-8" runat="server"></asp:Label>
+                <div class="col-md-3" style="padding-right:50px">                  
+                    <asp:Button ID="AddCoach" CssClass="pull-right btn btn-default" runat="server" Text="Add Coach" BorderColor="#134A8E" ForeColor="#134A8E" Visible="False" />
+                    <asp:Button ID="SaveCoachChanges" CssClass="pull-right btn btn-default" style="margin-right:10px"  runat="server" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SaveCoachChanges_Click" Visible="False" />
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <br />
         <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser">
             <Columns>
                 <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True">
