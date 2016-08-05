@@ -78,7 +78,7 @@ namespace Blue_Jays_Manager
                 }
             }
 
-            if(unlocked > 0)
+            if (unlocked > 0)
             {
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
                 CoachRoster coach = roster.SingleOrDefault(x => x.Name == firstName + " " + lastName);
@@ -90,8 +90,8 @@ namespace Blue_Jays_Manager
                 CoachRosterGridView.DataBind();
             }
 
-            
-                
+
+
         }
 
         protected void CoachRosterGridView_RowEditing(object sender, GridViewEditEventArgs e)
