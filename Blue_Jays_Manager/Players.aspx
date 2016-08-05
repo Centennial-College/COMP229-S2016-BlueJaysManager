@@ -52,6 +52,6 @@
             <FooterStyle BackColor="#243B69" BorderStyle="None" />
             <HeaderStyle BackColor="#243B69" ForeColor="White" />
         </asp:GridView>
-        
+        <asp:HiddenField ID="ViewStateField"  runat="server" />
     </div>
 </asp:Content>
