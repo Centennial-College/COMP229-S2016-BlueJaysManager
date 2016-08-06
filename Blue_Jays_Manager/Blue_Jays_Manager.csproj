@@ -109,6 +109,66 @@
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\Blue_Jays_2015.jpg" />
+    <Content Include="Images\Coaches\16.jpg" />
+    <Content Include="Images\Coaches\26.jpg" />
+    <Content Include="Images\Coaches\34.jpg" />
+    <Content Include="Images\Coaches\38.jpg" />
+    <Content Include="Images\Coaches\4.jpg" />
+    <Content Include="Images\Coaches\40.jpg" />
+    <Content Include="Images\Coaches\5.jpg" />
+    <Content Include="Images\Coaches\60.jpg" />
+    <Content Include="Images\Coaches\61.jpg" />
+    <Content Include="Images\Coaches\63.jpg" />
+    <Content Include="Images\PlayerProfilePic\10.jpg" />
+    <Content Include="Images\PlayerProfilePic\11.jpg" />
+    <Content Include="Images\PlayerProfilePic\14.jpg" />
+    <Content Include="Images\PlayerProfilePic\18.jpg" />
+    <Content Include="Images\PlayerProfilePic\2.jpg" />
+    <Content Include="Images\PlayerProfilePic\20.jpg" />
+    <Content Include="Images\PlayerProfilePic\21.jpg" />
+    <Content Include="Images\PlayerProfilePic\22.jpg" />
+    <Content Include="Images\PlayerProfilePic\27.jpg" />
+    <Content Include="Images\PlayerProfilePic\29.jpg" />
+    <Content Include="Images\PlayerProfilePic\3.jpg" />
+    <Content Include="Images\PlayerProfilePic\30.jpg" />
+    <Content Include="Images\PlayerProfilePic\31.jpg" />
+    <Content Include="Images\PlayerProfilePic\33.jpg" />
+    <Content Include="Images\PlayerProfilePic\36.jpg" />
+    <Content Include="Images\PlayerProfilePic\37.jpg" />
+    <Content Include="Images\PlayerProfilePic\41.jpg" />
+    <Content Include="Images\PlayerProfilePic\43.jpg" />
+    <Content Include="Images\PlayerProfilePic\45.jpg" />
+    <Content Include="Images\PlayerProfilePic\47.jpg" />
+    <Content Include="Images\PlayerProfilePic\48.jpg" />
+    <Content Include="Images\PlayerProfilePic\54.jpg" />
+    <Content Include="Images\PlayerProfilePic\55.jpg" />
+    <Content Include="Images\PlayerProfilePic\6.jpg" />
+    <Content Include="Images\PlayerProfilePic\62.jpg" />
+    <Content Include="Images\Players\10.jpg" />
+    <Content Include="Images\Players\11.jpg" />
+    <Content Include="Images\Players\14.jpg" />
+    <Content Include="Images\Players\18.jpg" />
+    <Content Include="Images\Players\2.jpg" />
+    <Content Include="Images\Players\20.jpg" />
+    <Content Include="Images\Players\21.jpg" />
+    <Content Include="Images\Players\22.jpg" />
+    <Content Include="Images\Players\27.jpg" />
+    <Content Include="Images\Players\29.jpg" />
+    <Content Include="Images\Players\3.jpg" />
+    <Content Include="Images\Players\30.jpg" />
+    <Content Include="Images\Players\31.jpg" />
+    <Content Include="Images\Players\33.jpg" />
+    <Content Include="Images\Players\36.jpg" />
+    <Content Include="Images\Players\37.jpg" />
+    <Content Include="Images\Players\41.jpg" />
+    <Content Include="Images\Players\43.jpg" />
+    <Content Include="Images\Players\45.jpg" />
+    <Content Include="Images\Players\47.jpg" />
+    <Content Include="Images\Players\48.jpg" />
+    <Content Include="Images\Players\54.jpg" />
+    <Content Include="Images\Players\55.jpg" />
+    <Content Include="Images\Players\6.jpg" />
+    <Content Include="Images\Players\62.jpg" />
     <Content Include="Images\torontologo.png" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
@@ -128,6 +188,7 @@
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\ai.0.23.4-build00433.js" />
     <Content Include="Scripts\ai.0.23.4-build00433.min.js" />
+    <Content Include="Scripts\BlueJays.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
@@ -150,6 +211,7 @@
     <Content Include="Players.aspx" />
     <Content Include="App_Data\BlueJaysDataSheet.xlsx" />
     <Content Include="Manager.Master" />
+    <Content Include="User.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -186,8 +248,10 @@
     <Compile Include="Manager.Master.designer.cs">
       <DependentUpon>Manager.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Correspondence\Email.cs" />
     <Compile Include="Models\DataAccessLayer\AdminUserDataLayer.cs" />
     <Compile Include="Models\DataAccessLayer\DataRetrieval.cs" />
+    <Compile Include="Models\DataAccessLayer\DatabaseUpdate.cs" />
     <Compile Include="Models\DataAccessLayer\LoadExcelData.cs" />
     <Compile Include="Models\DataModels\AdminUser.cs" />
     <Compile Include="Models\DataModels\BattingStats.cs" />
@@ -220,10 +284,18 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

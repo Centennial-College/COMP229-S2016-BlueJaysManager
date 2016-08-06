@@ -1,42 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="Coaches.aspx.cs" Inherits="Blue_Jays_Manager.Coaches" %>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container list">
         <div class="page-header">
-            <h1>Coach Roster</h1>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <h1>Manager and Coach Roster</h1>           
         </div>
-        <%--<asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="700px">
+        <h3>List of Toronto Blue Jays Coaches and Manager</h3>
+        <hr />
+        <div class="container">
+            <div class="row">
+                    <asp:Label ID="Label1" CssClass="col-md-8" runat="server"></asp:Label>
+                <div class="col-md-3" style="padding-right:50px">                  
+                    <asp:Button ID="AddCoach" CssClass="pull-right btn btn-default" runat="server" Text="Add Coach" BorderColor="#134A8E" ForeColor="#134A8E" Visible="False" />
+                    <asp:Button ID="SaveCoachChanges" CssClass="pull-right btn btn-default" style="margin-right:10px"  runat="server" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SaveCoachChanges_Click" Visible="False" />
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <br />
+        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser">
             <Columns>
-                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="Name" HeaderText="Name" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-                <asp:BoundField DataField="Position" HeaderText="Position" >
-                <ControlStyle Width="30px" />
-                </asp:BoundField>
-            </Columns>
-            <FooterStyle BackColor="#243B69" BorderStyle="None" />
-            <HeaderStyle BackColor="#243B69" ForeColor="White" HorizontalAlign="Center" />
-        </asp:GridView>--%>
-
-        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowCommand="EnableUser">
-            <Columns>
-                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" />
+                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True">
+                    <ControlStyle CssClass="img-responsive" Height="50px" Width="40px" />
+                </asp:ImageField>
+                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
-
-                <asp:BoundField HeaderText="Account" />
+                
+                <asp:BoundField HeaderText="Account" ReadOnly="True" DataField="IsLocked" />
 
                 <asp:TemplateField HeaderText="Enable">
                     <ItemTemplate>
-                        <asp:Button ID="Button1" runat="server" Text="Enable User" Style="width: 105px" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-primary"
-                            Enabled="true" />
+                        <asp:Button ID="Button1" runat="server" Text="Enable User" Style="width: 105px; border: 1px solid #002A5E; color:#002A5E" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-default"
+                            Enabled='<%#Eval("IsLocked").ToString() == "Locked" %>' />
                     </ItemTemplate>
-                    <ControlStyle BackColor="#243B69" BorderColor="#243B69" BorderStyle="Solid" BorderWidth="1px" ForeColor="White" />
+                    <ControlStyle BorderColor="#243B69" BorderStyle="Solid" BorderWidth="1px" ForeColor="#243B69" CssClass="btn btn-default" />
                 </asp:TemplateField>
 
             </Columns>

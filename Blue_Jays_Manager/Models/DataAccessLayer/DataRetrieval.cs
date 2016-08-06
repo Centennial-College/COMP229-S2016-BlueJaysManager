@@ -24,19 +24,19 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
+                bool count = reader.HasRows;
 
                 while (reader.Read())
                 {
-                    playerRoster = new PlayerRoster()
-                    {
-                        PlayerNum = Convert.ToInt32(reader["PlayerNum"]),
-                        Name = reader["Name"].ToString(),
-                        Position = reader["Position"].ToString(),
-                        Height = Convert.ToInt32(reader["Height"]),
-                        Weight = Convert.ToInt32(reader["Weight"]),
-                        SkillOrientation = reader["SkillOrientation"].ToString(),
-                        DateOfBirth = reader["DateOfBirth"].ToString().Substring(0, reader["DateOfBirth"].ToString().IndexOf("12:00AM"))
-                    };
+                    playerRoster = new PlayerRoster();
+
+                    playerRoster.PlayerNum = Convert.ToInt32(reader["PlayerNum"]);
+                    playerRoster.Name = reader["Name"].ToString();
+                    playerRoster.Position = reader["Position"].ToString();
+                    playerRoster.Height = Convert.ToInt32(reader["Height"]);
+                    playerRoster.Weight = Convert.ToInt32(reader["Weight"]);
+                    playerRoster.SkillOrientation = reader["SkillOrientation"].ToString();
+                    playerRoster.DateOfBirth = (reader["DateOfBirth"].ToString().Length > 12) ? reader["DateOfBirth"].ToString().Substring(0, reader["DateOfBirth"].ToString().IndexOf("12:00AM")) : reader["DateOfBirth"].ToString();
 
                     roster.Add(playerRoster);
                 }
@@ -278,6 +278,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             {
                 SqlCommand cmd = new SqlCommand("spSelectCoachRoster", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                int islocked;
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -288,7 +289,8 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                     {
                         Name = reader["Name"].ToString(),
                         Position = reader["Position"].ToString(),
-                        CoachNumber = Convert.ToInt32(reader["CoachNumber"])
+                        CoachNumber = Convert.ToInt32(reader["CoachNumber"]),
+                        IsLocked = (reader["IsLocked"] != DBNull.Value) ? "Locked" : "Access"
 
                     };
 

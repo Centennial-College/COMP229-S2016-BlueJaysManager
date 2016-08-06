@@ -9,6 +9,16 @@
         <h2 class="page-header">Register Admin User</h2>
         <asp:Label ID="UserExists" runat="server"></asp:Label>
         <br />
+        <br />
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="CoachId" CssClass="col-md-4 control-label">Coach Number</asp:Label>
+            <div class="col-md-8">
+                <asp:TextBox runat="server" ID="CoachId" CssClass="form-control" TextMode="Number" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="CoachId"
+                    CssClass="text-danger" ErrorMessage="The Coach Number field is required." />
+            </div>
+        </div>
+
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-4 control-label">First Name</asp:Label>
             <div class="col-md-8">
@@ -35,7 +45,7 @@
                     CssClass="text-danger" ErrorMessage="The email field is required." />
             </div>
         </div>
-
+        
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-4 control-label">User Name</asp:Label>
             <div class="col-md-8">
@@ -50,8 +60,9 @@
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-4 control-label">Password</asp:Label>
             <div class="col-md-8">
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
+                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
+                <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^[a-zA-Z]\w{3,14}$" ControlToValidate="Password" ErrorMessage="Invalid password format"></asp:RegularExpressionValidator>
             </div>
         </div>
         <div class="form-group">
@@ -65,17 +76,6 @@
             </div>
         </div>
 
-
-         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Role" CssClass="col-md-4 control-label">Admin Role</asp:Label>
-            <div class="col-md-8 radio">
-                <asp:RadioButtonList ID="Role" runat="server">
-                     <asp:ListItem Value="coach">Coach</asp:ListItem>
-                    <asp:ListItem Value="manager">Manager</asp:ListItem>
-                </asp:RadioButtonList>
-                <asp:RequiredFieldValidator ID="RoleValidate" CssClass="text-danger" runat="server" ErrorMessage="Please select a role" ControlToValidate="Role"></asp:RequiredFieldValidator>
-            </div>
-        </div>
         <hr />
         <div class="form-group pull-right">
             <div class="col-md-12">

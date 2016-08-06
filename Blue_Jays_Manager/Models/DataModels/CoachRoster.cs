@@ -11,5 +11,6 @@ namespace Blue_Jays_Manager.Models.DataModels
         public int CoachNumber { get; set; }
         public string Name { get; set; }
         public string Position { get; set; }
+        public string IsLocked { get; set; }
     }
 }
