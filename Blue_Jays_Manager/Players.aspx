@@ -2,8 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container list">
-        <div class="page-header">
-            <h1>Player Roster</h1>
+        <div class="page-header" style="margin-top:20px; margin-bottom:5px">
+            <div class="row">
+            <h1 style="margin-top:20px" class="pull-left">Player Roster </h1> <asp:Image ID="Image1" CssClass="img-responsive pull-right" Height="100px" Width="300px" ImageUrl="~/Images/jayswordlogo.png" runat="server" />
+            </div>
         </div>
         <h3>Search for Player(s) from the Toronto Blue Jays Database</h3>
         <hr />

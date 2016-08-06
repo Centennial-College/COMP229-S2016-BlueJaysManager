@@ -119,6 +119,8 @@
     <Content Include="Images\Coaches\60.jpg" />
     <Content Include="Images\Coaches\61.jpg" />
     <Content Include="Images\Coaches\63.jpg" />
+    <Content Include="Images\jayswordlogo.png" />
+    <Content Include="Images\logotrans.png" />
     <Content Include="Images\PlayerProfilePic\10.jpg" />
     <Content Include="Images\PlayerProfilePic\11.jpg" />
     <Content Include="Images\PlayerProfilePic\14.jpg" />
