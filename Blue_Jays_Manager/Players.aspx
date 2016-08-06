@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-5">
-                <asp:Button ID="AddPlayer" CssClass="pull-right btn btn-default" Visible =" false" runat="server" Text="Add Player" BorderColor="#134A8E" ForeColor="#134A8E" />
+                <asp:Button ID="AddPlayer" CssClass="pull-right btn btn-default" Visible =" false" runat="server" Text="Add Player" BorderColor="#134A8E" ForeColor="#134A8E" OnClick="AddPlayer_Click" />
                  <asp:Button ID="SavePlayerChanges" runat="server" style="margin-right:10px" Visible="false" CssClass="pull-right btn btn-default" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SavePlayerChanges_Click" />
             </div>
             

@@ -335,5 +335,10 @@ namespace Blue_Jays_Manager
             PlayerRosterGridView.DataSource = roster;
             PlayerRosterGridView.DataBind();
         }
+
+        protected void AddPlayer_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("AddNewPlayer.aspx");
+        }
     }
 }

@@ -267,5 +267,10 @@ namespace Blue_Jays_Manager
                 _hideColumn(5);
             }
         }
+
+        protected void AddCoach_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("AddNewCoach.aspx");
+        }
     }
 }

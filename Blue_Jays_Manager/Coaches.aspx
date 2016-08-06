@@ -15,7 +15,7 @@
             <div class="row">
                     <asp:Label ID="LblError" CssClass="col-md-8" runat="server"></asp:Label>
                 <div class="col-md-3" style="padding-right:50px">                  
-                    <asp:Button ID="AddCoach" CssClass="pull-right btn btn-default" runat="server" Text="Add Coach" BorderColor="#134A8E" ForeColor="#134A8E" Visible="False" />
+                    <asp:Button ID="AddCoach" CssClass="pull-right btn btn-default" runat="server" Text="Add Coach" BorderColor="#134A8E" ForeColor="#134A8E" Visible="False" OnClick="AddCoach_Click" />
                     <asp:Button ID="SaveCoachChanges" CssClass="pull-right btn btn-default" style="margin-right:10px"  runat="server" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SaveCoachChanges_Click" Visible="False" />
                 </div>
                 <div class="col-md-1"></div>
@@ -24,7 +24,7 @@
         <br />
         <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser" AllowSorting="True" OnSorting="CoachRosterGridView_Sorting">
             <Columns>
-                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True" NullDisplayText="N/A">
+                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True" NullDisplayText="N/A" NullImageUrl="Images/Photo-Unavailable.jpg">
                     <ControlStyle CssClass="img-responsive" Height="50px" Width="40px" />
                 </asp:ImageField>
                 <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" SortExpression="CoachNumber" />

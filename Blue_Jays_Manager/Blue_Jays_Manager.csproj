@@ -102,6 +102,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddNewCoach.aspx" />
+    <Content Include="AddNewPlayer.aspx" />
     <Content Include="Content\BlueJaysStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -121,6 +123,7 @@
     <Content Include="Images\Coaches\63.jpg" />
     <Content Include="Images\jayswordlogo.png" />
     <Content Include="Images\logotrans.png" />
+    <Content Include="Images\Photo-Unavailable.jpg" />
     <Content Include="Images\PlayerProfilePic\10.jpg" />
     <Content Include="Images\PlayerProfilePic\11.jpg" />
     <Content Include="Images\PlayerProfilePic\14.jpg" />
@@ -219,6 +222,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewCoach.aspx.cs">
+      <DependentUpon>AddNewCoach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewCoach.aspx.designer.cs">
+      <DependentUpon>AddNewCoach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewPlayer.aspx.cs">
+      <DependentUpon>AddNewPlayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewPlayer.aspx.designer.cs">
+      <DependentUpon>AddNewPlayer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Coaches.aspx.cs">
       <DependentUpon>Coaches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
