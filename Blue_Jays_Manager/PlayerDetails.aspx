@@ -93,15 +93,16 @@
                 </div>
 
                 <div class="row">
-                    <ul class="nav nav-pills col-md-offset-4 col-md-3">
+                    <ul class="nav nav-tabs col-md-offset-1 col-md-7">
+                    <%--<ul class="nav nav-tabs col-md-offset-4 col-md-4">--%>
                         <li class="active"><a data-toggle="tab" href="#pitching">PITCHING</a></li>
-                        <li><a data-toggle="tab" href="#batting">BATTING</a></li>
-                        <li><a data-toggle="tab" href="#fielding">FIELDING</a></li>
+                        <li class=""><a data-toggle="tab" href="#batting">BATTING</a></li>
+                        <li class=""><a data-toggle="tab" href="#fielding">FIELDING</a></li>
                     </ul>
                     <span class="col-md-4">
                         <asp:Label Text="Filter by year: " runat="server" />
                         <asp:TextBox ID="statsFilterTextBox" runat="server" />
-                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" />
+                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" cssclass="btn btn-default" bordercolor="#134A8E" forecolor="White" backcolor="#134A8E" />
                     </span>
                 </div>
 

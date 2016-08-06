@@ -8,35 +8,37 @@
         <h3>Search for Player(s) from the Toronto Blue Jays Database</h3>
         <hr />
         <div class="row">
-                <b><asp:Label ID="Label1" CssClass ="col-md-1" style="padding-right:0px; margin-right:0px" runat="server" Text="Search By:"></asp:Label></b>
-            <div class="col-md-1" style="padding-right:0px;padding-left:0px; margin-right:20px">
-            <asp:DropDownList ID="searchCategory" runat="server" CssClass="form-control" Width="150px">
+            <b>
+                <asp:label id="Label1" cssclass="col-md-1" style="padding-right: 0px; margin-right: 0px" runat="server" text="Search By:"></asp:label>
+            </b>
+            <div class="col-md-1" style="padding-right: 0px; padding-left: 0px; margin-right: 20px">
+                <asp:dropdownlist id="searchCategory" runat="server" cssclass="form-control" width="150px">
                 <asp:ListItem Text="Player Number" />
                 <asp:ListItem Text="Name" />
                 <asp:ListItem Text="Position" />
-            </asp:DropDownList>
+            </asp:dropdownlist>
             </div>
-            <div class="col-md-1" style="padding-right:0px; padding-left:0px; margin-left: 35px">
-                <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control" Width="150px" />
+            <div class="col-md-1" style="padding-right: 0px; padding-left: 0px; margin-left: 35px">
+                <asp:textbox id="searchTextBox" runat="server" cssclass="form-control" width="150px" />
             </div>
 
-            <div class="col-md-2" style="padding-right:0px;padding-left:15px; margin-left: 35px">
-                <asp:Button ID="submitButton" runat="server"
-                    Text="Get Data" OnClick="submitButton_Click" style="margin-left:10px" CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" Width="125px" BackColor="#134A8E" />
-            
+            <div class="col-md-2" style="padding-right: 0px; padding-left: 15px; margin-left: 35px">
+                <asp:button id="submitButton" runat="server"
+                    text="Get Data" onclick="submitButton_Click" style="margin-left: 10px" cssclass="btn btn-default" bordercolor="#134A8E" forecolor="White" width="125px" backcolor="#134A8E" />
+
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-5">
-                <asp:Button ID="AddPlayer" CssClass="pull-right btn btn-default" Visible =" false" runat="server" Text="Add Player" BorderColor="#134A8E" ForeColor="#134A8E" />
-                 <asp:Button ID="SavePlayerChanges" runat="server" style="margin-right:10px" Visible="false" CssClass="pull-right btn btn-default" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SavePlayerChanges_Click" />
+                <asp:button id="AddPlayer" cssclass="pull-right btn btn-default" visible=" false" runat="server" text="Add Player" bordercolor="#134A8E" forecolor="#134A8E" />
+                <asp:button id="SavePlayerChanges" runat="server" style="margin-right: 10px" visible="false" cssclass="pull-right btn btn-default" text="Save Changes" backcolor="#134A8E" bordercolor="#134A8E" forecolor="White" onclick="SavePlayerChanges_Click" />
             </div>
-            
-       </div>
+
+        </div>
         <br />
-        
-        <asp:Label ID="NoRecords" runat="server" Text="Label" Visible="false" ForeColor="Red"></asp:Label>
+
+        <asp:label id="NoRecords" runat="server" text="Label" visible="false" forecolor="Red"></asp:label>
         <br />
-        <asp:GridView ID="PlayerRosterGridView" runat="server" CssClass="table table-striped table-responsive" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" Width="975px" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True" OnSelectedIndexChanged="PlayerRosterGridView_SelectedIndexChanged" OnRowCancelingEdit="PlayerRosterGridView_RowCancelingEdit" OnRowDeleting="PlayerRosterGridView_RowDeleting" OnRowEditing="PlayerRosterGridView_RowEditing" OnRowUpdating="PlayerRosterGridView_RowUpdating">
+        <asp:gridview id="PlayerRosterGridView" runat="server" cssclass="table table-striped table-responsive" autogeneratecolumns="False" gridlines="Horizontal" horizontalalign="Center" width="975px" bordercolor="#243B69" borderstyle="None" emptydatatext="Null" enabletheming="True" showfooter="True" onselectedindexchanged="PlayerRosterGridView_SelectedIndexChanged" onrowcancelingedit="PlayerRosterGridView_RowCancelingEdit" onrowdeleting="PlayerRosterGridView_RowDeleting" onrowediting="PlayerRosterGridView_RowEditing" onrowupdating="PlayerRosterGridView_RowUpdating">
             <Columns>
                 <asp:ImageField DataImageUrlField="PlayerNum" DataImageUrlFormatString="~\Images\Players\{0}.jpg" HeaderText="Photo" ReadOnly="True">
                     <ControlStyle CssClass="img-responzsive" Height="50px" Width="40px" />
@@ -51,6 +53,6 @@
             </Columns>
             <FooterStyle BackColor="#243B69" BorderStyle="None" />
             <HeaderStyle BackColor="#243B69" ForeColor="White" />
-        </asp:GridView>
+        </asp:gridview>
     </div>
 </asp:Content>

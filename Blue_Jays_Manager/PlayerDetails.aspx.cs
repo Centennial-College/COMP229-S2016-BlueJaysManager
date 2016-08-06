@@ -190,12 +190,14 @@ namespace Blue_Jays_Manager
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         private void displayFieldingStats(List<FieldingStats> displaySet)
         {
-            if (fieldingStats.Count == 0)
+            if (displaySet.Count == 0)
             {
                 nullFieldStatsLabel.Visible = true;
+                FieldingStatsGridView.Visible = false;
             }
             else
             {
+                FieldingStatsGridView.Visible = true;
                 nullFieldStatsLabel.Visible = false;
                 FieldingStatsGridView.DataSource = displaySet;
                 FieldingStatsGridView.DataBind();
@@ -204,12 +206,14 @@ namespace Blue_Jays_Manager
 
         private void displayBattingStats(List<BattingStats> displaySet)
         {
-            if (battingStats.Count == 0)
+            if (displaySet.Count == 0)
             {
                 nullBatStatsLabel.Visible = true;
+                BattingStatsGridView.Visible = false;
             }
             else
             {
+                BattingStatsGridView.Visible = true;
                 nullBatStatsLabel.Visible = false;
                 BattingStatsGridView.DataSource = displaySet;
                 BattingStatsGridView.DataBind();
@@ -218,12 +222,14 @@ namespace Blue_Jays_Manager
 
         private void displayPitchingStats(List<PitchingStats> displaySet)
         {
-            if (pitchingStats.Count == 0)
+            if (displaySet.Count == 0)
             {
                 nullPitchStatsLabel.Visible = true;
+                PitchingStatsGridView.Visible = false;
             }
             else
             {
+                PitchingStatsGridView.Visible = true;
                 nullPitchStatsLabel.Visible = false;
                 PitchingStatsGridView.DataSource = displaySet;
                 PitchingStatsGridView.DataBind();
