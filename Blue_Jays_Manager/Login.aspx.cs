@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.Caching;
 using System.Web.Security;
 using Blue_Jays_Manager.Models.DataAccessLayer;
 using Blue_Jays_Manager.Models.DataModels;
@@ -31,7 +32,6 @@ namespace Blue_Jays_Manager
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-
             var user = AdminUserDataLayer.LogIn(UserName.Text, Password.Text);
 
             if (user.GetType() == typeof(AdminUser))
@@ -44,6 +44,13 @@ namespace Blue_Jays_Manager
             }
             else
             {
+
+                if(user.ToString() == "Account Locked. Please Contact Administrator")
+                {
+                    DataRetrieval retrieve = new DataRetrieval();
+                    List<CoachRoster> roster = retrieve.SelectAllCoaches();
+                    Cache["CoachRoster"] = roster;
+                }
                 InvalidLabel.Text = user.ToString();
                 InvalidLabel.ForeColor = System.Drawing.Color.Red;
             }

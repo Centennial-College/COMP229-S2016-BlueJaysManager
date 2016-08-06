@@ -127,6 +127,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             return rowAffected;
         }
 
+        //Changes made to stored procedure in database
         public static List<LockedUser> GetLockedUsers()
         {
             List<LockedUser> lockedList = new List<LockedUser>();
@@ -148,7 +149,9 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                         LastName = reader["LastName"].ToString(),
                         Role = reader["Role"].ToString(),
                         IsLocked = Convert.ToBoolean(reader["IsLocked"]),
-                        UserName = reader["UserName"].ToString()
+                        UserName = reader["UserName"].ToString(),
+                        Email = reader["Email"].ToString()
+
                     };
 
                     lockedList.Add(lockedUser);

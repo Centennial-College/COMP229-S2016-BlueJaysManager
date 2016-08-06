@@ -37,9 +37,10 @@ namespace Blue_Jays_Manager
         protected void BtnChangePassword_Click(object sender, EventArgs e)
         {
             AdminUser user = (AdminUser)Session["AdminUser"];
+            string newPassWord = newPass.Text;
 
             string currentPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(currentPass.Text, "SHA1");
-            string newPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(newPass.Text, "SHA1");
+            string newPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(newPassWord, "SHA1");
             int rowAffected = 0;
 
             if (user.Password == currentPassword)
@@ -49,7 +50,8 @@ namespace Blue_Jays_Manager
 
             if (rowAffected > 0)
             {
-                LblConfirm.Text = "Password successfully changed";
+                Models.Correspondence.Email.PasswordChangeConfirmation(user.FirstName, user.LastName, user.UserName, newPassWord, user.Role, user.Email);
+                LblConfirm.Text = "Password successfully changed. Email confirmation has been sent.";
                 LblConfirm.ForeColor = System.Drawing.Color.Green;
                 PasswordPanel.Visible = false;
                 currentPass.Text = "";
@@ -58,8 +60,8 @@ namespace Blue_Jays_Manager
             }
             else
             {
-                LblConfirm.Text = "Password could not be changed. Please see techinical department.";
-                LblConfirm.ForeColor = System.Drawing.Color.Green;
+                LblConfirm.Text = "Password could not be changed. Please see IT department.";
+                LblConfirm.ForeColor = System.Drawing.Color.Red;
             }
         }
     }

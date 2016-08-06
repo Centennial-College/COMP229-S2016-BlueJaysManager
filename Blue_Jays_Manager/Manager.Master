@@ -60,8 +60,11 @@
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-        
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Toronto Blue Jays Manager</p>
+            </footer>
+        </div> 
     </form>
 </body>
 </html>
