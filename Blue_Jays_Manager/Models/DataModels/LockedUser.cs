@@ -13,6 +13,7 @@ namespace Blue_Jays_Manager.Models.DataModels
         public bool IsLocked { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
 
     }
 }

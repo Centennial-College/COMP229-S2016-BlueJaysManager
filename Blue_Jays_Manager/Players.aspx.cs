@@ -247,5 +247,93 @@ namespace Blue_Jays_Manager
 
 
         }
+
+        protected void PlayerRosterGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            List<PlayerRoster> roster = null;
+
+            if (ViewState["SortDirection"] != null)
+            {
+                if (e.SortExpression == "PlayerNum")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+
+                    if ((SortDirection)ViewState["SortDirection"] == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderByDescending(x => x.PlayerNum).ToList();
+                        ViewState["SortDirection"] = SortDirection.Descending;
+
+                    }
+                    else
+                    {
+                        roster = roster.OrderBy(x => x.PlayerNum).ToList();
+                        ViewState["SortDirection"] = SortDirection.Ascending;
+                    }
+                }
+                else if(e.SortExpression == "PlayerHeight")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+
+                    if ((SortDirection)ViewState["SortDirection"] == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderByDescending(x => x.Height).ToList();
+                        ViewState["SortDirection"] = SortDirection.Descending;
+
+                    }
+                    else
+                    {
+                        roster = roster.OrderBy(x => x.Height).ToList();
+                        ViewState["SortDirection"] = SortDirection.Ascending;
+                    }
+                }
+                else if(e.SortExpression == "PlayerWeight")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+
+                    if ((SortDirection)ViewState["SortDirection"] == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderByDescending(x => x.Weight).ToList();
+                        ViewState["SortDirection"] = SortDirection.Descending;
+
+                    }
+                    else
+                    {
+                        roster = roster.OrderBy(x => x.Weight).ToList();
+                        ViewState["SortDirection"] = SortDirection.Ascending;
+                    }
+                }
+            }
+            else
+            {
+                ViewState["SortDirection"] = e.SortDirection; //This is ascending on the first time.
+
+                if (e.SortExpression == "PlayerNum")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+                    if (e.SortDirection == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderBy(x => x.PlayerNum).ToList();
+                    }
+                }
+                else if(e.SortExpression == "PlayerHeight")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+                    if (e.SortDirection == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderBy(x => x.Height).ToList();
+                    }
+                }
+                else if(e.SortExpression == "PlayerWeight")
+                {
+                    roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+                    if (e.SortDirection == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderBy(x => x.Weight).ToList();
+                    }
+                }
+            }
+            PlayerRosterGridView.DataSource = roster;
+            PlayerRosterGridView.DataBind();
+        }
     }
 }
