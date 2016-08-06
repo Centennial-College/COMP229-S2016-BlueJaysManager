@@ -9,10 +9,16 @@ using Blue_Jays_Manager.Models.DataAccessLayer;
 
 namespace Blue_Jays_Manager
 {
+    /// <summary>
+    /// Pulls their respective statistics from the general tables and populates the webpage
+    /// upon page load.
+    /// </summary>
     public partial class PlayerDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // PLAYER PROFILE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
             int playerNum = int.Parse(Request.QueryString["playerNumber"]);
 
             playerNumber.Text = playerNum.ToString();
@@ -44,29 +50,98 @@ namespace Blue_Jays_Manager
 
             age.Text = _calculateAge(dateOfBirth).ToString();
 
-            List<PlayerBio> pBio = DataRetrieval.SelectAllPlayerInfo<PlayerBio>(new PlayerBio());
-            
-            //bioName.Text ="Is "
+            // PLAYER BIO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            List<PlayerBio> pBio = DataRetrieval.SelectPlayerBioWherePlayerNumEquals(playerNum);
 
-            //foreach (PlayerBio pb in pBio)
-            //{
-            //    bioName.Text = pb.Name;
-            //    bioBorn.Text = pb.Born;
-            //    bioDraft.Text = pb.Draft;
-            //    if (!string.IsNullOrEmpty(pb.HighSchool))
-            //    {
-            //        bioSchoolType.Text = "High School";
-            //        bioSchool.Text = pb.HighSchool.ToString();
-            //    }
-            //    else if (!string.IsNullOrEmpty(pb.College))
-            //    {
-            //        bioSchoolType.Text = "College";
-            //        bioSchool.Text = pb.College.ToString();
-            //    }
-              
-            //}
+            foreach (PlayerBio pb in pBio)
+            {
+                bioName.Text = pb.Name;
+                bioBorn.Text = pb.Born;
+                if (!string.IsNullOrEmpty(pb.Draft))
+                {
+                    bioDraftHead.Text = "Draft: ";
+                    bioDraft.Text = pb.Draft;
+                }
+                else
+                {
+                    bioDraftHead.Text = "Draft: ";
+                    bioDraft.Text = "N/A";
+                }
+                if (!string.IsNullOrEmpty(pb.HighSchool))
+                {
+                    bioSchoolType.Text = "High School: ";
+                    bioSchool.Text = pb.HighSchool.ToString();
+                }
+                else if (!string.IsNullOrEmpty(pb.College))
+                {
+                    bioSchoolType.Text = "College: ";
+                    bioSchool.Text = pb.College.ToString();
+                }
+                else
+                {
+                    bioSchoolType.Text = "High School/College: ";
+                    bioSchool.Text = "N/A";
+                }
+                bioDebut.Text = ": " + pb.Debut;
+            }
+
+            // PLAYER STATS SUMMARY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            List<PlayerStatsSummary> pStatsSummary = DataRetrieval.SelectPlayerStatsSummaryWherePlayerNumEquals(playerNum);
+
+            PlayerRosterGridView.DataSource = pStatsSummary;
+            PlayerRosterGridView.DataBind();
+
+            // PLAYER PITCHING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            pitchingName.Text = player.Name.ToString();
+
+            List<PitchingStats> pitchingStats = DataRetrieval.SelectPitchingStatsyWherePlayerNumEquals(playerNum);
+
+            if (pitchingStats.Count == 0)
+            {
+                nullPitchStatsLabel.Visible = true;
+            }
+            else
+            {
+                nullPitchStatsLabel.Visible = false;
+                PitchingStatsGridView.DataSource = pitchingStats;
+                PitchingStatsGridView.DataBind();
+            }
+
+            // PLAYER BATTING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            battingName.Text = player.Name.ToString();
+
+            List<BattingStats> battingStats = DataRetrieval.SelectBattingStatsyWherePlayerNumEquals(playerNum);
+
+            if (battingStats.Count == 0)
+            {
+                nullBatStatsLabel.Visible = true;
+            }
+            else
+            {
+                nullBatStatsLabel.Visible = false;
+                BattingStatsGridView.DataSource = battingStats;
+                BattingStatsGridView.DataBind();
+            }
+
+            // PLAYER FIELDING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            fieldingName.Text = player.Name.ToString();
+
+            List<FieldingStats> fieldingStats = DataRetrieval.SelectFieldingStatsyWherePlayerNumEquals(playerNum);
+
+            if (fieldingStats.Count == 0)
+            {
+                nullFieldStatsLabel.Visible = true;
+            }
+            else
+            {
+                nullFieldStatsLabel.Visible = false;
+                FieldingStatsGridView.DataSource = fieldingStats;
+                FieldingStatsGridView.DataBind();
+            }
 
         }
+
+        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         private int _inchesToFeet(int length, out int remainingInches)
         {
             double remainder = length * 0.0833333;
