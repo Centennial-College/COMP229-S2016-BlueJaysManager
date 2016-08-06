@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blue_Jays_Manager.Models.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,14 @@ namespace Blue_Jays_Manager
 {
     public partial class AddNewPlayer : System.Web.UI.Page
     {
+        List<PlayerRoster> playerRoster;
         DateTime startDate = Convert.ToDateTime("1/1/1950");
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            playerRoster = (List<PlayerRoster>)Cache["PlayerRoster"];
+
             _populateYear(dobYearDropDownList);
             _populateMonth(dobMonthDropDownList);
             _populateDay(dobDayDropDownList);
@@ -32,7 +37,7 @@ namespace Blue_Jays_Manager
             {
                 DateTime NextMonth = startDate.AddMonths(i);
                 ListItem lt = new ListItem();
-                lt.Text = NextMonth.ToString("MMMM");
+                lt.Text = NextMonth.ToString("MMM");
                 lt.Value = NextMonth.Month.ToString();
                 monthDDL.Items.Add(lt);
             }
@@ -71,7 +76,7 @@ namespace Blue_Jays_Manager
 
             int totalYears = 50;
             int endYear = DateTime.Now.Year;
-            int startYear = endYear-totalYears;
+            int startYear = endYear - totalYears;
 
             for (int i = startYear; i <= endYear; i++)
             {
@@ -97,6 +102,50 @@ namespace Blue_Jays_Manager
         protected void dobMonthDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             _populateDay(dobDayDropDownList);
+
+        }
+
+        protected void AddPlayerButton_Click(object sender, EventArgs e)
+        {
+            bool existPlayer = false;
+
+            foreach (PlayerRoster player in playerRoster)
+            {
+                if (player.PlayerNum == int.Parse(PlayerNum.Text))
+                {
+                    existPlayer = true;
+                    break;
+                }
+            }
+
+            if (!existPlayer)
+            {
+
+                playerRoster.Add
+                (
+                    new PlayerRoster()
+                    {
+                        PlayerNum = int.Parse(PlayerNum.Text),
+                        Name = FirstName.Text + " " + LastName.Text,
+                        Position = positionDropDownList.SelectedValue,
+                        Height = int.Parse(playerHeight.Text),
+                        Weight = int.Parse(playerWeight.Text),
+                        DateOfBirth = dobMonthDropDownList.SelectedValue + " " +
+                        dobDayDropDownList.SelectedValue + " " + dobYearDropDownList.SelectedValue,
+                        SkillOrientation = playerBattingHand + "/" + playerThrowingHand,
+
+                    }
+                );
+
+                Cache["PlayerRoster"] = playerRoster;
+
+                Server.Transfer("Players.aspx");
+            }
+
+            else
+            {
+                PlayerExists.Text = "There is already an existing player with the number " + PlayerNum.Text + "!";
+            }
 
         }
     }
