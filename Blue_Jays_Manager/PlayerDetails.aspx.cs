@@ -33,6 +33,8 @@ namespace Blue_Jays_Manager
 
             playerNumber.Text = playerNum.ToString();
 
+            profilePhoto.ImageUrl = "~/Images/PlayerProfilePic/" + playerNum + ".jpg";
+
             List<PlayerRoster> roster = (List<PlayerRoster>)Cache["PlayerRoster"];
             PlayerRoster player = null;
 

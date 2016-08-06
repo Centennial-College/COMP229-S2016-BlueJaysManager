@@ -1,19 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="PlayerDetails.aspx.cs" Inherits="Blue_Jays_Manager.PlayerDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="coverPhoto" class="jumbotron" style="background-color: forestgreen; margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">
-        <div class="row">
-            <h1 class="text-center">COVER PHOTO GOES HERE</h1>
+    <div id="coverPhoto" class="jumbotron" style="background-color: #ede8e8; margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">
+        <div class="row" style="background-color:#243b69; color: white; padding-bottom:2vh;">
+            <%--<h1 class="text-center">COVER PHOTO GOES HERE</h1>--%>
             <div id="profileSummary" class="row">
-                <h2 class="col-md-2">Profile Photo</h2>
-                <div class="col-md-10">
+                <span class="col-md-offset-5 col-md-2" style="margin-top: 2vh;">
+                    <asp:Image ID="profilePhoto" runat="server" CssClass="img-rounded img-responsive profilepic" BorderColor="#999999" BorderWidth="5px" GenerateEmptyAlternateText="True" BorderStyle="Ridge" />
+                </span>
+
+                <div class="col-md-offset-4 col-md-4 text-center">
                     <h2>
                         <asp:Label ID="name" runat="server" Text="Name"></asp:Label>
                         | #
                     <asp:Label ID="playerNumber" runat="server" Text="Number"></asp:Label>
                     </h2>
                 </div>
-                <span class="col-md-offset-2 col-md-10">
+                <span class="col-md-offset-4 col-md-4 text-center">
                     <asp:Label ID="position" runat="server" Text="position"></asp:Label>
                     | B/T:
                 <asp:Label ID="skillOrientation" runat="server" Text="skillOrientation"></asp:Label>
@@ -28,7 +31,12 @@
         <div class="row" style="width: 94vw;">
             <div id="summaryDiv" class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h4>Summary | Stats
+                    <h4>
+                        <a href="#">Summary
+                        </a>
+                        | 
+                        <a href="#statsDiv">Stats
+                        </a>
                     </h4>
                 </div>
                 <div class="panel-body">
@@ -80,12 +88,12 @@
         <%--STATS--%>
         <div class="row" style="width: 94vw;">
             <div id="statsDiv" class="panel panel-default">
-                <div class="row">
+                <div class="row" style="padding: 3vmin 3vmin 5px 3vmin">
                     <div class="col-md-5">
                         <hr />
                     </div>
                     <div class="col-md-2 text-center">
-                        <h4>Stats</h4>
+                        <h4 style="padding: 0; margin: 0;">Stats</h4>
                     </div>
                     <div class="col-md-5">
                         <hr />
@@ -94,7 +102,7 @@
 
                 <div class="row">
                     <ul class="nav nav-tabs col-md-offset-1 col-md-7">
-                    <%--<ul class="nav nav-tabs col-md-offset-4 col-md-4">--%>
+                        <%--<ul class="nav nav-tabs col-md-offset-4 col-md-4">--%>
                         <li class="active"><a data-toggle="tab" href="#pitching">PITCHING</a></li>
                         <li class=""><a data-toggle="tab" href="#batting">BATTING</a></li>
                         <li class=""><a data-toggle="tab" href="#fielding">FIELDING</a></li>
@@ -102,7 +110,7 @@
                     <span class="col-md-4">
                         <asp:Label Text="Filter by year: " runat="server" />
                         <asp:TextBox ID="statsFilterTextBox" runat="server" />
-                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" cssclass="btn btn-default" bordercolor="#134A8E" forecolor="White" backcolor="#134A8E" />
+                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" BackColor="#134A8E" />
                     </span>
                 </div>
 
