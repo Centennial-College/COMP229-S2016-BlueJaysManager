@@ -92,123 +92,148 @@
                     </div>
                 </div>
 
-                <ul class="nav nav-pills nav-justified">
-                    <li class="active col-md-4"><a data-toggle="tab" href="#pitching">PITCHING</a></li>
-                    <li><a data-toggle="tab" href="#batting">BATTING</a></li>
-                    <li><a data-toggle="tab" href="#fielding">FIELDING</a></li>
-                </ul>
-
-                <div class="tab-content" style="padding-left: 5vw; padding-right: 5vw; min-height: 30vh">
-                    <div id="pitching" class="tab-pane fade in active">
-                        <h3>
-                            <asp:Label ID="pitchingName" runat="server" Text="Name"></asp:Label>
-                            Pitching Stats
-                        </h3>
-                        <asp:Label ID="nullPitchStatsLabel" runat="server" Text="This player does not currently have any pitching stats." ForeColor="red" />
-                        <asp:GridView ID="PitchingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
-
-                            <Columns>
-                                <asp:BoundField DataField="PitchStatYear" HeaderText="Year" />
-                                <asp:BoundField DataField="Team" HeaderText="Team" />
-                                <asp:BoundField DataField="League" HeaderText="LG" />
-                                <asp:BoundField DataField="Wins" HeaderText="W" />
-                                <asp:BoundField DataField="Losses" HeaderText="L" />
-                                <asp:BoundField DataField="EarnedRunsAverage" HeaderText="ERA" />
-                                <asp:BoundField DataField="Games" HeaderText="G" />
-                                <asp:BoundField DataField="GamesStarted" HeaderText="GS" />
-                                <asp:BoundField DataField="CompleteGames" HeaderText="CG" />
-                                <asp:BoundField DataField="ShutOuts" HeaderText="SHO" />
-                                <asp:BoundField DataField="Saves" HeaderText="SV" />
-                                <asp:BoundField DataField="SaveOpportunities" HeaderText="SVO" />
-                                <asp:BoundField DataField="InningsPitched" HeaderText="IP" />
-                                <asp:BoundField DataField="Hits" HeaderText="H" />
-                                <asp:BoundField DataField="Runs" HeaderText="R" />
-                                <asp:BoundField DataField="EarnedRuns" HeaderText="ER" />
-                                <asp:BoundField DataField="HomeRuns" HeaderText="HR" />
-                                <asp:BoundField DataField="HitBatsmen" HeaderText="HB" />
-                                <asp:BoundField DataField="BasesOnBalls" HeaderText="BB" />
-                                <asp:BoundField DataField="IntentionalBasesOnBalls" HeaderText="IBB" />
-                                <asp:BoundField DataField="StrikeOuts" HeaderText="SO" />
-                                <asp:BoundField DataField="BattingAverage" HeaderText="AVG" />
-                                <asp:BoundField DataField="WalksAndHitsPerInningsPitched" HeaderText="WHIP" />
-                                <asp:BoundField DataField="GroundOrAirOuts" HeaderText="GO/AO" />
-                            </Columns>
-
-                            <FooterStyle BackColor="#243B69" BorderStyle="None" />
-                            <HeaderStyle BackColor="#243B69" ForeColor="White" />
-                        </asp:GridView>
-                    </div>
-                    <div id="batting" class="tab-pane fade">
-                        <h3>
-                            <asp:Label ID="battingName" runat="server" Text="Name"></asp:Label>
-                            Batting Stats
-                        </h3>
-                        <asp:Label ID="nullBatStatsLabel" runat="server" Text="This player does not currently have any batting stats." ForeColor="red" />
-                        <asp:GridView ID="BattingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
-
-                            <Columns>
-                                <asp:BoundField DataField="BatStatYear" HeaderText="Year" />
-                                <asp:BoundField DataField="Team" HeaderText="Team" />
-                                <asp:BoundField DataField="League" HeaderText="LG" />
-                                <asp:BoundField DataField="Games" HeaderText="G" />
-                                <asp:BoundField DataField="AtBats" HeaderText="AB" />
-                                <asp:BoundField DataField="Runs" HeaderText="R" />
-                                <asp:BoundField DataField="Hits" HeaderText="H" />
-                                <asp:BoundField DataField="TotalBases" HeaderText="TB" />
-                                <asp:BoundField DataField="Doubles" HeaderText="2B" />
-                                <asp:BoundField DataField="Triples" HeaderText="3B" />
-                                <asp:BoundField DataField="HomeRuns" HeaderText="HR" />
-                                <asp:BoundField DataField="RunsBattedIn" HeaderText="RBI" />
-                                <asp:BoundField DataField="BasesOnBalls" HeaderText="BB" />
-                                <asp:BoundField DataField="IntentionalBasesOnBalls" HeaderText="IBB" />
-                                <asp:BoundField DataField="Strikeouts" HeaderText="SO" />
-                                <asp:BoundField DataField="StolenBases" HeaderText="SB" />
-                                <asp:BoundField DataField="CaughtStealing" HeaderText="CS" />
-                                <asp:BoundField DataField="BattingAverage" HeaderText="AVG" />
-                                <asp:BoundField DataField="OnBasePercentage" HeaderText="OBP" />
-                                <asp:BoundField DataField="SluggingPercentage" HeaderText="SLG" />
-                                <asp:BoundField DataField="OnBasePlusSlugging" HeaderText="OPS" />
-                                <asp:BoundField DataField="GroundOrAirOuts" HeaderText="GO/AO" />
-                            </Columns>
-
-                            <FooterStyle BackColor="#243B69" BorderStyle="None" />
-                            <HeaderStyle BackColor="#243B69" ForeColor="White" />
-                        </asp:GridView>
-                    </div>
-                    <div id="fielding" class="tab-pane fade">
-                        <h3>
-                            <asp:Label ID="fieldingName" runat="server" Text="Name"></asp:Label>
-                            Fielding Stats
-                        </h3>
-                        <asp:Label ID="nullFieldStatsLabel" runat="server" Text="This player does not currently have any fielding stats." ForeColor="red" />
-                        <asp:GridView ID="FieldingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
-
-                            <Columns>
-                                <asp:BoundField DataField="FieldStatYear" HeaderText="Year" />
-                                <asp:BoundField DataField="Team" HeaderText="Team" />
-                                <asp:BoundField DataField="League" HeaderText="LG" />
-                                <asp:BoundField DataField="Position" HeaderText="POS" />
-                                <asp:BoundField DataField="Games" HeaderText="G" />
-                                <asp:BoundField DataField="GamesStarted" HeaderText="GS" />
-                                <asp:BoundField DataField="InningsAtThisPosition" HeaderText="INN" />
-                                <asp:BoundField DataField="TotalChances" HeaderText="TC" />
-                                <asp:BoundField DataField="Putouts" HeaderText="PO" />
-                                <asp:BoundField DataField="Assists" HeaderText="A" />
-                                <asp:BoundField DataField="Errors" HeaderText="E" />
-                                <asp:BoundField DataField="DoublePlays" HeaderText="DP" />
-                                <asp:BoundField DataField="PassedBall" HeaderText="PB" />
-                                <asp:BoundField DataField="StolenBases" HeaderText="SB" />
-                                <asp:BoundField DataField="CaughtStealing" HeaderText="CS" />
-                                <asp:BoundField DataField="RangeFactor" HeaderText="RF" />
-                                <asp:BoundField DataField="FieldingPercentage" HeaderText="FPCT" />
-
-                            </Columns>
-
-                            <FooterStyle BackColor="#243B69" BorderStyle="None" />
-                            <HeaderStyle BackColor="#243B69" ForeColor="White" />
-                        </asp:GridView>
-                    </div>
+                <div class="row">
+                    <ul class="nav nav-pills col-md-offset-4 col-md-3">
+                        <li class="active"><a data-toggle="tab" href="#pitching">PITCHING</a></li>
+                        <li><a data-toggle="tab" href="#batting">BATTING</a></li>
+                        <li><a data-toggle="tab" href="#fielding">FIELDING</a></li>
+                    </ul>
+                    <span class="col-md-4">
+                        <asp:Label Text="Filter by year: " runat="server" />
+                        <asp:TextBox ID="statsFilterTextBox" runat="server" />
+                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" />
+                    </span>
                 </div>
+
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+
+                        <div class="tab-content" style="padding-left: 5vw; padding-right: 5vw; min-height: 30vh">
+                            <div id="pitching" class="tab-pane fade in active">
+                                <h3>
+                                    <asp:Label ID="pitchingName" runat="server" Text="Name"></asp:Label>
+                                    Pitching Stats
+                                </h3>
+                                <asp:Label ID="nullPitchStatsLabel" runat="server" Text="This player does not currently have any pitching stats." ForeColor="red" />
+
+
+
+                                <asp:GridView ID="PitchingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
+
+                                    <Columns>
+                                        <asp:BoundField DataField="PitchStatYear" HeaderText="Year" />
+                                        <asp:BoundField DataField="Team" HeaderText="Team" />
+                                        <asp:BoundField DataField="League" HeaderText="LG" />
+                                        <asp:BoundField DataField="Wins" HeaderText="W" />
+                                        <asp:BoundField DataField="Losses" HeaderText="L" />
+                                        <asp:BoundField DataField="EarnedRunsAverage" HeaderText="ERA" />
+                                        <asp:BoundField DataField="Games" HeaderText="G" />
+                                        <asp:BoundField DataField="GamesStarted" HeaderText="GS" />
+                                        <asp:BoundField DataField="CompleteGames" HeaderText="CG" />
+                                        <asp:BoundField DataField="ShutOuts" HeaderText="SHO" />
+                                        <asp:BoundField DataField="Saves" HeaderText="SV" />
+                                        <asp:BoundField DataField="SaveOpportunities" HeaderText="SVO" />
+                                        <asp:BoundField DataField="InningsPitched" HeaderText="IP" />
+                                        <asp:BoundField DataField="Hits" HeaderText="H" />
+                                        <asp:BoundField DataField="Runs" HeaderText="R" />
+                                        <asp:BoundField DataField="EarnedRuns" HeaderText="ER" />
+                                        <asp:BoundField DataField="HomeRuns" HeaderText="HR" />
+                                        <asp:BoundField DataField="HitBatsmen" HeaderText="HB" />
+                                        <asp:BoundField DataField="BasesOnBalls" HeaderText="BB" />
+                                        <asp:BoundField DataField="IntentionalBasesOnBalls" HeaderText="IBB" />
+                                        <asp:BoundField DataField="StrikeOuts" HeaderText="SO" />
+                                        <asp:BoundField DataField="BattingAverage" HeaderText="AVG" />
+                                        <asp:BoundField DataField="WalksAndHitsPerInningsPitched" HeaderText="WHIP" />
+                                        <asp:BoundField DataField="GroundOrAirOuts" HeaderText="GO/AO" />
+                                    </Columns>
+
+                                    <FooterStyle BackColor="#243B69" BorderStyle="None" />
+                                    <HeaderStyle BackColor="#243B69" ForeColor="White" />
+                                </asp:GridView>
+
+
+
+                            </div>
+                            <div id="batting" class="tab-pane fade">
+                                <h3>
+                                    <asp:Label ID="battingName" runat="server" Text="Name"></asp:Label>
+                                    Batting Stats
+                                </h3>
+                                <asp:Label ID="nullBatStatsLabel" runat="server" Text="This player does not currently have any batting stats." ForeColor="red" />
+                                <asp:GridView ID="BattingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
+
+                                    <Columns>
+                                        <asp:BoundField DataField="BatStatYear" HeaderText="Year" />
+                                        <asp:BoundField DataField="Team" HeaderText="Team" />
+                                        <asp:BoundField DataField="League" HeaderText="LG" />
+                                        <asp:BoundField DataField="Games" HeaderText="G" />
+                                        <asp:BoundField DataField="AtBats" HeaderText="AB" />
+                                        <asp:BoundField DataField="Runs" HeaderText="R" />
+                                        <asp:BoundField DataField="Hits" HeaderText="H" />
+                                        <asp:BoundField DataField="TotalBases" HeaderText="TB" />
+                                        <asp:BoundField DataField="Doubles" HeaderText="2B" />
+                                        <asp:BoundField DataField="Triples" HeaderText="3B" />
+                                        <asp:BoundField DataField="HomeRuns" HeaderText="HR" />
+                                        <asp:BoundField DataField="RunsBattedIn" HeaderText="RBI" />
+                                        <asp:BoundField DataField="BasesOnBalls" HeaderText="BB" />
+                                        <asp:BoundField DataField="IntentionalBasesOnBalls" HeaderText="IBB" />
+                                        <asp:BoundField DataField="Strikeouts" HeaderText="SO" />
+                                        <asp:BoundField DataField="StolenBases" HeaderText="SB" />
+                                        <asp:BoundField DataField="CaughtStealing" HeaderText="CS" />
+                                        <asp:BoundField DataField="BattingAverage" HeaderText="AVG" />
+                                        <asp:BoundField DataField="OnBasePercentage" HeaderText="OBP" />
+                                        <asp:BoundField DataField="SluggingPercentage" HeaderText="SLG" />
+                                        <asp:BoundField DataField="OnBasePlusSlugging" HeaderText="OPS" />
+                                        <asp:BoundField DataField="GroundOrAirOuts" HeaderText="GO/AO" />
+                                    </Columns>
+
+                                    <FooterStyle BackColor="#243B69" BorderStyle="None" />
+                                    <HeaderStyle BackColor="#243B69" ForeColor="White" />
+                                </asp:GridView>
+                            </div>
+                            <div id="fielding" class="tab-pane fade">
+                                <h3>
+                                    <asp:Label ID="fieldingName" runat="server" Text="Name"></asp:Label>
+                                    Fielding Stats
+                                </h3>
+                                <asp:Label ID="nullFieldStatsLabel" runat="server" Text="This player does not currently have any fielding stats." ForeColor="red" />
+                                <asp:GridView ID="FieldingStatsGridView" runat="server" CssClass="table table-condensed" AutoGenerateColumns="False" GridLines="Horizontal" HorizontalAlign="Center" BorderColor="#243B69" BorderStyle="None" EmptyDataText="Null" EnableTheming="True" ShowFooter="True">
+
+                                    <Columns>
+                                        <asp:BoundField DataField="FieldStatYear" HeaderText="Year" />
+                                        <asp:BoundField DataField="Team" HeaderText="Team" />
+                                        <asp:BoundField DataField="League" HeaderText="LG" />
+                                        <asp:BoundField DataField="Position" HeaderText="POS" />
+                                        <asp:BoundField DataField="Games" HeaderText="G" />
+                                        <asp:BoundField DataField="GamesStarted" HeaderText="GS" />
+                                        <asp:BoundField DataField="InningsAtThisPosition" HeaderText="INN" />
+                                        <asp:BoundField DataField="TotalChances" HeaderText="TC" />
+                                        <asp:BoundField DataField="Putouts" HeaderText="PO" />
+                                        <asp:BoundField DataField="Assists" HeaderText="A" />
+                                        <asp:BoundField DataField="Errors" HeaderText="E" />
+                                        <asp:BoundField DataField="DoublePlays" HeaderText="DP" />
+                                        <asp:BoundField DataField="PassedBall" HeaderText="PB" />
+                                        <asp:BoundField DataField="StolenBases" HeaderText="SB" />
+                                        <asp:BoundField DataField="CaughtStealing" HeaderText="CS" />
+                                        <asp:BoundField DataField="RangeFactor" HeaderText="RF" />
+                                        <asp:BoundField DataField="FieldingPercentage" HeaderText="FPCT" />
+
+                                    </Columns>
+
+                                    <FooterStyle BackColor="#243B69" BorderStyle="None" />
+                                    <HeaderStyle BackColor="#243B69" ForeColor="White" />
+                                </asp:GridView>
+                            </div>
+                        </div>
+
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="filterStatsButton" />
+                    </Triggers>
+                </asp:UpdatePanel>
+
             </div>
         </div>
 

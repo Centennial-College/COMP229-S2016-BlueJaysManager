@@ -72,7 +72,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                             Draft = reader["Draft"].ToString(),
                             HighSchool = reader["HighSchool"].ToString(),
                             College = reader["College"].ToString(),
-                            Debut = reader["Debut"].ToString(),
+                            Debut = reader["Debut"].ToString().Substring(0, reader["Debut"].ToString().IndexOf("12:00AM")),
                         }
                     );
                 }

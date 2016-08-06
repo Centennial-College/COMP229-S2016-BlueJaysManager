@@ -15,11 +15,21 @@ namespace Blue_Jays_Manager
     /// </summary>
     public partial class PlayerDetails : System.Web.UI.Page
     {
+        int playerNum;
+        List<PitchingStats> pitchingStats;
+        List<BattingStats> battingStats;
+        List<FieldingStats> fieldingStats;
+
+        List<PitchingStats> filteredPitchingStats = new List<PitchingStats>();
+        List<BattingStats> filteredBattingStats = new List<BattingStats>();
+        List<FieldingStats> filteredFieldingStats = new List<FieldingStats>();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // PLAYER PROFILE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-            int playerNum = int.Parse(Request.QueryString["playerNumber"]);
+            playerNum = int.Parse(Request.QueryString["playerNumber"]);
 
             playerNumber.Text = playerNum.ToString();
 
@@ -94,40 +104,92 @@ namespace Blue_Jays_Manager
             // PLAYER PITCHING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             pitchingName.Text = player.Name.ToString();
 
-            List<PitchingStats> pitchingStats = DataRetrieval.SelectPitchingStatsyWherePlayerNumEquals(playerNum);
+            pitchingStats = DataRetrieval.SelectPitchingStatsyWherePlayerNumEquals(playerNum);
 
-            if (pitchingStats.Count == 0)
-            {
-                nullPitchStatsLabel.Visible = true;
-            }
-            else
-            {
-                nullPitchStatsLabel.Visible = false;
-                PitchingStatsGridView.DataSource = pitchingStats;
-                PitchingStatsGridView.DataBind();
-            }
+            displayPitchingStats(pitchingStats);
 
             // PLAYER BATTING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             battingName.Text = player.Name.ToString();
 
-            List<BattingStats> battingStats = DataRetrieval.SelectBattingStatsyWherePlayerNumEquals(playerNum);
+            battingStats = DataRetrieval.SelectBattingStatsyWherePlayerNumEquals(playerNum);
 
-            if (battingStats.Count == 0)
-            {
-                nullBatStatsLabel.Visible = true;
-            }
-            else
-            {
-                nullBatStatsLabel.Visible = false;
-                BattingStatsGridView.DataSource = battingStats;
-                BattingStatsGridView.DataBind();
-            }
+            displayBattingStats(battingStats);
 
             // PLAYER FIELDING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             fieldingName.Text = player.Name.ToString();
 
-            List<FieldingStats> fieldingStats = DataRetrieval.SelectFieldingStatsyWherePlayerNumEquals(playerNum);
+            fieldingStats = DataRetrieval.SelectFieldingStatsyWherePlayerNumEquals(playerNum);
 
+            displayFieldingStats(fieldingStats);
+
+        }
+
+        protected void filterStatsButton_Click(object sender, EventArgs e)
+        {
+            int filterYear;
+
+            // if empty filter string, display all stats available
+            if (statsFilterTextBox.Text == "")
+            {
+                displayFieldingStats(fieldingStats);
+                displayBattingStats(battingStats);
+                displayPitchingStats(pitchingStats);
+            }
+
+            // if integer year, valid input
+            else if (int.TryParse(statsFilterTextBox.Text, out filterYear))
+            {
+                // remove any filtered stats from before from the list
+                filteredFieldingStats.Clear();
+                filteredBattingStats.Clear();
+                filteredPitchingStats.Clear();
+
+                // need external variable because not every stat record has a correpsonding year
+                int statYear;
+
+                // filtering fielding stats
+                foreach (FieldingStats stat in fieldingStats)
+                {
+                    if (int.TryParse(stat.FieldStatYear, out statYear) && statYear == filterYear)
+                    {
+                        filteredFieldingStats.Add(stat);
+                    }
+                }
+
+                // filtering Batting stats
+                foreach (BattingStats stat in battingStats)
+                {
+                    if (int.TryParse(stat.BatStatYear, out statYear) && filterYear == statYear)
+                    {
+                        filteredBattingStats.Add(stat);
+                    }
+                }
+
+                // filtering Pitching stats
+                foreach (PitchingStats stat in pitchingStats)
+                {
+                    if (int.TryParse(stat.PitchStatYear, out statYear) && filterYear == statYear)
+                    {
+                        filteredPitchingStats.Add(stat);
+                    }
+                }
+
+                // display the filtered stats into their corresponding grid views
+                displayFieldingStats(filteredFieldingStats);
+                displayBattingStats(filteredBattingStats);
+                displayPitchingStats(filteredPitchingStats);
+            }
+
+            // invalid input - not an integer
+            else
+            {
+                statsFilterTextBox.Text = "Please enter an integer.";
+            }
+        }
+
+        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        private void displayFieldingStats(List<FieldingStats> displaySet)
+        {
             if (fieldingStats.Count == 0)
             {
                 nullFieldStatsLabel.Visible = true;
@@ -135,13 +197,39 @@ namespace Blue_Jays_Manager
             else
             {
                 nullFieldStatsLabel.Visible = false;
-                FieldingStatsGridView.DataSource = fieldingStats;
+                FieldingStatsGridView.DataSource = displaySet;
                 FieldingStatsGridView.DataBind();
             }
-
         }
 
-        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        private void displayBattingStats(List<BattingStats> displaySet)
+        {
+            if (battingStats.Count == 0)
+            {
+                nullBatStatsLabel.Visible = true;
+            }
+            else
+            {
+                nullBatStatsLabel.Visible = false;
+                BattingStatsGridView.DataSource = displaySet;
+                BattingStatsGridView.DataBind();
+            }
+        }
+
+        private void displayPitchingStats(List<PitchingStats> displaySet)
+        {
+            if (pitchingStats.Count == 0)
+            {
+                nullPitchStatsLabel.Visible = true;
+            }
+            else
+            {
+                nullPitchStatsLabel.Visible = false;
+                PitchingStatsGridView.DataSource = displaySet;
+                PitchingStatsGridView.DataBind();
+            }
+        }
+
         private int _inchesToFeet(int length, out int remainingInches)
         {
             double remainder = length * 0.0833333;
@@ -201,5 +289,7 @@ namespace Blue_Jays_Manager
 
             return age;
         }
+
+
     }
 }
