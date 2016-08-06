@@ -40,6 +40,8 @@ namespace Blue_Jays_Manager
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
                 var exist = roster.Find(x => x.CoachNumber == coachId);
 
+                //Write code here to check first and last name of the coach 'exist' against first and last name entered in text fields
+
                 if (exist != null)
                 {
                     int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, "coach");
@@ -51,7 +53,15 @@ namespace Blue_Jays_Manager
                     }
                     else
                     {
-                        Response.Redirect("~/Login.aspx");
+                        Models.Correspondence.Email.RegistrationConfirmation(UserName.Text,Password.Text, FirstName.Text, LastName.Text, Email.Text, exist.CoachNumber);
+                        UserExists.Text = "Succesfull Registration. Email Confirmation has been sent to your email";
+                        UserExists.ForeColor = System.Drawing.Color.Green;
+                        CoachId.Text = "";
+                        FirstName.Text = "";
+                        LastName.Text = "";
+                        Email.Text = "";
+                        UserName.Text = "";
+                        Password.Text = "";
                     }
                 }
                 else
