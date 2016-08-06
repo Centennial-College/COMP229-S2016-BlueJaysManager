@@ -13,7 +13,7 @@
     <script src="Scripts/BlueJays.js"></script>
 
 </head>
-<body style="background-color: #ede8e8; height:100%">
+<body style="height:100%">
     <form id="form1" runat="server">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -60,10 +60,13 @@
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Toronto Blue Jays Manager</p>
-            </footer>
+            <div class="container">
+                    <hr style="background-color:#232323; border: 1px solid #232323; border-radius:5px " />
+                    <footer>
+                        <p>&copy; <%: DateTime.Now.Year %> - Toronto Blue Jays Manager <span class="pull-right">Developers: Vinood Persad | Kevin Ma</span></p>
+
+                    </footer>
+                </div>
         </div> 
     </form>
 </body>

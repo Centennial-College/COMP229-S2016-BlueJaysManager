@@ -4,8 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container list">
-        <div class="page-header">
-            <h1>Manager and Coach Roster</h1>           
+        <div class="page-header" style="margin-top:20px; margin-bottom:5px">
+            <div class="row">
+            <h1 style="margin-top:20px" class="pull-left">Manager and Coach Roster</h1> <asp:Image ID="Image1" CssClass="img-responsive pull-right" Height="100px" Width="300px" ImageUrl="~/Images/jayswordlogo.png" runat="server" />
+            </div>
         </div>
         <h3>List of Toronto Blue Jays Coaches and Manager</h3>
         <hr />
@@ -22,7 +24,7 @@
         <br />
         <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser" AllowSorting="True" OnSorting="CoachRosterGridView_Sorting">
             <Columns>
-                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True">
+                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True" NullDisplayText="N/A">
                     <ControlStyle CssClass="img-responsive" Height="50px" Width="40px" />
                 </asp:ImageField>
                 <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" SortExpression="CoachNumber" />

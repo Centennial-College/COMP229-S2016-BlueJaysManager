@@ -1,14 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Blue_Jays_Manager.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid" style="background-color:#243B69; padding-bottom: 100px">
+    <div class="container-fluid" style="padding-bottom: 10px">
         
         <div class="col-md-4"></div>
         <div class="col-md-4 container registerView">
 
-    <div class="form-horizontal" style="margin-right: 50px; margin-left:5px;">
-        <h2 class="page-header">Register Admin User</h2>
+    <div class="form-horizontal" style=" margin-right: 30px; ">
+        <div class="page-header" style="margin-bottom:5px">
+            <div class="row">
+            <h1 style="margin-top:20px" class="pull-left">Register Admin User </h1> 
+            </div>
+        </div>
         <asp:Label ID="UserExists" runat="server"></asp:Label>
-        <br />
         <br />
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="CoachId" CssClass="col-md-4 control-label">Coach Number</asp:Label>
@@ -65,6 +68,7 @@
                 <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^[a-zA-Z]\w{3,14}$" ControlToValidate="Password" ErrorMessage="Invalid password format"></asp:RegularExpressionValidator>
             </div>
         </div>
+
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-4 control-label">Confirm password</asp:Label>
             <div class="col-md-8">
@@ -87,6 +91,9 @@
     </div>
      </div>
 
-        <div class="col-md-4"></div>
+        <div class="col-md-2" style="margin-top:40px; padding-left:0px">
+            <asp:Image ID="Image1" CssClass="img-responsive pull-right" style="margin-right:55px;" Height="200px" Width="200px" ImageURL="~/Images/torontologo.png" runat ="server" />
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </asp:Content>
