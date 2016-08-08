@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Web.Security;
 using Blue_Jays_Manager.Models.DataModels;
 using System.Data;
+using Blue_Jays_Manager.Models.Correspondence;
 
 namespace Blue_Jays_Manager.Models.DataAccessLayer
 {
@@ -66,7 +67,6 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                         admin.UserName = reader["UserName"].ToString();
                         admin.Password = reader["Password"].ToString();
                         admin.Role = reader["Role"].ToString();
-
                     }
 
                     return admin;
@@ -175,6 +175,90 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
             }
 
             return rowChanges;
+        }
+
+        public static int RequestPasswordReset(string username)
+        {
+            int success = 0;
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand("spResetPassword", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserName", username);
+
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (Convert.ToBoolean(reader["ReturnCode"]))
+                    {
+                        success = Email.SendPasswordResetEmail(reader["Email"].ToString(), reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["UniqueId"].ToString());
+                    }
+                    else
+                    {
+                        success = 2;
+                    }
+                }
+            }
+
+            return success;
+        }
+
+        public static bool PasswordResetLinkValid(string uid)
+        {
+            bool valid = false;
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand("spIsPasswordResetLinkValid ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@GUID", uid);
+
+                con.Open();
+
+                valid = Convert.ToBoolean(cmd.ExecuteScalar());
+            }
+            return valid;
+        }
+
+        public static string[] ResetPassword(string uid, string password)
+        {
+            string[] values = new string[4];
+
+            password = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "SHA1");
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand("spChangePassword ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@GUID", uid);
+                cmd.Parameters.AddWithValue("@Password", password);
+
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.FieldCount > 1)
+                {
+                    while (reader.Read())
+                    {
+                        values[0] = reader["FirstName"].ToString();
+                        values[1] = reader["LastName"].ToString();
+                        values[2] = reader["Email"].ToString();
+                        values[3] = reader["UserName"].ToString();
+                    }
+
+                    return values;
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
     }
 }

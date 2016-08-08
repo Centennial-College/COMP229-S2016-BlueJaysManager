@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 
 namespace Blue_Jays_Manager.Models.Correspondence
@@ -72,6 +73,64 @@ namespace Blue_Jays_Manager.Models.Correspondence
 
             SmtpClient client = new SmtpClient();
             client.Send(registraionMail);
+        }
+
+        public static int SendPasswordResetEmail(string email, string firstname, string lastname, string uid)
+        {
+            MailMessage mailMessage = new MailMessage("noreply.bluejays@gmail.com", email);
+            int sent = 0;
+
+            // StringBuilder class is present in System.Text namespace
+            StringBuilder sbEmailBody = new StringBuilder();
+            sbEmailBody.Append("<h3>Password Reset Request</h3><br/><br/>");
+            sbEmailBody.Append("Dear " + firstname + " " + lastname + ",<br/><br/>");
+            sbEmailBody.Append("Please click on the following link to reset your password");
+            sbEmailBody.Append("<br/>"); sbEmailBody.Append("http://localhost:3726//PasswordReset.aspx?uid=" + uid);
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<p>Thank You,<br/>" +
+                                "<b>Blue Jays Administration</b></p>");
+
+            mailMessage.IsBodyHtml = true;
+
+            mailMessage.Body = sbEmailBody.ToString();
+            mailMessage.Subject = "Toronto Blue Jays";
+
+
+            SmtpClient client = new SmtpClient();
+            client.Send(mailMessage);
+            sent = 1;
+            return sent;
+        }
+
+        public static int SendPasswordChangeConfirmation(string password, string firstName, string LastName, string email, string username)
+        {
+
+            MailMessage mailMessage = new MailMessage("noreply.bluejays@gmail.com", email);
+            int sent = 0;
+
+            // StringBuilder class is present in System.Text namespace
+            StringBuilder sbEmailBody = new StringBuilder();
+            sbEmailBody.Append("<h3>Password Reset Successful</h3><br/><br/>");
+            sbEmailBody.Append("Dear " + firstName + " " + LastName + ",<br/><br/>");
+            sbEmailBody.Append("Your admin password has been reset");
+            sbEmailBody.Append("<br/>");
+            sbEmailBody.Append("Username: " + username);
+            sbEmailBody.Append("<br/>");
+            sbEmailBody.Append("New Password: " + password);
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<p>Thank You,<br/>" +
+                                "<b>Blue Jays Administration</b></p>");
+
+            mailMessage.IsBodyHtml = true;
+
+            mailMessage.Body = sbEmailBody.ToString();
+            mailMessage.Subject = "Toronto Blue Jays";
+
+
+            SmtpClient client = new SmtpClient();
+            client.Send(mailMessage);
+            sent = 1;
+            return sent;
         }
     }
 }
