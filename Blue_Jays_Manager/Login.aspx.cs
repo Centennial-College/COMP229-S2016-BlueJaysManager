@@ -45,7 +45,7 @@ namespace Blue_Jays_Manager
             else
             {
 
-                if(user.ToString() == "Account Locked. Please Contact Administrator")
+                if (user.ToString() == "Account Locked. Please Contact Administrator")
                 {
                     DataRetrieval retrieve = new DataRetrieval();
                     List<CoachRoster> roster = retrieve.SelectAllCoaches();
@@ -54,6 +54,16 @@ namespace Blue_Jays_Manager
                 InvalidLabel.Text = user.ToString();
                 InvalidLabel.ForeColor = System.Drawing.Color.Red;
             }
+        }
+
+        protected void PasswordLinkBtn_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("JaysReset.aspx?id=password");
+        }
+
+        protected void UsernameLinkBtn_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("JaysReset.aspx?id=username");
         }
     }
 }

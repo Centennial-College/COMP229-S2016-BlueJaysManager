@@ -1,6 +1,7 @@
 ﻿using Blue_Jays_Manager.Models.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -46,6 +47,8 @@ namespace Blue_Jays_Manager
                 monthDDL.Items.FindByValue(DateTime.Now.Month.ToString()).Selected = true;
             }
         }
+
+
         #endregion
 
         private void _populateDay(DropDownList dayDDL, bool setCurrentDay = true)
@@ -120,6 +123,8 @@ namespace Blue_Jays_Manager
 
             if (!existPlayer)
             {
+                string month = dobMonthDropDownList.SelectedValue;
+                //CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[Convert.ToInt32(dobMonthDropDownList.SelectedValue)];
 
                 playerRoster.Add
                 (
@@ -132,8 +137,7 @@ namespace Blue_Jays_Manager
                         Weight = int.Parse(playerWeight.Text),
                         DateOfBirth = dobMonthDropDownList.SelectedValue + " " +
                         dobDayDropDownList.SelectedValue + " " + dobYearDropDownList.SelectedValue,
-                        SkillOrientation = playerBattingHand + "/" + playerThrowingHand,
-
+                        SkillOrientation = playerBattingHand + "/" + playerThrowingHand
                     }
                 );
 

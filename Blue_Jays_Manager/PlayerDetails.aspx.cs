@@ -29,100 +29,111 @@ namespace Blue_Jays_Manager
         {
             // PLAYER PROFILE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-            playerNum = int.Parse(Request.QueryString["playerNumber"]);
+            // need to implement isPostBack
+            
 
-            playerNumber.Text = playerNum.ToString();
-
-            profilePhoto.ImageUrl = "~/Images/PlayerProfilePic/" + playerNum + ".jpg";
-
-            List<PlayerRoster> roster = (List<PlayerRoster>)Cache["PlayerRoster"];
-            PlayerRoster player = null;
-
-            foreach (PlayerRoster p in roster)
+            if(Request.QueryString["playerNumber"] == null)
             {
-                if (p.PlayerNum == playerNum)
+                Server.Transfer("ErrorPage.aspx");
+            }
+            else
+            {
+                playerNum = int.Parse(Request.QueryString["playerNumber"]);
+                playerNumber.Text = playerNum.ToString();
+
+                profilePhoto.ImageUrl = "~/Images/PlayerProfilePic/" + playerNum + ".jpg";
+
+                List<PlayerRoster> roster = (List<PlayerRoster>)Cache["PlayerRoster"];
+                PlayerRoster player = null;
+
+                foreach (PlayerRoster p in roster)
                 {
-                    player = p;
-                    break;
+                    if (p.PlayerNum == playerNum)
+                    {
+                        player = p;
+                        break;
+                    }
                 }
+
+                name.Text = player.Name;
+                position.Text = player.Position;
+
+                int totalInches = _centimetersToInches(Convert.ToInt32(player.Height));
+                int remainingInches;
+                int feet = _inchesToFeet(totalInches, out remainingInches);
+                height.Text = feet + "'" + remainingInches + "\"";
+
+                weight.Text = player.Weight.ToString();
+                skillOrientation.Text = player.SkillOrientation;
+
+                DateTime dateOfBirth = Convert.ToDateTime(player.DateOfBirth);
+
+                age.Text = _calculateAge(dateOfBirth).ToString();
+
+                // PLAYER BIO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                List<PlayerBio> pBio = DataRetrieval.SelectPlayerBioWherePlayerNumEquals(playerNum);
+
+                foreach (PlayerBio pb in pBio)
+                {
+                    bioName.Text = pb.Name;
+                    bioBorn.Text = pb.Born;
+                    if (!string.IsNullOrEmpty(pb.Draft))
+                    {
+                        bioDraftHead.Text = "Draft: ";
+                        bioDraft.Text = pb.Draft;
+                    }
+                    else
+                    {
+                        bioDraftHead.Text = "Draft: ";
+                        bioDraft.Text = "N/A";
+                    }
+                    if (!string.IsNullOrEmpty(pb.HighSchool))
+                    {
+                        bioSchoolType.Text = "High School: ";
+                        bioSchool.Text = pb.HighSchool.ToString();
+                    }
+                    else if (!string.IsNullOrEmpty(pb.College))
+                    {
+                        bioSchoolType.Text = "College: ";
+                        bioSchool.Text = pb.College.ToString();
+                    }
+                    else
+                    {
+                        bioSchoolType.Text = "High School/College: ";
+                        bioSchool.Text = "N/A";
+                    }
+                    bioDebut.Text = ": " + pb.Debut;
+                }
+
+                // PLAYER STATS SUMMARY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                List<PlayerStatsSummary> pStatsSummary = DataRetrieval.SelectPlayerStatsSummaryWherePlayerNumEquals(playerNum);
+
+                PlayerRosterGridView.DataSource = pStatsSummary;
+                PlayerRosterGridView.DataBind();
+
+                // PLAYER PITCHING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                pitchingName.Text = player.Name.ToString();
+
+                pitchingStats = DataRetrieval.SelectPitchingStatsyWherePlayerNumEquals(playerNum);
+
+                displayPitchingStats(pitchingStats);
+
+                // PLAYER BATTING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                battingName.Text = player.Name.ToString();
+
+                battingStats = DataRetrieval.SelectBattingStatsyWherePlayerNumEquals(playerNum);
+
+                displayBattingStats(battingStats);
+
+                // PLAYER FIELDING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                fieldingName.Text = player.Name.ToString();
+
+                fieldingStats = DataRetrieval.SelectFieldingStatsyWherePlayerNumEquals(playerNum);
+
+                displayFieldingStats(fieldingStats);
             }
 
-            name.Text = player.Name;
-            position.Text = player.Position;
-
-            int totalInches = _centimetersToInches(Convert.ToInt32(player.Height));
-            int remainingInches;
-            int feet = _inchesToFeet(totalInches, out remainingInches);
-            height.Text = feet + "'" + remainingInches + "\"";
-
-            weight.Text = player.Weight.ToString();
-            skillOrientation.Text = player.SkillOrientation;
-
-            DateTime dateOfBirth = Convert.ToDateTime(player.DateOfBirth);
-
-            age.Text = _calculateAge(dateOfBirth).ToString();
-
-            // PLAYER BIO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            List<PlayerBio> pBio = DataRetrieval.SelectPlayerBioWherePlayerNumEquals(playerNum);
-
-            foreach (PlayerBio pb in pBio)
-            {
-                bioName.Text = pb.Name;
-                bioBorn.Text = pb.Born;
-                if (!string.IsNullOrEmpty(pb.Draft))
-                {
-                    bioDraftHead.Text = "Draft: ";
-                    bioDraft.Text = pb.Draft;
-                }
-                else
-                {
-                    bioDraftHead.Text = "Draft: ";
-                    bioDraft.Text = "N/A";
-                }
-                if (!string.IsNullOrEmpty(pb.HighSchool))
-                {
-                    bioSchoolType.Text = "High School: ";
-                    bioSchool.Text = pb.HighSchool.ToString();
-                }
-                else if (!string.IsNullOrEmpty(pb.College))
-                {
-                    bioSchoolType.Text = "College: ";
-                    bioSchool.Text = pb.College.ToString();
-                }
-                else
-                {
-                    bioSchoolType.Text = "High School/College: ";
-                    bioSchool.Text = "N/A";
-                }
-                bioDebut.Text = ": " + pb.Debut;
-            }
-
-            // PLAYER STATS SUMMARY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            List<PlayerStatsSummary> pStatsSummary = DataRetrieval.SelectPlayerStatsSummaryWherePlayerNumEquals(playerNum);
-
-            PlayerRosterGridView.DataSource = pStatsSummary;
-            PlayerRosterGridView.DataBind();
-
-            // PLAYER PITCHING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            pitchingName.Text = player.Name.ToString();
-
-            pitchingStats = DataRetrieval.SelectPitchingStatsyWherePlayerNumEquals(playerNum);
-
-            displayPitchingStats(pitchingStats);
-
-            // PLAYER BATTING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            battingName.Text = player.Name.ToString();
-
-            battingStats = DataRetrieval.SelectBattingStatsyWherePlayerNumEquals(playerNum);
-
-            displayBattingStats(battingStats);
-
-            // PLAYER FIELDING STATS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            fieldingName.Text = player.Name.ToString();
-
-            fieldingStats = DataRetrieval.SelectFieldingStatsyWherePlayerNumEquals(playerNum);
-
-            displayFieldingStats(fieldingStats);
+           
 
         }
 

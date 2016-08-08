@@ -16,6 +16,7 @@ namespace Blue_Jays_Manager
                 LblEmail.Text = user.Email;
                 LblRole.Text = user.Role;
 
+
                 PasswordPanel.Visible = false;
             }
 
