@@ -31,6 +31,7 @@ namespace Blue_Jays_Manager
             {
                 int coachId = int.Parse(CoachId.Text);
 
+
                 if (Cache["CoachRoster"] == null)
                 {
                     DataRetrieval retrieve = new DataRetrieval();
@@ -40,28 +41,47 @@ namespace Blue_Jays_Manager
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
                 var exist = roster.Find(x => x.CoachNumber == coachId);
 
+                string firstName = exist.Name.Substring(0, exist.Name.IndexOf(" "));
+                string lastName = exist.Name.Substring(exist.Name.IndexOf(" "), exist.Name.Length);
+
                 //Write code here to check first and last name of the coach 'exist' against first and last name entered in text fields
+
+
 
                 if (exist != null)
                 {
-                    int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, "coach");
 
-                    if (returnCode == -1)
+                    if (firstName == FirstName.Text && lastName == LastName.Text)
                     {
-                        UserExists.Text = "Username is already in use. Please try again";
-                        UserExists.ForeColor = System.Drawing.Color.Red;
+                        int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, "coach");
+
+                        if (returnCode == -1)
+                        {
+                            UserExists.Text = "Username is already in use. Please try again";
+                            UserExists.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else if (returnCode == -2)
+                        {
+                            UserExists.Text = "Email is already registered to another user.";
+                            UserExists.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            Models.Correspondence.Email.RegistrationConfirmation(UserName.Text, Password.Text, FirstName.Text, LastName.Text, Email.Text, exist.CoachNumber);
+                            UserExists.Text = "Succesfull Registration. Email Confirmation has been sent to your email";
+                            UserExists.ForeColor = System.Drawing.Color.Green;
+                            CoachId.Text = "";
+                            FirstName.Text = "";
+                            LastName.Text = "";
+                            Email.Text = "";
+                            UserName.Text = "";
+                            Password.Text = "";
+                        }
                     }
                     else
                     {
-                        Models.Correspondence.Email.RegistrationConfirmation(UserName.Text,Password.Text, FirstName.Text, LastName.Text, Email.Text, exist.CoachNumber);
-                        UserExists.Text = "Succesfull Registration. Email Confirmation has been sent to your email";
-                        UserExists.ForeColor = System.Drawing.Color.Green;
-                        CoachId.Text = "";
-                        FirstName.Text = "";
-                        LastName.Text = "";
-                        Email.Text = "";
-                        UserName.Text = "";
-                        Password.Text = "";
+                        UserExists.Text = "Coach name is either invalid or Coach Id is already assigned";
+                        UserExists.ForeColor = System.Drawing.Color.Red;
                     }
                 }
                 else

@@ -9,7 +9,7 @@
             <div class="form-horizontal loginForm" style="margin-left:15px; margin-right:30px">
                <div class="page-header" style="margin-bottom:5px">
                     <div class="row">
-                        <h1 style="margin-top:20px" class="pull-left">Jays Login</h1> 
+                        <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Jays Login</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-log-in"></span></h1> 
                     </div>
              </div>
                    <asp:Label ID="InvalidLabel" runat="server"></asp:Label>
@@ -40,7 +40,7 @@
                 <hr  style="margin-bottom:0"/>
         <div class="form-group pull-right" style="margin-right: 5px;">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" Text="Login" CssClass="btn btn-default" style="width: 90px; margin-bottom:10px;" ID="BtnLogin" OnClick="BtnLogin_Click" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" />
+                <asp:LinkButton ID="LinkButton1"  OnClick="BtnLogin_Click" style="width: 90px; margin-bottom:10px;" CssClass="btn btn-default" runat="server" BackColor="#134A8E" BorderColor="#134A8E" BorderStyle="Solid" ForeColor="White">Login <span class='glyphicon glyphicon-log-in'></span></asp:LinkButton>
             </div>
         </div>
       </div>
@@ -48,7 +48,6 @@
 
                 </div>
          <div class="col-md-2" style="padding-left:0px">
-            <asp:Image ID="Image1" CssClass="img-responsive pull-right" style="margin-right:20px;" Height="200px" Width="230px" ImageURL="~/Images/torontologo.png" runat ="server" />
         </div>
         <div class="col-md-2"></div>
        

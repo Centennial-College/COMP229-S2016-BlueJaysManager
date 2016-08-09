@@ -132,5 +132,33 @@ namespace Blue_Jays_Manager.Models.Correspondence
             sent = 1;
             return sent;
         }
+
+        public static int SendUserNameEmail(string email, string firstName, string lastName, string username)
+        {
+            MailMessage mailMessage = new MailMessage("noreply.bluejays@gmail.com", email);
+            int sent = 0;
+
+            // StringBuilder class is present in System.Text namespace
+            StringBuilder sbEmailBody = new StringBuilder();
+            sbEmailBody.Append("<h3>Username Request</h3><br/><br/>");
+            sbEmailBody.Append("Dear " + firstName + " " + lastName + ",<br/><br/>");
+            sbEmailBody.Append("You have requested your username for your admin account.");
+            sbEmailBody.Append("<br/>");
+            sbEmailBody.Append("Username: " + username);
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<p>Thank You,<br/>" +
+                                "<b>Blue Jays Administration</b></p>");
+
+            mailMessage.IsBodyHtml = true;
+
+            mailMessage.Body = sbEmailBody.ToString();
+            mailMessage.Subject = "Toronto Blue Jays";
+
+
+            SmtpClient client = new SmtpClient();
+            client.Send(mailMessage);
+            sent = 1;
+            return sent;
+        }
     }
 }

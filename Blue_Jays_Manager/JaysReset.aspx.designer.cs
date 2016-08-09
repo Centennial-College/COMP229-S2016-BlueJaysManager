@@ -58,12 +58,12 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.TextBox reset;
         
         /// <summary>
-        /// BtnReset control.
+        /// BtnnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnReset;
+        protected global::System.Web.UI.WebControls.LinkButton BtnnReset;
     }
 }

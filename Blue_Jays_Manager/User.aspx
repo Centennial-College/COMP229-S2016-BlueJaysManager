@@ -3,16 +3,16 @@
 
     <div class="container" style="margin-top:50px; min-height:650px; background-color:#fff; padding-left:0; padding-right:0" >
         <div class="jumbotron" style="background-color:#134A8E; color:#fff">
-            <h1>User Account Details</h1>
+            <h1>Account Details &nbsp;<span style="color:#EF2F24" class="glyphicon glyphicon-compressed"></span></h1>
         </div>
 
                         <div >
-                            <h1><asp:label runat="server" ID="LblName" CssClass="page-header"></asp:label></h1>
+                            <h1><asp:label runat="server" ID="LblName" CssClass="page-header"></asp:label>&nbsp;&nbsp;<span class=" glyphicon glyphicon-user"></span></h1>
                         </div>
 
                     <div class="row">
                              <div class="col-md-1">
-                                    <asp:Label ID="Label3" runat="server" Text="Role:"></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Font-Bold="true" Text="Role:"></asp:Label>
                              </div>
                              <div class="col-md-11">
                                    <asp:Label ID="LblRole" runat="server"></asp:Label>
@@ -22,7 +22,7 @@
 
                         <div class="row">
                             <div class="col-md-1">
-                                <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Font-Bold="true" Text="Email:"></asp:Label>
                             </div>
                             <div class="col-md-11">
                                 <asp:Label ID="LblEmail" runat="server" ></asp:Label>
@@ -31,7 +31,7 @@
 
                         <div class="row">
                             <div class=" col-md-1">
-                                <asp:Label ID="LblPassword" runat="server" Text="Password:"></asp:Label>
+                                <asp:Label ID="LblPassword" runat="server" Font-Bold="true" Text="Password:"></asp:Label>
                            </div>
                             <div class="col-md-11">
 

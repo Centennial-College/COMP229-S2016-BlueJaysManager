@@ -27,6 +27,7 @@ namespace Blue_Jays_Manager
                     if ((bool)Session["PlayerChanges"] == false)
                     {
                         SavePlayerChanges.Enabled = false;
+                        SavePlayerChanges.Visible = false;
                     }
                     else
                     {
@@ -169,6 +170,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["PlayerChanges"] = true;
                     SavePlayerChanges.Enabled = true;
+                    SavePlayerChanges.Visible = true;
                 }
 
                 PlayerRosterGridView.EditIndex = -1;
@@ -212,6 +214,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["PlayerChanges"] = true;
                     SavePlayerChanges.Enabled = true;
+                    SavePlayerChanges.Visible = true;
                 }
 
                 PlayerRosterGridView.EditIndex = -1;
@@ -233,6 +236,7 @@ namespace Blue_Jays_Manager
 
                 Session["PlayerChanges"] = false;
                 SavePlayerChanges.Enabled = false;
+                SavePlayerChanges.Visible = false;
 
             }
 
@@ -270,7 +274,7 @@ namespace Blue_Jays_Manager
                         ViewState["SortDirection"] = SortDirection.Ascending;
                     }
                 }
-                else if(e.SortExpression == "PlayerHeight")
+                else if (e.SortExpression == "PlayerHeight")
                 {
                     roster = (List<PlayerRoster>)Cache["PlayerRoster"];
 
@@ -286,7 +290,7 @@ namespace Blue_Jays_Manager
                         ViewState["SortDirection"] = SortDirection.Ascending;
                     }
                 }
-                else if(e.SortExpression == "PlayerWeight")
+                else if (e.SortExpression == "PlayerWeight")
                 {
                     roster = (List<PlayerRoster>)Cache["PlayerRoster"];
 
@@ -315,7 +319,7 @@ namespace Blue_Jays_Manager
                         roster = roster.OrderBy(x => x.PlayerNum).ToList();
                     }
                 }
-                else if(e.SortExpression == "PlayerHeight")
+                else if (e.SortExpression == "PlayerHeight")
                 {
                     roster = (List<PlayerRoster>)Cache["PlayerRoster"];
                     if (e.SortDirection == SortDirection.Ascending)
@@ -323,7 +327,7 @@ namespace Blue_Jays_Manager
                         roster = roster.OrderBy(x => x.Height).ToList();
                     }
                 }
-                else if(e.SortExpression == "PlayerWeight")
+                else if (e.SortExpression == "PlayerWeight")
                 {
                     roster = (List<PlayerRoster>)Cache["PlayerRoster"];
                     if (e.SortDirection == SortDirection.Ascending)

@@ -26,10 +26,12 @@ namespace Blue_Jays_Manager
                     if ((bool)Session["CoachChanges"] == false)
                     {
                         SaveCoachChanges.Enabled = false;
+                        SaveCoachChanges.Visible = false;
                     }
                     else
                     {
                         SaveCoachChanges.Enabled = true;
+                        SaveCoachChanges.Visible = true;
                     }
                     AddCoach.Visible = true;
                     CoachRosterGridView.AutoGenerateEditButton = true;
@@ -150,6 +152,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["CoachChanges"] = true;
                     SaveCoachChanges.Enabled = true;
+                    SaveCoachChanges.Visible = true;
                 }
 
                 CoachRosterGridView.EditIndex = -1;
@@ -185,6 +188,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["CoachChanges"] = true;
                     SaveCoachChanges.Enabled = true;
+                    SaveCoachChanges.Visible = true;
                 }
 
                 CoachRosterGridView.EditIndex = -1;
@@ -207,6 +211,7 @@ namespace Blue_Jays_Manager
 
                 Session["CoachChanges"] = false;
                 SaveCoachChanges.Enabled = false;
+                SaveCoachChanges.Visible = false;
             }
 
             if ((bool)Session["PlayerChanges"] == true)

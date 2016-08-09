@@ -15,46 +15,69 @@ namespace Blue_Jays_Manager
             if (!IsPostBack)
             {
                 string value = Request.QueryString["id"];
-                if (value == "password")
+
+                if (value == null)
+                {
+                    Server.Transfer("ErrorPage.aspx");
+                }
+                else if (value == "password")
                 {
                     LblReset.Text = "Username:";
-                    LblPageHeader.Text = "Request Password Reset";
-                    BtnReset.Text = "Reset Password";
+                    LblPageHeader.Text = "Request Password Reset <span style=\"color: #EF2F24\" class=\"glyphicon glyphicon-cog\"></span>";
+                    BtnnReset.Text = "Reset Password  <span class=\"glyphicon glyphicon-send\"></span>";
                 }
                 else if (value == "username")
                 {
                     LblReset.Text = "Email Address:";
-                    LblPageHeader.Text = "Request Admin Username";
-                    BtnReset.Text = "Submit";
+                    LblPageHeader.Text = "Request Admin Username <span style=\"color: #EF2F24\" class=\"glyphicon glyphicon-cog\"></span>";
+                    BtnnReset.Text = "Submit <span  class=\"glyphicon glyphicon-send\"></span>";
                 }
             }
         }
 
         protected void BtnReset_Click(object sender, EventArgs e)
         {
-            int success = 0;
-            if (Request.QueryString["id"] == "password")
+            if (IsValid)
             {
-                success = AdminUserDataLayer.RequestPasswordReset(reset.Text);
-
-                if (success == 1)
+                int success = 0;
+                if (Request.QueryString["id"] == "password")
                 {
-                    ConfirmLbl.Text = "Email has been sent to reset password";
-                    ConfirmLbl.ForeColor = System.Drawing.Color.Green;
-                }
-                else
-                {
-                    ConfirmLbl.Text = "Username could not be found";
-                    ConfirmLbl.ForeColor = System.Drawing.Color.Red;
-                }
-            }
-            else if (Request.QueryString["id"] == "username")
-            {
-                //ask for email
-                //look up email in database
-                //return first and last name, email and username...and send username to email address.
-                // show confirmation on label
+                    success = AdminUserDataLayer.RequestPasswordReset(reset.Text);
 
+                    if (success == 1)
+                    {
+                        ConfirmLbl.Text = "Email has been sent to reset password";
+                        ConfirmLbl.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        ConfirmLbl.Text = "Username could not be found";
+                        ConfirmLbl.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+                else if (Request.QueryString["id"] == "username")
+                {
+
+                    success = AdminUserDataLayer.RequestUserName(reset.Text);
+
+
+                    if (success == 1)
+                    {
+                        ConfirmLbl.Text = "Your username has been sent to the registered email.";
+                        ConfirmLbl.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else if (success == 2)
+                    {
+                        ConfirmLbl.Text = "Email provided is either invalid or does not exist in admin database.";
+                        ConfirmLbl.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        ConfirmLbl.Text = "There has been an error requesting username. Please speak to administration.";
+                        ConfirmLbl.ForeColor = System.Drawing.Color.Red;
+                    }
+
+                }
             }
 
         }

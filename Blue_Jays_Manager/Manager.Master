@@ -12,7 +12,7 @@
    
 
 </head>
-<body style="background-color: #ede8e8; height:100%">
+<body style="height:100%; background-color:#ffffff">
     <form id="form1" runat="server">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,7 +35,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" href="~/Register.aspx"><% if (Session["login"].ToString() == "loggedIn")
                         {
-                            Response.Write(Session["Name"]);
+                            Response.Write("<span class=\" glyphicon glyphicon-user\"></span>" + " " + Session["Name"]);
                         }
                         else
                         {
@@ -46,11 +46,11 @@
 
                         <li><a runat="server" href="~/Login.aspx"><% if (Session["login"].ToString() == "loggedIn")
                         {
-                            Response.Write("Sign Out");
+                            Response.Write("<span class=\"glyphicon glyphicon-log-out\"></span> Sign Out");
                         }
                         else
                         {
-                            Response.Write("Log In");
+                            Response.Write("<span class=\"glyphicon glyphicon-log-in\"></span> Log In");
                         } %></a></li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
          <div class="container">
                     <hr style="background-color:#232323; border: 1px solid #232323; border-radius:5px " />
                     <footer>
-                        <p>&copy; <%: DateTime.Now.Year %> - Toronto Blue Jays Manager <span class="pull-right">Developers: Vinood Persad | Kevin Ma</span></p>
+                        <p>&copy; <%: DateTime.Now.Year %> - Developers: Vinood Persad | Kevin Ma  </p>
 
                     </footer>
                 </div>

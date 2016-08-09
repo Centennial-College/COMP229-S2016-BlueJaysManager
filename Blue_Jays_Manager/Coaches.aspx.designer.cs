@@ -37,7 +37,7 @@ namespace Blue_Jays_Manager {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddCoach;
+        protected global::System.Web.UI.WebControls.LinkButton AddCoach;
         
         /// <summary>
         /// SaveCoachChanges control.
@@ -46,7 +46,7 @@ namespace Blue_Jays_Manager {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveCoachChanges;
+        protected global::System.Web.UI.WebControls.LinkButton SaveCoachChanges;
         
         /// <summary>
         /// CoachRosterGridView control.

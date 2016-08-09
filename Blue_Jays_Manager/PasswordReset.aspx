@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-             <h1  style="margin-top:70px" class="page-header"> <asp:Label ID="RsetPassword" runat="server">Admin Password Reset</asp:Label></h1>
+             <h1  style="margin-top:70px" class="page-header"> <asp:Label ID="RsetPassword" runat="server"><span style="color:#134A8E">Admin Password Reset</span></asp:Label></h1>
              <asp:Label ID="confirmLabel" runat="server"></asp:Label>
              <div class="form-group row">
             <asp:Label runat="server" AssociatedControlID="NewPassword" CssClass="col-md-2 control-label">New Password</asp:Label>
@@ -46,7 +46,8 @@
               <div class="form-group" style="margin-right: 5px;">
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <asp:Button runat="server" CssClass="btn btn-default" Text="Reset" style="width: 115px; margin-bottom:10px;" ID="BtnResetPassword" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="BtnReset_Click" />
+
+                <asp:LinkButton ID="BtnnResetPassword" CssClass="btn btn-default" style="width: 115px; margin-bottom:10px;" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="BtnReset_Click" runat="server">Reset <span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
             </div>
             <div class="col-md-6"></div>   
         </div>

@@ -19,7 +19,19 @@
                         </div>
                     </div>
                 </div>
-       <h1 style="margin-top:70px" class ="text-center"> Oops! Looks like you shouldnt be here buddy....</h1>
+
+       <div class="row">
+           <div class="col-md-4">
+
+           </div>
+           <div class="col-md-4">
+               <span style="color:#EF2F24; margin-top:150px;  font-size:250px; margin-right:auto; margin-left:auto" class="glyphicon glyphicon-alert text-center"></span> 
+           </div>
+           <div class="col-md-4"></div>
+       </div>
+           
+       
+       
     </div>
     </form>
 </body>
