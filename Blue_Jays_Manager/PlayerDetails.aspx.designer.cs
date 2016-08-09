@@ -166,13 +166,13 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.TextBox statsFilterTextBox;
         
         /// <summary>
-        /// filterStatsButton control.
+        /// fillterStatsButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button filterStatsButton;
+        protected global::System.Web.UI.WebControls.LinkButton fillterStatsButton;
         
         /// <summary>
         /// ScriptManager1 control.

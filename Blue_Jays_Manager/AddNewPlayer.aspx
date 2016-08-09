@@ -9,7 +9,7 @@
             <div id="addPlayerFormDiv" class="form-horizontal" style="margin-right: 30px;">
                 <div class="page-header" style="margin-bottom: 5px">
                     <div class="row">
-                        <h1 style="margin-top: 20px" class="pull-left">Add New Player</h1>
+                        <h1 style="margin-top: 20px" class="pull-left"><span style="color:#134A8E">Add New Player <span style="color:#EF2F24" class="glyphicon glyphicon-plus-sign"></span></span></h1>
                     </div>
                 </div>
                 <asp:Label ID="PlayerExists" runat="server" ForeColor="red"></asp:Label>
@@ -109,7 +109,7 @@
                 <div class="form-group pull-right">
                     <div class="col-md-12">
                         <input id="Resetbtn" type="reset" class="btn btn-default" style="width: 90px" value="reset" />
-                        <asp:Button runat="server" Text="Add Player" CssClass="btn btn-primary" Style="width: 90px" ID="AddPlayerButton" OnClick="AddPlayerButton_Click" />
+                        <asp:LinkButton ID="AddPlayerButtoon" OnClick="AddPlayerButton_Click"  CssClass="btn btn-primary" BackColor="#134A8E" ForeColor="#ffffff" Style="width: 110px"  runat="server">Add Player <span  class='glyphicon glyphicon-chevron-right'></span></asp:LinkButton>
 
                     </div>
                 </div>

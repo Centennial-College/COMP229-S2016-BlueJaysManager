@@ -8,7 +8,7 @@
     <div id="addCoachFormDiv" class="form-horizontal" style=" margin-right: 30px; ">
         <div class="page-header" style="margin-bottom:5px">
             <div class="row">
-            <h1 style="margin-top:20px" class="pull-left">Add New Coach</h1> 
+            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Add New Coach</span>  <span style="color:#EF2F24" class="glyphicon glyphicon-plus-sign"></span></h1> 
             </div>
         </div>
         <asp:Label ID="CoachExists" runat="server" ForeColor="red"></asp:Label>
@@ -53,7 +53,7 @@
         <div class="form-group pull-right">
             <div class="col-md-12">
                 <input id="Resetbtn" type="reset" class="btn btn-default" style="width: 90px"  value="reset" />
-                 <asp:Button runat="server" Text="Add Coach" CssClass="btn btn-primary" style="width: 90px"  ID="AddCoachButton" OnClick="AddCoachButton_Click" />
+                 <asp:LinkButton ID="AddCoachButtoon" OnClick="AddCoachButton_Click"  CssClass="btn btn-primary" BackColor="#134A8E" ForeColor="#ffffff" Style="width: 110px"  runat="server">Add Player <span  class='glyphicon glyphicon-chevron-right'></span></asp:LinkButton>
                
             </div>
         </div>
