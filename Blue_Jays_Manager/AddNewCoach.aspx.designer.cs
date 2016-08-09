@@ -10,69 +10,69 @@
 namespace Blue_Jays_Manager {
     
     
-    public partial class Login {
+    public partial class AddNewCoach {
         
         /// <summary>
-        /// InvalidLabel control.
+        /// CoachExists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InvalidLabel;
+        protected global::System.Web.UI.WebControls.Label CoachExists;
         
         /// <summary>
-        /// UserName control.
+        /// CoachNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.WebControls.TextBox CoachNum;
         
         /// <summary>
-        /// Password control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
-        /// PasswordLinkBtn control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton PasswordLinkBtn;
+        protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
-        /// UsernameLinkBtn control.
+        /// pos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton UsernameLinkBtn;
+        protected global::System.Web.UI.WebControls.TextBox pos;
         
         /// <summary>
-        /// checkboxRemeber control.
+        /// AddCoachButtoon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox checkboxRemeber;
+        protected global::System.Web.UI.WebControls.LinkButton AddCoachButtoon;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.Image Image1;
     }
 }

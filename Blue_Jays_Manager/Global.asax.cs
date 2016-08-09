@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blue_Jays_Manager.Models.DataAccessLayer;
+using System;
 using System.Web.UI;
 
 namespace Blue_Jays_Manager
@@ -8,7 +9,7 @@ namespace Blue_Jays_Manager
         protected void Application_Start(object sender, EventArgs e)
         {
 
-            // LoadExcelData.LoadToDatabase();
+            LoadExcelData.LoadToDatabase();
             string JQueryVer = "3.1.0";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {

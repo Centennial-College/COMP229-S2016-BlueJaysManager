@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.Caching;
 using System.Web.Security;
 using Blue_Jays_Manager.Models.DataAccessLayer;
 using Blue_Jays_Manager.Models.DataModels;
@@ -23,6 +24,7 @@ namespace Blue_Jays_Manager
                 {
                     FormsAuthentication.SignOut();
                     Session["login"] = "loggedOut";
+                    Session["AdminUser"] = null;
                     Server.Transfer("~/Default.aspx", false);
                 }
             }
@@ -31,7 +33,6 @@ namespace Blue_Jays_Manager
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-
             var user = AdminUserDataLayer.LogIn(UserName.Text, Password.Text);
 
             if (user.GetType() == typeof(AdminUser))
@@ -44,9 +45,26 @@ namespace Blue_Jays_Manager
             }
             else
             {
+
+                if (user.ToString() == "Account Locked. Please Contact Administrator")
+                {
+                    DataRetrieval retrieve = new DataRetrieval();
+                    List<CoachRoster> roster = retrieve.SelectAllCoaches();
+                    Cache["CoachRoster"] = roster;
+                }
                 InvalidLabel.Text = user.ToString();
                 InvalidLabel.ForeColor = System.Drawing.Color.Red;
             }
+        }
+
+        protected void PasswordLinkBtn_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("JaysReset.aspx?id=password");
+        }
+
+        protected void UsernameLinkBtn_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("JaysReset.aspx?id=username");
         }
     }
 }
