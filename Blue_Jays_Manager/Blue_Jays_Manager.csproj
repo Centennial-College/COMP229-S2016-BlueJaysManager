@@ -111,6 +111,7 @@
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\banner.jpg" />
     <Content Include="Images\Blue_Jays_2015.jpg" />
     <Content Include="Images\Coaches\16.jpg" />
     <Content Include="Images\Coaches\26.jpg" />
