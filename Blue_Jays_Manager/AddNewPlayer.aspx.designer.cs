@@ -10,25 +10,25 @@
 namespace Blue_Jays_Manager {
     
     
-    public partial class Register {
+    public partial class AddNewPlayer {
         
         /// <summary>
-        /// UserExists control.
+        /// PlayerExists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UserExists;
+        protected global::System.Web.UI.WebControls.Label PlayerExists;
         
         /// <summary>
-        /// CoachId control.
+        /// PlayerNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CoachId;
+        protected global::System.Web.UI.WebControls.TextBox PlayerNum;
         
         /// <summary>
         /// FirstName control.
@@ -49,57 +49,93 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
-        /// Email control.
+        /// positionDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.DropDownList positionDropDownList;
         
         /// <summary>
-        /// UserName control.
+        /// playerHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.WebControls.TextBox playerHeight;
         
         /// <summary>
-        /// Password control.
+        /// playerWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox playerWeight;
         
         /// <summary>
-        /// PasswordRegularExpressionValidator control.
+        /// dobMonthDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator PasswordRegularExpressionValidator;
+        protected global::System.Web.UI.WebControls.DropDownList dobMonthDropDownList;
         
         /// <summary>
-        /// ConfirmPassword control.
+        /// dobDayDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.DropDownList dobDayDropDownList;
         
         /// <summary>
-        /// LinkBtnRegister control.
+        /// dobYearDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnRegister;
+        protected global::System.Web.UI.WebControls.DropDownList dobYearDropDownList;
+        
+        /// <summary>
+        /// playerBattingHand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList playerBattingHand;
+        
+        /// <summary>
+        /// playerThrowingHand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList playerThrowingHand;
+        
+        /// <summary>
+        /// AddPlayerButtoon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton AddPlayerButtoon;
+        
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
     }
 }

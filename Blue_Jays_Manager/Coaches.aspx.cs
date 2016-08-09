@@ -26,10 +26,12 @@ namespace Blue_Jays_Manager
                     if ((bool)Session["CoachChanges"] == false)
                     {
                         SaveCoachChanges.Enabled = false;
+                        SaveCoachChanges.Visible = false;
                     }
                     else
                     {
                         SaveCoachChanges.Enabled = true;
+                        SaveCoachChanges.Visible = true;
                     }
                     AddCoach.Visible = true;
                     CoachRosterGridView.AutoGenerateEditButton = true;
@@ -44,14 +46,14 @@ namespace Blue_Jays_Manager
                 CoachRosterGridView.DataSource = (List<CoachRoster>)Cache["CoachRoster"];
                 CoachRosterGridView.DataBind();
             }
-
-
-
             if (Session["login"].ToString() != "loggedIn")
             {
                 _hideColumn(4);
                 _hideColumn(5);
             }
+
+
+
         }
 
         private void _hideColumn(int v)
@@ -82,25 +84,31 @@ namespace Blue_Jays_Manager
                     if (lockedUser.Role == "coach")
                     {
                         unlocked = AdminUserDataLayer.EnableUserAccount(firstName, lastName);
+
+                        if (unlocked > 0)
+                        {
+                            Models.Correspondence.Email.AccountUnlockedConfirmation(lockedUser.FirstName, lockedUser.LastName, lockedUser.Email);
+                            List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
+                            CoachRoster coach = roster.SingleOrDefault(x => x.Name == firstName + " " + lastName);
+                            int index = roster.IndexOf(coach);
+                            roster.RemoveAt(index);
+                            coach.IsLocked = "Access";
+                            roster.Insert(index, coach);
+                            CoachRosterGridView.DataSource = roster;
+                            CoachRosterGridView.DataBind();
+                            LblError.Text = "Account unlocked. Email notification has been sent to user";
+                            LblError.ForeColor = System.Drawing.Color.Red;
+                        }
                     }
                     else
                     {
-                        Label1.Text = "If you are a manager you will need to contact the IT Department to unlock your account";
+                        LblError.Text = "If you are a manager you will need to contact the IT Department to unlock your account";
+                        LblError.ForeColor = System.Drawing.Color.Red;
                     }
                 }
             }
 
-            if (unlocked > 0)
-            {
-                List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
-                CoachRoster coach = roster.SingleOrDefault(x => x.Name == firstName + " " + lastName);
-                int index = roster.IndexOf(coach);
-                roster.RemoveAt(index);
-                coach.IsLocked = "Access";
-                roster.Insert(index, coach);
-                CoachRosterGridView.DataSource = roster;
-                CoachRosterGridView.DataBind();
-            }
+
 
 
 
@@ -144,6 +152,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["CoachChanges"] = true;
                     SaveCoachChanges.Enabled = true;
+                    SaveCoachChanges.Visible = true;
                 }
 
                 CoachRosterGridView.EditIndex = -1;
@@ -179,6 +188,7 @@ namespace Blue_Jays_Manager
                 {
                     Session["CoachChanges"] = true;
                     SaveCoachChanges.Enabled = true;
+                    SaveCoachChanges.Visible = true;
                 }
 
                 CoachRosterGridView.EditIndex = -1;
@@ -201,6 +211,7 @@ namespace Blue_Jays_Manager
 
                 Session["CoachChanges"] = false;
                 SaveCoachChanges.Enabled = false;
+                SaveCoachChanges.Visible = false;
             }
 
             if ((bool)Session["PlayerChanges"] == true)
@@ -212,6 +223,59 @@ namespace Blue_Jays_Manager
                 Session["PlayerChanges"] = false;
 
             }
+        }
+
+        protected void CoachRosterGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            List<CoachRoster> roster = null;
+
+            if (ViewState["SortDirection"] != null)
+            {
+                if (e.SortExpression == "CoachNumber")
+                {
+                    roster = (List<CoachRoster>)Cache["CoachRoster"];
+                    if ((SortDirection)ViewState["SortDirection"] == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderByDescending(x => x.CoachNumber).ToList();
+                        ViewState["SortDirection"] = SortDirection.Descending;
+
+                    }
+                    else
+                    {
+                        roster = roster.OrderBy(x => x.CoachNumber).ToList();
+                        ViewState["SortDirection"] = SortDirection.Ascending;
+                    }
+                }
+            }
+            else
+            {
+                ViewState["SortDirection"] = e.SortDirection; //This is ascending on the first time.
+
+                if (e.SortExpression == "CoachNumber")
+                {
+                    roster = (List<CoachRoster>)Cache["CoachRoster"];
+                    if (e.SortDirection == SortDirection.Ascending)
+                    {
+                        roster = roster.OrderBy(x => x.CoachNumber).ToList();
+                    }
+                }
+            }
+
+
+
+            CoachRosterGridView.DataSource = roster;
+            CoachRosterGridView.DataBind();
+
+            if (Session["login"].ToString() != "loggedIn")
+            {
+                _hideColumn(4);
+                _hideColumn(5);
+            }
+        }
+
+        protected void AddCoach_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("AddNewCoach.aspx");
         }
     }
 }

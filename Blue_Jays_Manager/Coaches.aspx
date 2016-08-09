@@ -4,28 +4,31 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container list">
-        <div class="page-header">
-            <h1>Manager and Coach Roster</h1>           
+        <div class="page-header" style="margin-top:20px; margin-bottom:5px">
+            <div class="row">
+            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Manager and Coach Roster</span></h1> <asp:Image ID="Image1" CssClass="img-responsive pull-right" Height="100px" Width="300px" ImageUrl="~/Images/jayswordlogo.png" runat="server" />
+            </div>
         </div>
         <h3>List of Toronto Blue Jays Coaches and Manager</h3>
         <hr />
         <div class="container">
             <div class="row">
-                    <asp:Label ID="Label1" CssClass="col-md-8" runat="server"></asp:Label>
-                <div class="col-md-3" style="padding-right:50px">                  
-                    <asp:Button ID="AddCoach" CssClass="pull-right btn btn-default" runat="server" Text="Add Coach" BorderColor="#134A8E" ForeColor="#134A8E" Visible="False" />
-                    <asp:Button ID="SaveCoachChanges" CssClass="pull-right btn btn-default" style="margin-right:10px"  runat="server" Text="Save Changes" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="SaveCoachChanges_Click" Visible="False" />
+                    <asp:Label ID="LblError" CssClass="col-md-8" runat="server"></asp:Label>
+                <div class="col-md-3" style="padding-right:30px; margin-left:0;padding-left:0">                  
+                    <asp:LinkButton  ID="AddCoach" style="margin-left:10px" CssClass="pull-right btn btn-default" runat="server" BackColor="#134A8E"  BorderStyle="Solid"  BorderColor="#134A8E" ForeColor="White" Visible="False" OnClick="AddCoach_Click" >Add Coach <span class='glyphicon glyphicon-plus'></span></asp:LinkButton>
+
+                     <asp:LinkButton ID="SaveCoachChanges" Enabled="false" CssClass="pull-right btn btn-default" runat="server" BorderColor="#EF2F24" ForeColor="#EF2F24" OnClick="SaveCoachChanges_Click" Visible="False" BorderStyle="Solid" >Save Changes  <span style="color:#EF2F24" class='glyphicon glyphicon-floppy-save'></span></asp:LinkButton>
                 </div>
                 <div class="col-md-1"></div>
             </div>
         </div>
         <br />
-        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser">
+        <asp:GridView ID="CoachRosterGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table responsive" BorderColor="#243B69" BorderStyle="None" GridLines="Horizontal" HorizontalAlign="Center" ShowFooter="True" Width="900px" OnRowUpdating="CoachRosterGridView_RowUpdating" OnRowDeleting="CoachRosterGridView_RowDeleting" OnRowCancelingEdit="CoachRosterGridView_RowCancelingEdit" OnRowEditing="CoachRosterGridView_RowEditing" OnRowCommand="EnableUser" AllowSorting="True" OnSorting="CoachRosterGridView_Sorting">
             <Columns>
-                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True">
+                <asp:ImageField DataImageUrlField="CoachNumber" DataImageUrlFormatString="~\Images\Coaches\{0}.jpg" HeaderText="Photo" ReadOnly="True" NullDisplayText="N/A" NullImageUrl="Images/Photo-Unavailable.jpg">
                     <ControlStyle CssClass="img-responsive" Height="50px" Width="40px" />
                 </asp:ImageField>
-                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" />
+                <asp:BoundField DataField="CoachNumber" HeaderText="Coach #" ReadOnly="True" SortExpression="CoachNumber" />
                 <asp:BoundField DataField="Name" HeaderText="Name" />
                 <asp:BoundField DataField="Position" HeaderText="Position" />
                 

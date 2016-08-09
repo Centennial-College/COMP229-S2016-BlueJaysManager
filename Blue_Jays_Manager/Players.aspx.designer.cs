@@ -13,6 +13,15 @@ namespace Blue_Jays_Manager {
     public partial class Player {
         
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.TextBox searchTextBox;
         
         /// <summary>
-        /// submitButton control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
         /// AddPlayer control.
@@ -55,7 +64,7 @@ namespace Blue_Jays_Manager {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddPlayer;
+        protected global::System.Web.UI.WebControls.LinkButton AddPlayer;
         
         /// <summary>
         /// SavePlayerChanges control.
@@ -64,7 +73,7 @@ namespace Blue_Jays_Manager {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SavePlayerChanges;
+        protected global::System.Web.UI.WebControls.LinkButton SavePlayerChanges;
         
         /// <summary>
         /// NoRecords control.
