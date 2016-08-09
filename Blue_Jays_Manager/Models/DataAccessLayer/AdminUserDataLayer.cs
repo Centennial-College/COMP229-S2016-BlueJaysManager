@@ -260,5 +260,40 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
                 }
             }
         }
+
+        public static int RequestUserName(string email)
+        {
+
+            int success = 0;
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand("spUsernameRequest ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    if (Convert.ToBoolean(reader["ReturnCode"]))
+                    {
+                        success = Email.SendUserNameEmail(email, reader["FirstName"].ToString(), reader["LastName"].ToString(), reader["UserName"].ToString());
+                    }
+                    else
+                    {
+                        success = 2;
+                    }
+
+                }
+               
+            }
+
+            return success;
+        }
     }
 }

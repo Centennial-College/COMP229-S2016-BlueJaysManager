@@ -14,7 +14,19 @@ namespace Blue_Jays_Manager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            coachRoster = (List<CoachRoster>)Cache["CoachRoster"];
+            if (!IsPostBack)
+            {
+                 
+                if ((AdminUser)Session["AdminUser"] == null)
+                {
+                    Server.Transfer("ErrorPage.aspx");
+                }
+                else
+                {
+                    coachRoster = (List<CoachRoster>)Cache["CoachRoster"];
+                }
+                
+            }
 
         }
 

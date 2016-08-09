@@ -122,7 +122,14 @@
     <Content Include="Images\Coaches\60.jpg" />
     <Content Include="Images\Coaches\61.jpg" />
     <Content Include="Images\Coaches\63.jpg" />
+    <Content Include="Images\footerblue.jpeg" />
     <Content Include="Images\jayswordlogo.png" />
+    <Content Include="Images\Jays_Carousel\banner.jpg" />
+    <Content Include="Images\Jays_Carousel\jays1.jpg" />
+    <Content Include="Images\Jays_Carousel\jays2.jpg" />
+    <Content Include="Images\Jays_Carousel\jays3.jpg" />
+    <Content Include="Images\Jays_Carousel\jays4.jpg" />
+    <Content Include="Images\Jays_Carousel\jays5.jpg" />
     <Content Include="Images\logotrans.png" />
     <Content Include="Images\Photo-Unavailable.jpg" />
     <Content Include="Images\PlayerProfilePic\10.jpg" />

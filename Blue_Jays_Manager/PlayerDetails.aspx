@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="coverPhoto" class="jumbotron" style="background-color: #ede8e8; margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">
-        <div class="row" style="background-color:#243b69; color: white; padding-bottom:2vh;">
+        <div class="row" id="playerprofile" style="color: white; padding-bottom:2vh;">
             <%--<h1 class="text-center">COVER PHOTO GOES HERE</h1>--%>
             <div id="profileSummary" class="row">
                 <span class="col-md-offset-5 col-md-2" style="margin-top: 2vh;">
@@ -11,19 +11,19 @@
 
                 <div class="col-md-offset-4 col-md-4 text-center">
                     <h2>
-                        <asp:Label ID="name" runat="server" Text="Name"></asp:Label>
-                        | #
-                    <asp:Label ID="playerNumber" runat="server" Text="Number"></asp:Label>
+                        <asp:Label ID="name" runat="server" ForeColor="#243B69" Text="Name"></asp:Label>
+                        <span style="color:#243B69">| </span><span style="color:#EF2F24">#</span> 
+                    <asp:Label ID="playerNumber" runat="server" ForeColor="#EF2F24" Text="Number"></asp:Label>
                     </h2>
                 </div>
                 <span class="col-md-offset-4 col-md-4 text-center">
-                    <asp:Label ID="position" runat="server" Text="position"></asp:Label>
-                    | B/T:
-                <asp:Label ID="skillOrientation" runat="server" Text="skillOrientation"></asp:Label>
-                    |
-                <asp:Label ID="height" runat="server" Text="height"></asp:Label>/<asp:Label ID="weight" runat="server" Text="weight"></asp:Label>
-                    | Age:
-                <asp:Label ID="age" runat="server" Text="Number"></asp:Label>
+                    <asp:Label ID="position" runat="server" ForeColor="#243B69" Text="position"></asp:Label>
+                   <span style="color:#243B69"> | B/T:</span>
+                <asp:Label ID="skillOrientation" ForeColor="#243B69" runat="server" Text="skillOrientation"></asp:Label>
+                  <span style="color:#243B69">  |</span>
+                <asp:Label ID="height" runat="server" ForeColor="#243B69" Text="height"></asp:Label>/<asp:Label ID="weight" ForeColor="#243B69" runat="server" Text="weight"></asp:Label>
+                   <span style="color:#243B69"> | Age:</span>
+                <asp:Label ID="age" runat="server" ForeColor="#243B69" Text="Number"></asp:Label>
                 </span>
             </div>
         </div>

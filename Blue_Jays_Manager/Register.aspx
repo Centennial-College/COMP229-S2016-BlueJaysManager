@@ -8,7 +8,7 @@
     <div class="form-horizontal" style=" margin-right: 30px; ">
         <div class="page-header" style="margin-bottom:5px">
             <div class="row">
-            <h1 style="margin-top:20px" class="pull-left">Register Admin User </h1> 
+            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Register Admin User</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-hand-down"></span></h1> 
             </div>
         </div>
         <asp:Label ID="UserExists" runat="server"></asp:Label>
@@ -83,8 +83,8 @@
         <hr />
         <div class="form-group pull-right">
             <div class="col-md-12">
-                <input id="Resetbtn" type="reset" class="btn btn-default" style="width: 90px"  value="reset" />
-                 <asp:Button runat="server" Text="Register" CssClass="btn btn-primary" style="width: 90px"  ID="BtnRegister" OnClick="BtnRegister_Click"/>
+                <input id="Resetbtn" type="reset" class="btn btn-default" style=" width: 90px;" />
+                  <asp:LinkButton ID="LinkBtnRegister"   OnClick="BtnRegister_Click" style="width: 90px" CssClass="btn btn-default" runat="server" BackColor="#134A8E" BorderColor="#134A8E" BorderStyle="Solid" ForeColor="White">Register <span class='glyphicon glyphicon-check'></span></asp:LinkButton>
                
             </div>
         </div>
@@ -92,7 +92,6 @@
      </div>
 
         <div class="col-md-2" style="margin-top:40px; padding-left:0px">
-            <asp:Image ID="Image1" CssClass="img-responsive pull-right" style="margin-right:55px;" Height="200px" Width="200px" ImageURL="~/Images/torontologo.png" runat ="server" />
         </div>
         <div class="col-md-2"></div>
     </div>

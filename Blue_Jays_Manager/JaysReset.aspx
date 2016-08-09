@@ -20,7 +20,7 @@
                     </div>
                 </div>
             
-                <h1  style="margin-top:70px" class="page-header"> <asp:Label ID="LblPageHeader" runat="server"></asp:Label></h1>
+                <h1  style="margin-top:70px" class="page-header"> <asp:Label ID="LblPageHeader" ForeColor="#134A8E" runat="server"></asp:Label></h1>
             <asp:Label ID="ConfirmLbl" style="margin-top:60px;" runat="server" ></asp:Label>
 
            <div class="form-group row">
@@ -36,7 +36,7 @@
         <div class="form-group" style="margin-right: 5px;">
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <asp:Button runat="server" CssClass="btn btn-default" style="width: 125px; margin-bottom:10px;" ID="BtnReset" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="BtnReset_Click" />
+                <asp:LinkButton ID="BtnnReset" CssClass="btn btn-default" style="width: 145px; margin-bottom:10px;" BackColor="#134A8E" BorderColor="#134A8E" ForeColor="White" OnClick="BtnReset_Click" runat="server"></asp:LinkButton>
             </div>
             <div class="col-md-6"></div>   
         </div>

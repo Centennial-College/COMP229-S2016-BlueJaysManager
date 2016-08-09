@@ -17,11 +17,22 @@ namespace Blue_Jays_Manager
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            playerRoster = (List<PlayerRoster>)Cache["PlayerRoster"];
+            if (!IsPostBack)
+            {
+                if ((AdminUser)Session["AdminUser"] == null)
+                {
+                    Server.Transfer("ErrorPage.aspx");
+                }
+                else
+                {
+                    playerRoster = (List<PlayerRoster>)Cache["PlayerRoster"];
 
-            _populateYear(dobYearDropDownList);
-            _populateMonth(dobMonthDropDownList);
-            _populateDay(dobDayDropDownList);
+                    _populateYear(dobYearDropDownList);
+                    _populateMonth(dobMonthDropDownList);
+                    _populateDay(dobDayDropDownList);
+                }
+
+            }
         }
 
         #region Method to Fill the a DropDownList with Month Names and set the Current Month Selected

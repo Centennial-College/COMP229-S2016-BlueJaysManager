@@ -12,12 +12,21 @@ namespace Blue_Jays_Manager
             if (!IsPostBack)
             {
                 AdminUser user = (AdminUser)Session["AdminUser"];
-                LblName.Text = user.FirstName + " " + user.LastName;
-                LblEmail.Text = user.Email;
-                LblRole.Text = user.Role;
+                if (user == null)
+                {
+                    Server.Transfer("ErrorPage.aspx");
+                }
+                else
+                {
+                    
+                    LblName.Text = user.FirstName + " " + user.LastName;
+                    LblEmail.Text = user.Email;
+                    LblRole.Text = user.Role;
 
 
-                PasswordPanel.Visible = false;
+                    PasswordPanel.Visible = false;
+                }
+
             }
 
         }
