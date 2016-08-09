@@ -24,6 +24,7 @@ namespace Blue_Jays_Manager
                 {
                     FormsAuthentication.SignOut();
                     Session["login"] = "loggedOut";
+                    Session["AdminUser"] = null;
                     Server.Transfer("~/Default.aspx", false);
                 }
             }

@@ -110,7 +110,7 @@
                     <span class="col-md-4">
                         <asp:Label Text="Filter by year: " runat="server" />
                         <asp:TextBox ID="statsFilterTextBox" runat="server" />
-                        <asp:Button ID="filterStatsButton" Text="Filter Stats" runat="server" OnClick="filterStatsButton_Click" CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" BackColor="#134A8E" />
+                        <asp:LinkButton ID="fillterStatsButton" OnClick="filterStatsButton_Click"  CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" BackColor="#134A8E" runat="server">Filter Stats <span class="glyphicon glyphicon-stats"></span></asp:LinkButton>
                     </span>
                 </div>
 
@@ -239,7 +239,7 @@
 
                     </ContentTemplate>
                     <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="filterStatsButton" />
+                        <asp:AsyncPostBackTrigger ControlID="fillterStatsButton" />
                     </Triggers>
                 </asp:UpdatePanel>
 

@@ -58,13 +58,13 @@ namespace Blue_Jays_Manager {
         protected global::System.Web.UI.WebControls.TextBox pos;
         
         /// <summary>
-        /// AddCoachButton control.
+        /// AddCoachButtoon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddCoachButton;
+        protected global::System.Web.UI.WebControls.LinkButton AddCoachButtoon;
         
         /// <summary>
         /// Image1 control.
