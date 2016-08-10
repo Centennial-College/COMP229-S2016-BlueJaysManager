@@ -123,6 +123,7 @@
     <Content Include="Images\Coaches\60.jpg" />
     <Content Include="Images\Coaches\61.jpg" />
     <Content Include="Images\Coaches\63.jpg" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Images\footerblue.jpeg" />
     <Content Include="Images\jayswordlogo.png" />
     <Content Include="Images\Jays_Carousel\banner.jpg" />
@@ -200,6 +201,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\AlexBrush-Regular.ttf" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="JaysReset.aspx" />
     <Content Include="Scripts\ai.0.23.4-build00433.js" />

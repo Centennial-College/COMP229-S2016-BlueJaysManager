@@ -13,36 +13,104 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="row">
-        <%--<div class="container" style="height: 500px;">--%>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>If you're a regular user:</h2>
-                <p>
-                    ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>If you're a coach:</h2>
-                <p>
-                    NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>If you're a manager:</h2>
-                <p>
-                    You can easily find a web hosting company that offers the right mix of features and price for your applications.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-                </p>
-            </div>
+
+        <div class="col-md-5">
+            <br />
+            <hr />
         </div>
+        <div class="col-md-2">
+            <h1 class="text-center" style="vertical-align: middle; font-family: 'AlexBrush-Regular'; font-size: 6vmin;">Features:
+            </h1>
+        </div>
+        <div class="col-md-5">
+            <br />
+            <hr />
+        </div>
+
     </div>
+
+    <div class="row">
+        <div class="col-md-4 homepageDiv">
+            <h2>For Regular Users:</h2>
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Player Roster <i class="glyphicon glyphicon-search"></i><i class="glyphicon glyphicon-sunglasses"></i></h3>
+                <p>View and search for players who are currently active on the team.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Coach Roster <i class="glyphicon glyphicon-sunglasses"></i></h3>
+                <p>View currently active coaches and look up their information.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Player Details <i class="glyphicon glyphicon-user"></i></h3>
+                <p>Learn more about our team members! See individual player statistics and biographies.</p>
+            </div>
+            <br />
+            <br />
+
+        </div>
+
+         <div class="col-md-4 homepageDiv">
+            <h2>For Coaches:</h2>
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Add New Players <i class="glyphicon glyphicon-plus"></i></h3>
+                <p>Add new players to the team.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Update Existing Players <i class="glyphicon glyphicon-edit"></i></h3>
+                <p>Modify information for players already on the team.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Remove Players <i class="glyphicon glyphicon-remove"></i></h3>
+                <p>Remove inactive players from the team.</p>
+            </div>
+            <br />
+            <br />
+
+        </div>
+
+         <div class="col-md-4 homepageDiv">
+            <h2>For Managers:</h2>
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Add New Coaches <i class="glyphicon glyphicon-plus"></i></h3>
+                <p>Add new coaches to the team.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Update Existing Coaches <i class="glyphicon glyphicon-edit"></i></h3>
+                <p>Modify information for coaches already on the team.</p>
+            </div>
+            <br />
+            <br />
+
+            <div class="btn btn-default" style="white-space:normal;">
+                <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Remove Coaches <i class="glyphicon glyphicon-remove"></i></h3>
+                <p>Remove inactive coaches from the team.</p>
+            </div>
+            <br />
+            <br />
+
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+
 </asp:Content>
