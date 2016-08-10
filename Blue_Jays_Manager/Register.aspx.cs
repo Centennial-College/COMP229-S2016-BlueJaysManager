@@ -39,19 +39,16 @@ namespace Blue_Jays_Manager
                     Cache.Insert("CoachRoster", coachRoster);
                 }
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
-                var exist = roster.Find(x => x.CoachNumber == coachId);
-
-                string firstName = exist.Name.Substring(0, exist.Name.IndexOf(" "));
-                string lastName = exist.Name.Substring(exist.Name.IndexOf(" "), exist.Name.Length);
+                var exist = roster.Find(x => x.CoachNumber == coachId);   
 
                 //Write code here to check first and last name of the coach 'exist' against first and last name entered in text fields
 
-
-
                 if (exist != null)
                 {
+                    string[] name = exist.Name.Split(' ');
+                  
 
-                    if (firstName == FirstName.Text && lastName == LastName.Text)
+                    if (name[0] == FirstName.Text && name[1] == LastName.Text)
                     {
                         int returnCode = AdminUserDataLayer.Register(Password.Text, FirstName.Text, LastName.Text, Email.Text, UserName.Text, "coach");
 

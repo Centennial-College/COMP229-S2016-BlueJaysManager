@@ -25,13 +25,17 @@ namespace Blue_Jays_Manager
                 }
                 else
                 {
-                    playerRoster = (List<PlayerRoster>)Cache["PlayerRoster"];
-
+                   
                     _populateYear(dobYearDropDownList);
                     _populateMonth(dobMonthDropDownList);
                     _populateDay(dobDayDropDownList);
                 }
 
+               
+            }
+            if (playerRoster == null)
+            {
+                playerRoster = (List<PlayerRoster>)Cache["PlayerRoster"];
             }
         }
 
@@ -134,8 +138,10 @@ namespace Blue_Jays_Manager
 
             if (!existPlayer)
             {
-                string month = dobMonthDropDownList.SelectedValue;
-                //CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[Convert.ToInt32(dobMonthDropDownList.SelectedValue)];
+                //string month = dobMonthDropDownList.SelectedValue;
+                string monthName = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[Convert.ToInt32(dobMonthDropDownList.SelectedValue)];
+
+                monthName = monthName.Substring(0, 3).ToUpper();
 
                 playerRoster.Add
                 (
