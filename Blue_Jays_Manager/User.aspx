@@ -42,27 +42,27 @@
 
                                         <div class="form-horizontal" style="margin-top:10px; padding-bottom: 20px;">
                                              <div class=" form-group" style="margin-bottom:0">
-                                                <asp:label runat="server" CssClass="col-md-4 control-label" text="Current Password:"></asp:label>
+                                                <asp:label runat="server" CssClass="col-md-4 control-label"  text="Current Password:"></asp:label>
                                                  <div class="col-md-8 ">
-                                                        <asp:textbox CssClass="form-control" ID="currentPass" runat="server"></asp:textbox>
+                                                        <asp:textbox CssClass="form-control" ID="currentPass" TextMode="Password" runat="server"></asp:textbox>
                                                         <asp:requiredfieldvalidator runat="server" errormessage="Current password is required" ControlToValidate="currentPass" CssClass="text-danger"></asp:requiredfieldvalidator>
                                                  </div>
                                             </div>
 
-                                        <div class="form-group" style="margin-bottom:0">
+                                        <div class="form-group" style="margin-bottom:10">
                                                 <asp:label runat="server" CssClass="col-md-4 control-label" text="New Password:"></asp:label>
                                                 <div class="col-md-8 ">
-                                                    <asp:textbox CssClass="form-control" ID="newPass" runat="server"></asp:textbox>
-                                                    <asp:requiredfieldvalidator runat="server" errormessage="New password is required" ControlToValidate="newPass" CssClass="text-danger"></asp:requiredfieldvalidator>
-                                                    <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^[a-zA-Z]\w{3,14}$" ControlToValidate="newPass" ErrorMessage="Invalid password format"></asp:RegularExpressionValidator>
+                                                    <asp:textbox CssClass="form-control" ID="newPass" TextMode="Password"  runat="server"></asp:textbox>
+                                                    <asp:Requiredfieldvalidator runat="server" Display="Dynamic" ErrorMessage="New password is required" ControlToValidate="newPass" CssClass="text-danger"></asp:Requiredfieldvalidator>
+                                                    <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$" ControlToValidate="newPass" ErrorMessage="Password: 8-15 characters long, one upper case, one lower case, and one number at least."></asp:RegularExpressionValidator>
                                                 </div>
                                         </div>
 
-                                        <div class="form-group" style="margin-bottom:0">
+                                        <div class="form-group" style="margin-bottom:10px">
                                                 <asp:label runat="server"  CssClass=" col-md-4 control-label" text="Confirm Password:"></asp:label>
                                                  <div class="col-md-8">
-                                                        <asp:textbox CssClass="form-control" ID="confirmPass" runat="server"></asp:textbox>
-                                                         <asp:requiredfieldvalidator runat="server" errormessage="Current password is required" ControlToValidate="confirmPass" CssClass="text-danger"></asp:requiredfieldvalidator>
+                                                        <asp:textbox CssClass="form-control" TextMode="Password"  ID="confirmPass" runat="server"></asp:textbox>
+                                                         <asp:requiredfieldvalidator runat="server" Display="Dynamic" errormessage="Current password is required" ControlToValidate="confirmPass" CssClass="text-danger"></asp:requiredfieldvalidator>
                                                         <asp:Comparevalidator runat="server" ControlToCompare="newPass" ControlToValidate="confirmPass"  Display="Dynamic"  CssClass="text-danger" errormessage="Confirmed password is invalid"></asp:Comparevalidator>
                                                 </div>
                                         </div>

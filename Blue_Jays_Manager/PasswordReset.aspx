@@ -24,10 +24,10 @@
              <div class="form-group row">
             <asp:Label runat="server" AssociatedControlID="NewPassword" CssClass="col-md-2 control-label">New Password</asp:Label>
             <div class="col-md-4">
-                <asp:TextBox runat="server" ID="NewPassword" CssClass="form-control" TextMode="SingleLine" />
+                <asp:TextBox runat="server" ID="NewPassword" TextMode="Password" CssClass="form-control" />
                 <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="NewPassword"
                     CssClass="text-danger" ErrorMessage="New Password is required." />
-                 <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^[a-zA-Z]\w{3,14}$" ControlToValidate="NewPassword" ErrorMessage="Invalid password format"></asp:RegularExpressionValidator>
+                 <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$" ControlToValidate="NewPassword" ErrorMessage="Password must be 8-15 characters long, one upper case, one lower case, and one number at least."></asp:RegularExpressionValidator>
             </div>
                  <div class="col-md-6"></div>
         </div>
@@ -35,15 +35,16 @@
         <div class="form-group row" style="margin-bottom:0">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm Password</asp:Label>
             <div class="col-md-4">
-                <asp:TextBox runat="server" ID="ConfirmPassword" CssClass="form-control" TextMode="Password" />
-                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                    CssClass="text-danger" ErrorMessage="Password is not confirmed." />
+                <asp:TextBox runat="server" TextMode="Password" ID="ConfirmPassword" CssClass="form-control"/>
+                 <asp:RequiredFieldValidator 
+                     Display="Dynamic" runat ="server" ControlToValidate="ConfirmPassword"
+                    CssClass="text-danger"  ErrorMessage="Password is not confirmed." />
                  <asp:CompareValidator runat="server" ControlToCompare="NewPassword" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
         </div>
             <div class="col-md-6"></div>
         </div>
-              <div class="form-group" style="margin-right: 5px;">
+              <div class="form-group" style="margin-right: 5px; margin-top:8px;">
             <div class="col-md-2"></div>
             <div class="col-md-4">
 
