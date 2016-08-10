@@ -43,7 +43,7 @@ namespace Blue_Jays_Manager.Models.Correspondence
                                    "<p>You have requested your password to be changed." + "<br/>" +
                                    "Below you will find your details.</p>" +
                                    "<br/>" +
-                                   "<p><b>  Admin Name:</b> " + firstName + " " + lastName + "<br/>" +
+                                   "<p><b>  Coach Name:</b> " + firstName + " " + lastName + "<br/>" +
                                    "<b>     Admin Role:</b> " + role + "<br/>" +
                                    "<b>     username:</b> " + username + "<br/>" +
                                    "<b>     password:</b> " + password + "</p>" +
@@ -62,9 +62,9 @@ namespace Blue_Jays_Manager.Models.Correspondence
             MailMessage registraionMail = new MailMessage("noreply.bluejays@gmail.com", email);
             registraionMail.IsBodyHtml = true;
             registraionMail.Subject = "Toronto Blue Jays";
-            registraionMail.Body = "<h3>Admin Account Information</h3>" +
+            registraionMail.Body = "<h3>Coach Account Information</h3>" +
                                    "<br/>" +
-                                   "<p>" + firstName + " " + lastName + ", this is just a reminder that your admin user account for the Toronto Blue Jays has been unlocked." +
+                                   "<p>" + firstName + " " + lastName + ", this is just a reminder that your coach user account for the Toronto Blue Jays has been unlocked." +
                                    "<br>" +
                                    "<p>Thank you<br/>" +
                                    "Blue Jays Administration</p>";
@@ -112,7 +112,7 @@ namespace Blue_Jays_Manager.Models.Correspondence
             StringBuilder sbEmailBody = new StringBuilder();
             sbEmailBody.Append("<h3>Password Reset Successful</h3><br/><br/>");
             sbEmailBody.Append("Dear " + firstName + " " + LastName + ",<br/><br/>");
-            sbEmailBody.Append("Your admin password has been reset");
+            sbEmailBody.Append("Your coach password has been reset");
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Username: " + username);
             sbEmailBody.Append("<br/>");
@@ -142,7 +142,7 @@ namespace Blue_Jays_Manager.Models.Correspondence
             StringBuilder sbEmailBody = new StringBuilder();
             sbEmailBody.Append("<h3>Username Request</h3><br/><br/>");
             sbEmailBody.Append("Dear " + firstName + " " + lastName + ",<br/><br/>");
-            sbEmailBody.Append("You have requested your username for your admin account.");
+            sbEmailBody.Append("You have requested your username for your coach account.");
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Username: " + username);
             sbEmailBody.Append("<br/><br/>");
