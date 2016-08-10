@@ -31,23 +31,23 @@
 
     <div class="row">
         <div class="col-md-4 homepageDiv">
-            <h2>For Regular Users:</h2>
+            <h2 style="font-family:'Raleway-Black'">Regular Users:</h2>
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Player Roster <i class="glyphicon glyphicon-search"></i><i class="glyphicon glyphicon-sunglasses"></i></h3>
                 <p>View and search for players who are currently active on the team.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Coach Roster <i class="glyphicon glyphicon-sunglasses"></i></h3>
                 <p>View currently active coaches and look up their information.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Player Details <i class="glyphicon glyphicon-user"></i></h3>
                 <p>Learn more about our team members! See individual player statistics and biographies.</p>
             </div>
@@ -57,23 +57,23 @@
         </div>
 
          <div class="col-md-4 homepageDiv">
-            <h2>For Coaches:</h2>
+            <h2 style="font-family:'Raleway-Black'">Coaches:</h2>
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Add New Players <i class="glyphicon glyphicon-plus"></i></h3>
                 <p>Add new players to the team.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Update Existing Players <i class="glyphicon glyphicon-edit"></i></h3>
                 <p>Modify information for players already on the team.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Remove Players <i class="glyphicon glyphicon-remove"></i></h3>
                 <p>Remove inactive players from the team.</p>
             </div>
@@ -83,23 +83,23 @@
         </div>
 
          <div class="col-md-4 homepageDiv">
-            <h2>For Managers:</h2>
+            <h2 style="font-family:'Raleway-Black'">Managers:</h2>
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Add New Coaches <i class="glyphicon glyphicon-plus"></i></h3>
                 <p>Add new coaches to the team.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Update Existing Coaches <i class="glyphicon glyphicon-edit"></i></h3>
                 <p>Modify information for coaches already on the team.</p>
             </div>
             <br />
             <br />
 
-            <div class="btn btn-default" style="white-space:normal;">
+            <div class="btn btn-primary btn-block" style="white-space:normal;">
                 <h3 style="font-family: 'AlexBrush-Regular'; font-size: 5vmin;">Remove Coaches <i class="glyphicon glyphicon-remove"></i></h3>
                 <p>Remove inactive coaches from the team.</p>
             </div>

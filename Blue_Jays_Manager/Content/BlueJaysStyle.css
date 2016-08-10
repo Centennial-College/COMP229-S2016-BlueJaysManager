@@ -2,6 +2,23 @@
     border: 1px groove black;
     border-radius: 5px;
     padding: 2vmin;
+    height: 100vh;
+    background-color: #d3dce3;
+    text-align: center;
+}
+
+body {
+    height: 100%;
+    background-color: #ffffff;
+}
+
+@font-face {
+    font-family: 'Raleway-Black';
+    src: url('../fonts/Raleway-Black.ttf') format('truetype');
+}
+
+.homepageDiv .btn-block {
+    background-color: #10498e;
 }
 
 @font-face {
