@@ -46,6 +46,16 @@ namespace Blue_Jays_Manager
                 {
                     confirmLabel.Text = "Password has been reset. Email confirmation has been sent with the details";
                     confirmLabel.ForeColor = System.Drawing.Color.Green;
+
+                    HttpCookie cookie = Request.Cookies["AdminUser"];
+
+
+                    if (cookie != null)
+                    {
+                        cookie.Values.Remove("password");
+                        cookie["password"] = newPassword;
+                        Response.Cookies.Add(cookie);
+                    }
                 }
                 else
                 {

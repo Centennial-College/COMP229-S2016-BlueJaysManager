@@ -22,10 +22,21 @@ namespace Blue_Jays_Manager
             {
                 if (Session["login"].ToString() == "loggedIn")
                 {
-                    FormsAuthentication.SignOut();
                     Session["login"] = "loggedOut";
                     Session["AdminUser"] = null;
                     Server.Transfer("~/Default.aspx", false);
+                }
+                else
+                {
+                    HttpCookie getCookie = Request.Cookies["AdminUser"];
+
+                    if (getCookie != null)
+                    {
+                        UserName.Text = getCookie["username"];
+                        Password.Attributes["value"] = getCookie["password"];
+                        checkboxRemeber.Checked = true;
+                    }
+
                 }
             }
         }
@@ -39,9 +50,32 @@ namespace Blue_Jays_Manager
             {
                 AdminUser admin = (AdminUser)user;
                 Session["AdminUser"] = admin;
-                FormsAuthentication.RedirectFromLoginPage(UserName.Text, checkboxRemeber.Checked);
                 Session["Name"] = admin.FirstName + " " + admin.LastName;
                 Session["login"] = "loggedIn";
+                HttpCookie cookie = Request.Cookies["AdminUser"];
+
+                if (checkboxRemeber.Checked)
+                {
+                    if (cookie == null)
+                    {
+                        cookie = new HttpCookie("AdminUser");
+                    }
+
+                    cookie["username"] = UserName.Text;
+                    cookie["password"] = Password.Text;
+                    cookie.Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies.Add(cookie);
+
+                }
+                else
+                {
+                    if (cookie != null)
+                    {
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies.Add(cookie);
+                    }
+                }
+                Server.Transfer("Default.aspx");
             }
             else
             {
