@@ -8,7 +8,7 @@
     <div class="form-horizontal" style=" margin-right: 30px; ">
         <div class="page-header" style="margin-bottom:5px">
             <div class="row">
-            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Register Admin User</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-hand-down"></span></h1> 
+            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Register Coach User</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-hand-down"></span></h1> 
             </div>
         </div>
         <asp:Label ID="UserExists" runat="server"></asp:Label>

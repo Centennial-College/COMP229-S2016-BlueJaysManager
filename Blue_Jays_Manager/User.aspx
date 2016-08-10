@@ -88,7 +88,7 @@
             </div>
 
             <div class="row">
-                <asp:Label ID="LblConfirm" CssClass="col-md-offset-5 col-md-7" runat="server"></asp:Label>
+                <asp:Label ID="LblConfirm" CssClass="col-md-offset-1 col-md-11" runat="server"></asp:Label>
             </div>
         </div>
     </div>
