@@ -8,6 +8,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.1.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/BlueJaysStyle.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
