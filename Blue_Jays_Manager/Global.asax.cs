@@ -24,6 +24,17 @@ namespace Blue_Jays_Manager
 
         }
 
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            if (ex != null)
+            {
+                ExceptionLogger.Log(ex);
+                Server.ClearError();
+                Server.Transfer("ErrorPage.aspx");
+            }
+        }
+
         protected void Session_Start(object sender, EventArgs args)
         {
             Session["login"] = "loggedout";
