@@ -16,7 +16,7 @@ namespace Blue_Jays_Manager.Models.Correspondence
             registraionMail.Subject = "Toronto Blue Jays";
             registraionMail.Body = "<h3>Registration Confirmation</h3>" +
                                    "<br/>" +
-                                   "<p>Thank you for registering for you admin account with the Toronto Blue Jays</p>" +
+                                   "<p>Thank you for registering for your coach account with the Toronto Blue Jays</p>" +
                                    "<p>Below you will find your registration details.</p>" +
                                    "<br/>" +
                                    "<p><b>Coach Name:</b> " + firstName + " " + lastName + "<br/>" +

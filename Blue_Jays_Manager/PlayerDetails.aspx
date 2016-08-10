@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="PlayerDetails.aspx.cs" Inherits="Blue_Jays_Manager.PlayerDetails" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="coverPhoto" class="jumbotron" style="background-color: #ede8e8; margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">
-        <div class="row" id="playerprofile" style="color: white; padding-bottom:2vh;">
+<asp:Content ID="Content2" ContentPlaceHolderID="headerContentPlaceHolder" runat="server">
+    <!--Header-->
+    <header class="container-fluid" style="margin-top: 50px;">
+        <div class="row" id="playerprofile" style="color: white; padding-bottom: 2vh;">
             <%--<h1 class="text-center">COVER PHOTO GOES HERE</h1>--%>
             <div id="profileSummary" class="row">
                 <span class="col-md-offset-5 col-md-2" style="margin-top: 2vh;">
@@ -12,23 +13,31 @@
                 <div class="col-md-offset-4 col-md-4 text-center">
                     <h2>
                         <asp:Label ID="name" runat="server" ForeColor="#243B69" Text="Name"></asp:Label>
-                        <span style="color:#243B69">| </span><span style="color:#EF2F24">#</span> 
-                    <asp:Label ID="playerNumber" runat="server" ForeColor="#EF2F24" Text="Number"></asp:Label>
+                        <span style="color: #243B69">| </span><span style="color: #EF2F24">#</span>
+                        <asp:Label ID="playerNumber" runat="server" ForeColor="#EF2F24" Text="Number"></asp:Label>
                     </h2>
                 </div>
                 <span class="col-md-offset-4 col-md-4 text-center">
                     <asp:Label ID="position" runat="server" ForeColor="#243B69" Text="position"></asp:Label>
-                   <span style="color:#243B69"> | B/T:</span>
-                <asp:Label ID="skillOrientation" ForeColor="#243B69" runat="server" Text="skillOrientation"></asp:Label>
-                  <span style="color:#243B69">  |</span>
-                <asp:Label ID="height" runat="server" ForeColor="#243B69" Text="height"></asp:Label>/<asp:Label ID="weight" ForeColor="#243B69" runat="server" Text="weight"></asp:Label>
-                   <span style="color:#243B69"> | Age:</span>
-                <asp:Label ID="age" runat="server" ForeColor="#243B69" Text="Number"></asp:Label>
+                    <span style="color: #243B69">| B/T:</span>
+                    <asp:Label ID="skillOrientation" ForeColor="#243B69" runat="server" Text="skillOrientation"></asp:Label>
+                    <span style="color: #243B69">|</span>
+                    <asp:Label ID="height" runat="server" ForeColor="#243B69" Text="height"></asp:Label>/<asp:Label ID="weight" ForeColor="#243B69" runat="server" Text="weight"></asp:Label>
+                    <span style="color: #243B69">| Age:</span>
+                    <asp:Label ID="age" runat="server" ForeColor="#243B69" Text="Number"></asp:Label>
                 </span>
             </div>
         </div>
+    </header>
+
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">
+        <%--<div class="jumbotron" style="background-color: #ede8e8; margin-bottom: 0; padding-bottom: 0; padding-left: 3vw; padding-right: 3vw">--%>
         <br />
-        <div class="row" style="width: 94vw;">
+        <div class="row">
+        <%--<div class="row" style="width: 94vw;">--%>
             <div id="summaryDiv" class="panel panel-default">
                 <div class="panel-heading text-center">
                     <h4>
@@ -86,7 +95,7 @@
         </div>
 
         <%--STATS--%>
-        <div class="row" style="width: 94vw;">
+        <div class="row" >
             <div id="statsDiv" class="panel panel-default">
                 <div class="row" style="padding: 3vmin 3vmin 5px 3vmin">
                     <div class="col-md-5">
@@ -101,16 +110,16 @@
                 </div>
 
                 <div class="row">
-                    <ul class="nav nav-tabs col-md-offset-1 col-md-7">
+                    <ul class="nav nav-tabs col-md-offset-1 col-md-6">
                         <%--<ul class="nav nav-tabs col-md-offset-4 col-md-4">--%>
                         <li class="active"><a data-toggle="tab" href="#pitching">PITCHING</a></li>
                         <li class=""><a data-toggle="tab" href="#batting">BATTING</a></li>
                         <li class=""><a data-toggle="tab" href="#fielding">FIELDING</a></li>
                     </ul>
-                    <span class="col-md-4">
+                    <span class="col-md-5">
                         <asp:Label Text="Filter by year: " runat="server" />
                         <asp:TextBox ID="statsFilterTextBox" runat="server" />
-                        <asp:LinkButton ID="fillterStatsButton" OnClick="filterStatsButton_Click"  CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" BackColor="#134A8E" runat="server">Filter Stats <span class="glyphicon glyphicon-stats"></span></asp:LinkButton>
+                        <asp:LinkButton ID="fillterStatsButton" OnClick="filterStatsButton_Click" CssClass="btn btn-default" BorderColor="#134A8E" ForeColor="White" BackColor="#134A8E" runat="server">Filter Stats <span class="glyphicon glyphicon-stats"></span></asp:LinkButton>
                     </span>
                 </div>
 
