@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="Coaches.aspx.cs" Inherits="Blue_Jays_Manager.Coaches" %>
-
+<%@ Import Namespace="Blue_Jays_Manager.Models.DataModels" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -36,8 +36,8 @@
 
                 <asp:TemplateField HeaderText="Enable">
                     <ItemTemplate>
-                        <asp:Button ID="Button1" runat="server" Text="Enable User" Style="width: 105px; border: 1px solid #002A5E; color:#002A5E" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-default"
-                            Enabled='<%#Eval("IsLocked").ToString() == "Locked" %>' />
+                        <asp:Button ID="EnableButton" runat="server" Text="Enable User" Style="width: 105px; border: 1px solid #002A5E; color:#002A5E" CommandArgument='<%#Eval("Name") %>' CssClass="btn btn-default"
+                            Enabled='<%#Eval("IsLocked").ToString() == "Locked"%>' />
                     </ItemTemplate>
                     <ControlStyle BorderColor="#243B69" BorderStyle="Solid" BorderWidth="1px" ForeColor="#243B69" CssClass="btn btn-default" />
                 </asp:TemplateField>

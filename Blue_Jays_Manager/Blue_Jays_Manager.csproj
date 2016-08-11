@@ -111,6 +111,7 @@
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\banner.jpg" />
     <Content Include="Images\Blue_Jays_2015.jpg" />
     <Content Include="Images\Coaches\16.jpg" />
     <Content Include="Images\Coaches\26.jpg" />
@@ -122,6 +123,7 @@
     <Content Include="Images\Coaches\60.jpg" />
     <Content Include="Images\Coaches\61.jpg" />
     <Content Include="Images\Coaches\63.jpg" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Images\footerblue.jpeg" />
     <Content Include="Images\jayswordlogo.png" />
     <Content Include="Images\Jays_Carousel\banner.jpg" />
@@ -199,6 +201,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\AlexBrush-Regular.ttf" />
+    <Content Include="fonts\Raleway-Black.ttf" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="JaysReset.aspx" />
     <Content Include="Scripts\ai.0.23.4-build00433.js" />
@@ -288,6 +292,7 @@
     <Compile Include="Models\DataAccessLayer\AdminUserDataLayer.cs" />
     <Compile Include="Models\DataAccessLayer\DataRetrieval.cs" />
     <Compile Include="Models\DataAccessLayer\DatabaseUpdate.cs" />
+    <Compile Include="Models\DataAccessLayer\ExceptionLogger.cs" />
     <Compile Include="Models\DataAccessLayer\LoadExcelData.cs" />
     <Compile Include="Models\DataModels\AdminUser.cs" />
     <Compile Include="Models\DataModels\BattingStats.cs" />

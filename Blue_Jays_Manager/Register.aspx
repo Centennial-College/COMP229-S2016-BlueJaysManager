@@ -8,7 +8,7 @@
     <div class="form-horizontal" style=" margin-right: 30px; ">
         <div class="page-header" style="margin-bottom:5px">
             <div class="row">
-            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Register Admin User</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-hand-down"></span></h1> 
+            <h1 style="margin-top:20px" class="pull-left"><span style="color:#134A8E">Register Coach User</span> &nbsp;&nbsp;&nbsp; <span style="color:#EF2F24" class="glyphicon glyphicon-hand-down"></span></h1> 
             </div>
         </div>
         <asp:Label ID="UserExists" runat="server"></asp:Label>
@@ -38,14 +38,16 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
                     CssClass="text-danger" ErrorMessage="The Last Name field is required." />
             </div>
+             
         </div>
 
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-4 control-label">Email</asp:Label>
             <div class="col-md-8">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The email field is required." />
+                <asp:RegularExpressionValidator ID="EmailRegularExpressionValidator" runat="server" CssClass="text-danger" ErrorMessage="Invalid email format." Display="Dynamic" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" ControlToValidate="Email" ></asp:RegularExpressionValidator>
             </div>
         </div>
         
@@ -65,7 +67,7 @@
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" Display="Dynamic" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
-                <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^[a-zA-Z]\w{3,14}$" ControlToValidate="Password" ErrorMessage="Invalid password format"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="PasswordRegularExpressionValidator" CssClass="text-danger"  runat="server" Display="Dynamic" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$" ControlToValidate="Password" ErrorMessage="Password must be 8-15 characters long, one upper case, one lower case, and one number at least."></asp:RegularExpressionValidator>
             </div>
         </div>
 

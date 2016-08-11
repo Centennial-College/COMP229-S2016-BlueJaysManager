@@ -29,7 +29,7 @@ namespace Blue_Jays_Manager
                 else if (value == "username")
                 {
                     LblReset.Text = "Email Address:";
-                    LblPageHeader.Text = "Request Admin Username <span style=\"color: #EF2F24\" class=\"glyphicon glyphicon-cog\"></span>";
+                    LblPageHeader.Text = "Request Coach Username <span style=\"color: #EF2F24\" class=\"glyphicon glyphicon-cog\"></span>";
                     BtnnReset.Text = "Submit <span  class=\"glyphicon glyphicon-send\"></span>";
                 }
             }

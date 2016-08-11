@@ -131,7 +131,7 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
         public static List<LockedUser> GetLockedUsers()
         {
             List<LockedUser> lockedList = new List<LockedUser>();
-            LockedUser lockedUser = null;
+            LockedUser lockedUser = new LockedUser();
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueJaysConnection"].ConnectionString))
             {
@@ -143,16 +143,13 @@ namespace Blue_Jays_Manager.Models.DataAccessLayer
 
                 while (reader.Read())
                 {
-                    lockedUser = new LockedUser()
-                    {
-                        FirstName = reader["FirstName"].ToString(),
-                        LastName = reader["LastName"].ToString(),
-                        Role = reader["Role"].ToString(),
-                        IsLocked = Convert.ToBoolean(reader["IsLocked"]),
-                        UserName = reader["UserName"].ToString(),
-                        Email = reader["Email"].ToString()
 
-                    };
+                    lockedUser.FirstName = reader["FirstName"].ToString();
+                    lockedUser.LastName = reader["LastName"].ToString();
+                    lockedUser.Role = reader["Role"].ToString();
+                    lockedUser.IsLocked = Convert.ToBoolean(reader["IsLocked"]);
+                    lockedUser.UserName = reader["UserName"].ToString();
+                    lockedUser.Email = reader["Email"].ToString();
 
                     lockedList.Add(lockedUser);
                 }

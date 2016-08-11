@@ -1,6 +1,7 @@
 ﻿using Blue_Jays_Manager.Models.DataAccessLayer;
 using Blue_Jays_Manager.Models.DataModels;
 using System;
+using System.Web;
 using System.Web.Security;
 
 namespace Blue_Jays_Manager
@@ -18,7 +19,7 @@ namespace Blue_Jays_Manager
                 }
                 else
                 {
-                    
+
                     LblName.Text = user.FirstName + " " + user.LastName;
                     LblEmail.Text = user.Email;
                     LblRole.Text = user.Role;
@@ -67,6 +68,13 @@ namespace Blue_Jays_Manager
                 currentPass.Text = "";
                 newPass.Text = "";
                 confirmPass.Text = "";
+                HttpCookie cookie = Request.Cookies["AdminUser"];
+                if (cookie != null)
+                {
+                    cookie.Values.Remove("password");
+                    cookie["password"] = newPassWord;
+                    Response.Cookies.Add(cookie);
+                }
             }
             else
             {

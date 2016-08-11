@@ -76,8 +76,8 @@
                     <asp:Label runat="server" AssociatedControlID="dobMonthDropDownList" CssClass="col-md-4 control-label">Date of Birth</asp:Label>
                     <div class="col-md-8">
                         <asp:DropDownList ID="dobMonthDropDownList" runat="server" OnSelectedIndexChanged="dobMonthDropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-                        <asp:DropDownList ID="dobDayDropDownList" runat="server" OnSelectedIndexChanged="dobDayDropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-                        <asp:DropDownList ID="dobYearDropDownList" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        <asp:DropDownList ID="dobDayDropDownList" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        <asp:DropDownList ID="dobYearDropDownList" runat="server" OnSelectedIndexChanged="dobYearDropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                     </div>
                 </div>
 

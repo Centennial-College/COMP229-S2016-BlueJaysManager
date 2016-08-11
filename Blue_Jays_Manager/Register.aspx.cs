@@ -39,14 +39,14 @@ namespace Blue_Jays_Manager
                     Cache.Insert("CoachRoster", coachRoster);
                 }
                 List<CoachRoster> roster = (List<CoachRoster>)Cache["CoachRoster"];
-                var exist = roster.Find(x => x.CoachNumber == coachId);   
+                var exist = roster.Find(x => x.CoachNumber == coachId);
 
                 //Write code here to check first and last name of the coach 'exist' against first and last name entered in text fields
 
                 if (exist != null)
                 {
                     string[] name = exist.Name.Split(' ');
-                  
+
 
                     if (name[0] == FirstName.Text && name[1] == LastName.Text)
                     {
@@ -84,7 +84,7 @@ namespace Blue_Jays_Manager
                 else
                 {
 
-                    UserExists.Text = "Coach Number does not exists in database. Please see Administration";
+                    UserExists.Text = "Coach Number does not exists in database. Please see Administration or try again";
                     UserExists.ForeColor = System.Drawing.Color.Red;
 
                 }

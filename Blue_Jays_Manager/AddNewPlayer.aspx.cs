@@ -111,7 +111,7 @@ namespace Blue_Jays_Manager
 
         }
 
-        protected void dobDayDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        protected void dobYearDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             _populateDay(dobDayDropDownList);
 
@@ -139,9 +139,9 @@ namespace Blue_Jays_Manager
             if (!existPlayer)
             {
                 //string month = dobMonthDropDownList.SelectedValue;
-                string monthName = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[Convert.ToInt32(dobMonthDropDownList.SelectedValue)];
+                string monthName = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[Convert.ToInt32(dobMonthDropDownList.SelectedValue) - 1];
 
-                monthName = monthName.Substring(0, 3).ToUpper();
+                monthName = monthName.Substring(0, 1).ToUpper() + monthName.Substring(1,2).ToLower();
 
                 playerRoster.Add
                 (
@@ -152,7 +152,7 @@ namespace Blue_Jays_Manager
                         Position = positionDropDownList.SelectedValue,
                         Height = int.Parse(playerHeight.Text),
                         Weight = int.Parse(playerWeight.Text),
-                        DateOfBirth = dobMonthDropDownList.SelectedValue + " " +
+                        DateOfBirth = monthName + " " +
                         dobDayDropDownList.SelectedValue + " " + dobYearDropDownList.SelectedValue,
                         SkillOrientation = playerBattingHand + "/" + playerThrowingHand
                     }
